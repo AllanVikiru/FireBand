@@ -6,9 +6,9 @@
  */
 
 // INCLUDED VIEWS
-$cb->inc_sidebar                = 'inc/_commander/views/inc_sidebar.php';
-$cb->inc_header                 = 'inc/_commander/views/inc_header.php';
-$cb->inc_footer                 = 'inc/_commander/views/inc_footer.php';
+$cb->inc_sidebar                = 'includes/_commander/views/inc_sidebar.php';
+$cb->inc_header                 = 'includes/_commander/views/inc_header.php';
+$cb->inc_footer                 = 'includes/_commander/views/inc_footer.php';
 
 // HEADER SETTINGS
 $cb->l_header_fixed             = true;
@@ -34,7 +34,7 @@ $cb->main_nav                   = array(
         'type'  => 'heading'
     ),
     array(
-        'name'  => '<span class="sidebar-mini-hide" data-toggle="modal" data-target="#modal-cmd-info">My Profile</span>',
+        'name'  => '<span class="sidebar-mini-hide" data-toggle="modal" data-target="#modal-my-info">My Profile</span>',
         'icon'  => 'fa fa-pencil',
         'url'   => 'javascript:void(0)'
     ),

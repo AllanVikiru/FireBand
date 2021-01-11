@@ -1,5 +1,6 @@
 {
     "require": {
-        "delight-im/auth": "^8.2"
+        "delight-im/auth": "^8.2",
+        "phpmailer/phpmailer": "^6.2"
     }
 }

@@ -131,7 +131,7 @@
                     </div>
                     <div class="form-group mb-15">
                         <div class="form-group row">
-                            <label class="col-12">Gender</label>
+                            <label class="col-12">Sex</label>
                             <div class="col-12">
                                 <div class="custom-control custom-radio custom-control-inline mb-5">
                                     <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-f" value="0">
@@ -142,8 +142,8 @@
                                     <label class="custom-control-label" for="gender-m">Male</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-nb" value="2">
-                                    <label class="custom-control-label" for="gender-nb">Non-binary</label>
+                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-i" value="2">
+                                    <label class="custom-control-label" for="gender-i">Intersex</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline mb-5">
                                     <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-rns" value="3">

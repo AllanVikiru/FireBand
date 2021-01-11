@@ -9,7 +9,7 @@
  */
 
 // Include required classes
-require 'inc/_classes/Template.php';
+require 'includes/_classes/Template.php';
 
 
 // **************************************************************************************************

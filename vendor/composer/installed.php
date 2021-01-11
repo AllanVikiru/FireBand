@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-web',
+    'version' => 'dev-web',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '4e6d8b13d9da1bd76d9807ce78c570210bb7b798',
     'name' => '__root__',
   ),
   'versions' => 
   array (
     '__root__' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-web',
+      'version' => 'dev-web',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '4e6d8b13d9da1bd76d9807ce78c570210bb7b798',
     ),
     'delight-im/auth' => 
     array (
@@ -64,6 +64,15 @@
       array (
       ),
       'reference' => '0a19a72a7eac8b1301aa972fb20cff494ac43e09',
+    ),
+    'phpmailer/phpmailer' => 
+    array (
+      'pretty_version' => 'v6.2.0',
+      'version' => '6.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e38888a75c070304ca5514197d4847a59a5c853f',
     ),
   ),
 );

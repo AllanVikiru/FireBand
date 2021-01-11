@@ -1,7 +1,7 @@
 <?php 
 
-require 'inc/_global/config.php'; 
-require 'inc/_firefighter/config.php'; 
+require 'includes/_global/config.php'; 
+require 'includes/_firefighter/config.php'; 
 
 // Codebase - Page specific configuration
 $cb->l_header_fixed     = true;
@@ -9,13 +9,13 @@ $cb->l_header_style     = 'glass-inverse';
 $cb->l_sidebar_inverse  = true;
 $cb->l_sidebar_mini     = true;
 
-require 'inc/_global/views/head_start.php';
+require 'includes/_global/views/head_start.php';
 
 // Bootstrap Datepicker CSS
 $cb->get_css('js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css');
 
-require 'inc/_global/views/head_end.php';
-require 'inc/_global/views/page_start.php';
+require 'includes/_global/views/head_end.php';
+require 'includes/_global/views/page_start.php';
 
 $api_key = '2K2D99IJKQQ9D8CX';
 $link='https://thingspeak.com/channels/1259465/charts/1?api_key='. $api_key.'&bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&timescale=30&title=Is+the+Device+Worn%3F+%28every+30+seconds%29&type=step';
@@ -136,8 +136,8 @@ $spdlink = 'https://thingspeak.com/channels/1259465/charts/7?api_key='. $api_key
 </div>
 <!-- END Page Content -->
 <?php 
-require 'inc/_global/views/page_end.php'; 
-require 'inc/_global/views/footer_start.php'; 
+require 'includes/_global/views/page_end.php'; 
+require 'includes/_global/views/footer_start.php'; 
 
 //Page JS Plugins
 // $cb->get_js('js/plugins/chartjs/Chart.bundle.min.js');
@@ -152,4 +152,4 @@ $cb->get_js('js/pages/be_forms_plugins.min.js');
 
 <script>jQuery(function(){ Codebase.helpers(['datepicker', 'masked-inputs']); });</script>
 
-<?php require 'inc/_global/views/footer_end.php'; ?>
+<?php require 'includes/_global/views/footer_end.php'; ?>

@@ -1,19 +1,19 @@
 <?php ?>
 <!-- Slide Up Modal -->
-<div class="modal fade" id="modal-cmd-info" tabindex="-1" role="dialog" aria-labelledby="modal-slideup" aria-hidden="true">
+<div class="modal fade" id="modal-my-info" tabindex="-1" role="dialog" aria-labelledby="modal-slideup" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-slideright" role="document">
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
-            <form action="#" method="post" onsubmit="return false;">
-                <div class="block-header bg-primary-dark">
-                    <h3 class="block-title text-white">My Information</h3>
-                    <div class="block-options">
-                        <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
-                            <i class="si si-close"></i>
-                        </button>
+                <form action="#" method="post" onsubmit="return false;">
+                    <div class="block-header bg-primary-dark">
+                        <h3 class="block-title text-white">My Information</h3>
+                        <div class="block-options">
+                            <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                                <i class="si si-close"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="block-content">
+                    <div class="block-content">
                         <div class="form-group mb-15">
                             <label for="user-name">Name</label>
                             <div class="input-group">
@@ -70,12 +70,12 @@
                             </div>
                         </div>
 
-                </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-alt-secondary" data-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-alt-primary">
-                    <i class="fa fa-refresh"></i> Update
+                    <i class="fa fa-save"></i>&ensp;Update
                 </button>
             </div>
             </form>

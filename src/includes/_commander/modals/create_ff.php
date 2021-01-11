@@ -91,7 +91,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-3">
-                                                <label for="wizard-simple-firstname">Gender</label>
+                                                <label for="wizard-simple-firstname">Sex</label>
                                             </div>
                                             <div class="col-9">
                                                 <div class="custom-control custom-radio custom-control-inline mb-5">
@@ -103,8 +103,8 @@
                                                     <label class="custom-control-label" for="gender-m">Male</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-nb" value="2">
-                                                    <label class="custom-control-label" for="gender-nb">Non-binary</label>
+                                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-i" value="2">
+                                                    <label class="custom-control-label" for="gender-nb">Intersex</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline mb-5">
                                                     <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-rns" value="3">
@@ -173,9 +173,9 @@
                         <!-- END Progress Wizard -->
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" class="btn btn-alt-secondary">Cancel</button>
+                        <button type="reset" class="btn btn-alt-secondary">Clear</button>
                         <button type="submit" class="btn btn-alt-success">
-                            <i class="fa fa-check"></i> Register
+                            <i class="fa fa-check"></i>&ensp;Register
                         </button>
                     </div>
                 </form>

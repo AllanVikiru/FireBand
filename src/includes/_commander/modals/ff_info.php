@@ -242,7 +242,7 @@
                             </div>
                             <div class="col-9 text-right">
                                 <button type="submit" class="btn btn-alt-primary">
-                                    <i class="fa fa-refresh"></i> Update
+                                    <i class="fa fa-save"></i>&ensp;Update
                                 </button>
                             </div>
                         </div>

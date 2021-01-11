@@ -1,6 +1,6 @@
 <?php
 require 'includes/_global/config.php';
-require 'includes/_commander/config.php';
+require 'includes/_superadmin/config.php';
 require 'includes/_global/views/head_start.php';
 //require 'app/index.php';
 
@@ -47,17 +47,17 @@ require 'includes/_global/views/page_start.php';
     <!-- <div id="app"></div> -->
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Registered Firefighters</h3>
+            <h3 class="block-title">All Users</h3>
         </div>
         <div class="block-content block-content-full">
             <!-- DataTables functionality is initialized with .js-dataTable-full class in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
             <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                 <thead>
                     <tr>
-                        <th class="text-center" style="width: 10%;">Firefighter ID</th>
-                        <th>Name</th>
-                        <th class="d-none d-sm-table-cell" style="width: 20%;">VO<sub>2</sub> max Status</th>
-                        <th class="d-none d-sm-table-cell" style="width: 20%;">Last Fitness Test Date</th>
+                        <th class="text-center" style="width: 10%;">User ID</th>
+                        <th style="width: 25%;">Name</th>
+                        <th class="d-none d-sm-table-cell" style="width: 20%;">Email</th>
+                        <th class="d-none d-sm-table-cell" style="width: 20%;">Role</th>
                         <th class="text-center" style="width: 20%;">Actions</th>
                     </tr>
                 </thead>
@@ -67,22 +67,16 @@ require 'includes/_global/views/page_start.php';
                         <td class="font-w600">Justin Hunt</td>
                         <td class="d-none d-sm-table-cell">customer1@example.com</td>
                         <td class="d-none d-sm-table-cell">
-                            <span class="badge badge-primary">Personal</span>
+                            <span class="badge badge-primary">Firefighter</span>
                         </td>
                         <td class="text-center">
-                            <a target= "_blank" href="https://thingspeak.com">
-                                <button type="button" class="btn btn-sm btn-secondary" title="Monitor">
-                                    <i class="fa fa-eye"></i>
-                                </button>
-                            </a>
-                            <button type="button" class="btn btn-sm btn-secondary " data-toggle="modal" data-target="#modal-ff-info" title="Details">
-                                <i class="fa fa-info"></i>
+                            <button type="button" class="btn btn-sm btn-secondary " data-toggle="modal" data-target="#modal-user-info" title="Details">
+                                <i class="fa fa-info"></i>&ensp;Details
                             </button>
-                            <a target=_blank href="../src/report.php">
-                                <button type="button" class="btn btn-sm btn-secondary " title="Print">
-                                    <i class="fa fa-print"></i>
-                                </button>
-                            </a>
+                            &emsp;
+                            <button type="button" class="btn btn-sm btn-secondary " title="Delete">
+                                <i class="fa fa-user-times"></i>&ensp;Delete
+                            </button>
                         </td>
                     </tr>
                 </tbody>
@@ -92,9 +86,9 @@ require 'includes/_global/views/page_start.php';
 
     <!-- END Page Content -->
     <?php
-    require 'includes/_commander/modals/create_ff.php';
-    require 'includes/_commander/modals/ff_info.php';
-    require 'includes/_commander/modals/my_info.php';
+    require 'includes/_superadmin/modals/new_user.php';
+    require 'includes/_superadmin/modals/user_info.php';
+    require 'includes/_superadmin/modals/my_info.php';
     require 'includes/_global/views/page_end.php';
     require 'includes/_global/views/footer_start.php';
 
