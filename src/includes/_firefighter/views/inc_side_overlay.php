@@ -134,20 +134,20 @@
                             <label class="col-12">Sex</label>
                             <div class="col-12">
                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-f" value="0">
-                                    <label class="custom-control-label" for="gender-f">Female</label>
+                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="sex-f" value="0">
+                                    <label class="custom-control-label" for="sex-f">Female</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-m" value="1">
-                                    <label class="custom-control-label" for="gender-m">Male</label>
+                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="sex-m" value="1">
+                                    <label class="custom-control-label" for="sex-m">Male</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-i" value="2">
-                                    <label class="custom-control-label" for="gender-i">Intersex</label>
+                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="sex-i" value="2">
+                                    <label class="custom-control-label" for="sex-i">Intersex</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-rns" value="3">
-                                    <label class="custom-control-label" for="gender-rns">Rather not say</label>
+                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="sex-rns" value="3">
+                                    <label class="custom-control-label" for="sex-rns">Rather not say</label>
                                 </div>
                             </div>
                         </div>
@@ -183,7 +183,7 @@
                     <div class="form-group row">
                         <div class="col-6">
                             <button type="submit" class="btn btn-block btn-alt-primary">
-                                <i class="fa fa-refresh mr-5"></i>
+                                <i class="fa fa-save mr-5"></i>
                                 Update
                             </button>
                         </div>
@@ -263,7 +263,7 @@
                     <div class="form-group row">
                         <div class="col-6">
                             <button type="submit" class="btn btn-block btn-alt-primary">
-                                <i class="fa fa-refresh mr-5"></i> Update
+                                <i class="fa fa-save mr-5"></i> Update
                             </button>
                         </div>
                     </div>

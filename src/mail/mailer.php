@@ -41,11 +41,9 @@ class Mailer
             //echo 'Request has been generated';
         } catch (Exception $e) {
             echo '<script language="javascript">';
-            echo 'alert("There is an error with sending the code. Try again later.");';
-            echo "location.href='../reset.php';";
+            echo 'alert("An error occurred. Try again later.");';
             echo 'console.log('.$this->mail->ErrorInfo.');';
             echo '</script>';
-            
         }
     }
 }

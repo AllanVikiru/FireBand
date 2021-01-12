@@ -1,7 +1,6 @@
 CREATE DATABASE `fireband`;
 CREATE TABLE `fireband`.`users` (
     `id` INT(10) NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(255) NOT NULL,
     `role` VARCHAR(10) NOT NULL DEFAULT '1',
     `email` VARCHAR(255) NOT NULL,
     `phone` VARCHAR(13) NOT NULL,
@@ -12,6 +11,8 @@ CREATE TABLE `fireband`.`users` (
 CREATE TABLE `fireband`.`biodata` (
     `bio_id` INT(255) NOT NULL AUTO_INCREMENT,
     `user_id` INT(255) NOT NULL,
+    `first_name` VARCHAR(255) NOT NULL,
+    `last_name` VARCHAR(255) NOT NULL,
     `dob` DATE NOT NULL,
     `gender_id` INT(10) NOT NULL,
     `weight` FLOAT(50) NOT NULL,
@@ -41,13 +42,13 @@ INSERT INTO `roles` (`role_id`, `role`)
 VALUES ('1', 'Superadmin'),
     ('2', 'Commander'),
     ('3', 'Firefighter');
-CREATE TABLE `fireband`.`gender` (
-    `gender_id` INT(10) NOT NULL AUTO_INCREMENT,
-    `gender` VARCHAR(255) NOT NULL,
-    PRIMARY KEY (`gender_id`)
+CREATE TABLE `fireband`.`sex` (
+    `sex_id` INT(10) NOT NULL AUTO_INCREMENT,
+    `sex` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`sex_id`)
 );
-INSERT INTO `gender` (`gender_id`, `gender`)
+INSERT INTO `sex` (`sex_id`, `sex`)
 VALUES ('1', 'Female'),
     ('2', 'Male'),
-    ('3', 'Non-binary'),
+    ('3', 'Intersex'),
     ('4', 'Rather not say');

@@ -90,9 +90,3 @@ $cb->get_js('js/plugins/jquery-validation/jquery.validate.min.js');
 
 // Login Form Validation JS Code
 $cb->get_js('js/pages/auth_login.min.js'); ?>
-
-<!-- <script>
-    jQuery(function() {
-        Codebase.helpers('notify');
-    });
-</script> -->

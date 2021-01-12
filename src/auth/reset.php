@@ -1,21 +1,19 @@
 <?php
 require_once '../../vendor/autoload.php';
+include_once '../api/config/database.php';
 include_once '../mail/mailer.php';
 
-use Delight\Cookie\Session;
 use Delight\Auth;
-use Delight\Db\PdoDsn;
+use Delight\Cookie\Session;
 
 Session::start('Lax');
-Session::id();
-
-$db = new PdoDsn('mysql:dbname=test;host=localhost;charset=utf8mb4', 'root', '');
-//$database = new Database(); $db = $database->connect(); $_POST[$mail], $_POST[$pw], $_POST[$username]
-$auth = new Auth\Auth($db);
+$db = new Database();
+$conn = $db->connect();
+$auth = new Auth\Auth($conn);
 $mailer = new Mailer();
 
 $code = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 12);
-Session::set('code', $code);
+Session::set('code', $code); //Session::id();
 
 if (isset($_POST["reset"])) {
     $email = trim($_POST["reset-email"]);
@@ -50,6 +48,11 @@ if (isset($_POST["reset"])) {
         echo '<script language="javascript">';
         echo 'alert("You have already requested for an activation code. Check your email.");';
         echo "location.href='../reset.php';";
+        echo '</script>';
+    } catch (Exception $e) {
+        echo '<script language="javascript">';
+        echo 'alert("There was an error in resetting. Try again later.");';
+        echo "location.href='../login.php';";
         echo '</script>';
     }
 }

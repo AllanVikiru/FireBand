@@ -1,22 +1,19 @@
 <?php
+require_once '../../../fireband/vendor/autoload.php';
+include_once '../api/config/database.php';
 
 use Delight\Auth;
-use Delight\Db\PdoDsn;
 use Delight\Cookie\Session;
 
-require_once '../../vendor/autoload.php';
-//include_once '../api/config/database.php';
 Session::start('Lax');
-$db = new PdoDsn('mysql:dbname=test;host=localhost;charset=utf8mb4', 'root', '');
+$db = new Database();
+$conn = $db->connect();
+$auth = new Auth\Auth($conn);
 
-$auth = new Auth\Auth($db);
-
-try {
+try {  //echo Session::id();
     $auth->logOutEverywhere();
-    //echo Session::id();
-    
-} catch (Auth\NotLoggedInException $e) {
-    //echo Session::id();
-    die('Not logged in');
-    
+    header('location:../index.php');
+} catch (Auth\NotLoggedInException $e) { //echo Session::id() //die('Not logged in');  
+    header('location:../index.php');
+    Session::regenerate(true);
 }

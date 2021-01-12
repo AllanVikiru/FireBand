@@ -1,24 +1,18 @@
 <?php
+require_once '../../vendor/autoload.php';
+include_once '../api/config/database.php';
 
 use Delight\Auth;
 use Delight\Cookie\Session;
-use Delight\Db\PdoDsn;
 
-require_once '../../vendor/autoload.php';
 Session::start('Lax');
-Session::id();
-
+$db = new Database();
+$conn = $db->connect();
+$auth = new Auth\Auth($conn);
 $code = Session::get('code');
 $selector = Session::get('selector');
 $token = Session::get('token');
 
-$db = new PdoDsn('mysql:dbname=test;host=localhost;charset=utf8mb4', 'root', '');
-
-//$database = new Database();
-//$db = $database->connect(); $_POST[$mail], $_POST[$pw], $_POST[$username]
-$auth = new Auth\Auth($db);
-
-//$ver_code=$_POST['ver_code']; $password=trim($_POST['password']); 
 if (isset($_POST["confirm"])) {
     $act_code = trim($_POST["act-code"]);
     $new_password = trim($_POST["new-password-confirm"]);
@@ -62,6 +56,11 @@ if (isset($_POST["confirm"])) {
             } catch (Auth\TooManyRequestsException $e) {
                 echo '<script language="javascript">';
                 echo 'alert("You have already requested for a password reset. Try again later.");';
+                echo "location.href='../login.php';";
+                echo '</script>';
+            } catch (Exception $e) {
+                echo '<script language="javascript">';
+                echo 'alert("There was an error in confirmation. Try again later.");';
                 echo "location.href='../login.php';";
                 echo '</script>';
             }

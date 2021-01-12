@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg modal-dialog-slideup" role="document">
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
-                <form action="be_forms_wizard.php" method="post">
+                <form action="#" method="post">
                     <div class="block-header bg-primary-dark">
                         <h3 class="block-title text-white">Firefighter Details</h3>
                         <div class="block-options">
@@ -38,7 +38,7 @@
                                         <p class="mb-0"><strong class="font-w700">Women:</strong> 100.5 - (0.1636 x weight in kg) - (1.438 x run time in min) - (0.1928 x heart rate)</p>
                                         <p class="mb-0"><strong class="font-w700">Men:</strong> 108.844 - (0.1636 x weight in kg) - (1.438 x run time in min) - (0.1928 x heart rate)</p>
                                     </div>
-                                    <form action="#" method="post" onsubmit="return false;">
+                                    <form action="#" method="post">
                                         <div class="form-group mb-15">
                                             <label for="run-time">Run Time</label>
                                             <div class="input-group">
@@ -103,34 +103,34 @@
                                 <div class="tab-pane" id="wizard-simple-step2" role="tabpanel">
                                     <div class="form-group row">
                                         <div class="col-6">
-                                            <label for="wizard-simple-firstname">First Name</label>
-                                            <input class="form-control" type="text" id="wizard-simple-firstname" name="wizard-simple-firstname">
+                                            <label for="ff-firstname">First Name</label>
+                                            <input class="form-control" type="text" id="ff-firstname" name="ff-firstname">
                                         </div>
                                         <div class="col-6">
-                                            <label for="wizard-simple-lastname">Last Name</label>
-                                            <input class="form-control" type="text" id="wizard-simple-lastname" name="wizard-simple-lastname">
+                                            <label for="ff-lastname">Last Name</label>
+                                            <input class="form-control" type="text" id="ff-lastname" name="ff-lastname">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-12">
-                                            <label for="wizard-simple-email">Email</label>
-                                            <input class="form-control" type="email" id="wizard-simple-email" name="wizard-simple-email">
+                                            <label for="ff-email">Email</label>
+                                            <input class="form-control" type="email" id="ff-email" name="ff-email">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-12">
-                                            <label for="wizard-simple-email">Phone</label>
-                                            <input class="form-control" type="email" id="wizard-simple-email" name="wizard-simple-email">
+                                            <label for="ff-phone">Phone</label>
+                                            <input class="form-control" type="text" id="ff-phone" name="ff-phone">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-6">
-                                            <label for="wizard-simple-firstname">FireBand Live Channel ID</label>
-                                            <input class="form-control" type="text" id="wizard-simple-firstname" name="wizard-simple-firstname">
+                                            <label for="ff-channel">FireBand Live Channel ID</label>
+                                            <input class="form-control" type="text" id="ff-channel" name="ff-channel">
                                         </div>
                                         <div class="col-6">
                                             <label for="wizard-simple-lastname">FireBand Read Data API Key</label>
-                                            <input class="form-control" type="text" id="wizard-simple-lastname" name="wizard-simple-lastname">
+                                            <input class="form-control" type="text" id="ff-api" name="ff-api">
                                         </div>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@
                                 <div class="tab-pane" id="wizard-simple-step3" role="tabpanel">
                                     <div class="form-group row">
                                         <div class="col-3">
-                                            <label for="wizard-simple-firstname">Date of Birth</label>
+                                            <label for="ff-dob">Date of Birth</label>
                                         </div>
                                         <div class="col-9">
                                             <div class="input-group">
@@ -149,36 +149,36 @@
                                                         <i class="fa fa-calendar"></i>
                                                     </span>
                                                 </div>
-                                                <input type="text" class="js-masked-date-dash form-control" id="example-masked-date2" name="example-masked-date2" placeholder="dd-mm-yyyy">
+                                                <input type="text" class="js-masked-date-dash form-control" id="ff-dob" name="ff-dob" placeholder="dd-mm-yyyy">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-3">
-                                            <label for="wizard-simple-firstname">Gender</label>
+                                            <label for="ff-sex">Sex</label>
                                         </div>
                                         <div class="col-9">
                                             <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-f" value="0">
-                                                <label class="custom-control-label" for="gender-f">Female</label>
+                                                <input class="custom-control-input" type="radio" name="sex-f" id="sex-f" value="0">
+                                                <label class="custom-control-label" for="sex-f">Female</label>
                                             </div>
                                             <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-m" value="1">
-                                                <label class="custom-control-label" for="gender-m">Male</label>
+                                                <input class="custom-control-input" type="radio" name="sex-m" id="sex-m" value="1">
+                                                <label class="custom-control-label" for="sex-m">Male</label>
                                             </div>
                                             <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-nb" value="2">
-                                                <label class="custom-control-label" for="gender-nb">Non-binary</label>
+                                                <input class="custom-control-input" type="radio" name="sex-i" id="sex-i" value="2">
+                                                <label class="custom-control-label" for="sex-i">Intersex</label>
                                             </div>
                                             <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="example-inline-radios" id="gender-rns" value="3">
-                                                <label class="custom-control-label" for="gender-rns">Rather not say</label>
+                                                <input class="custom-control-input" type="radio" name="sex-rns" id="sex-rns" value="3">
+                                                <label class="custom-control-label" for="sex-rns">Rather not say</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-3">
-                                            <label for="wizard-simple-firstname">Weight</label>
+                                            <label for="ff-weight">Weight</label>
                                         </div>
                                         <div class="col-9">
                                             <div class="input-group">
@@ -187,7 +187,7 @@
                                                         <i class="fa fa-balance-scale"></i>
                                                     </span>
                                                 </div>
-                                                <input type="number" class="form-control" id="weight" name="weight">
+                                                <input type="number" class="form-control" id="ff-weight" name="ff-weight">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">kg</span>
                                                 </div>
@@ -196,7 +196,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-3">
-                                            <label for="wizard-simple-firstname">Height</label>
+                                            <label for="ff-height">Height</label>
                                         </div>
                                         <div class="col-9">
                                             <div class="input-group">
@@ -205,7 +205,7 @@
                                                         <i class="fa fa-line-chart"></i>
                                                     </span>
                                                 </div>
-                                                <input type="number" class="form-control" id="height" name="height">
+                                                <input type="number" class="form-control" id="ff-height" name="ff-height">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">cm</span>
                                                 </div>

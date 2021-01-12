@@ -1,7 +1,9 @@
-<?php require 'includes/_global/config.php'; ?>
-<?php require 'includes/_global/views/head_start.php'; ?>
-<?php require 'includes/_global/views/head_end.php'; ?>
-<?php require 'includes/_global/views/page_start.php'; ?>
+<?php
+require 'includes/_global/config.php';
+require 'includes/_global/views/head_start.php';
+require 'includes/_global/views/head_end.php';
+require 'includes/_global/views/page_start.php';
+?>
 
 <!-- Page Content -->
 <div class="bg-image" style="background-image: url('<?php echo $cb->assets_folder; ?>/media/photos/fire-alarm.jpg');">
@@ -76,8 +78,9 @@ require 'includes/_global/views/footer_start.php';
 
 //Page JS Plugins 
 $cb->get_js('js/plugins/jquery-validation/jquery.validate.min.js');
+
 //Reset Form Validation
-$cb->get_js('js/pages/auth_reset.min.js'); 
+$cb->get_js('js/pages/auth_reset.min.js');
 
 require 'includes/_global/views/footer_end.php';
 ?>

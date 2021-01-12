@@ -1,14 +1,19 @@
 <?php
+require_once '../vendor/autoload.php';
 require 'includes/_global/config.php';
 require 'includes/_superadmin/config.php';
 require 'includes/_global/views/head_start.php';
 //require 'app/index.php';
 
-//    DataTables Plugin CSS 
+//  DataTables Plugin CSS 
 $cb->get_css('js/plugins/datatables/dataTables.bootstrap4.css');
 
 require 'includes/_global/views/head_end.php';
 require 'includes/_global/views/page_start.php';
+
+use Delight\Cookie\Session;
+
+Session::id();
 ?>
 
 <div id="page-loader" class="show"></div>
@@ -83,32 +88,29 @@ require 'includes/_global/views/page_start.php';
             </table>
         </div>
     </div>
+</div>
+<!-- END Page Content -->
+<?php
+require 'includes/_superadmin/modals/new_user.php';
+require 'includes/_superadmin/modals/user_info.php';
+require 'includes/_superadmin/modals/my_info.php';
+require 'includes/_global/views/page_end.php';
+require 'includes/_global/views/footer_start.php';
 
-    <!-- END Page Content -->
-    <?php
-    require 'includes/_superadmin/modals/new_user.php';
-    require 'includes/_superadmin/modals/user_info.php';
-    require 'includes/_superadmin/modals/my_info.php';
-    require 'includes/_global/views/page_end.php';
-    require 'includes/_global/views/footer_start.php';
+//DataTables JS Plugins for Commander Dashboard
+$cb->get_js('js/plugins/datatables/jquery.dataTables.min.js');
+$cb->get_js('js/plugins/datatables/dataTables.bootstrap4.min.js');
+$cb->get_js('js/pages/be_tables_datatables.min.js');
 
-    //DataTables JS Plugins for Commander Dashboard
-    $cb->get_js('js/plugins/datatables/jquery.dataTables.min.js');
-    $cb->get_js('js/plugins/datatables/dataTables.bootstrap4.min.js');
-    $cb->get_js('js/pages/be_tables_datatables.min.js');
+$cb->get_js('js/plugins/masked-inputs/jquery.maskedinput.min.js');
 
-    $cb->get_js('js/plugins/masked-inputs/jquery.maskedinput.min.js');
+$cb->get_js('js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js');
 
-    $cb->get_js('js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js');
+require 'includes/_global/views/footer_end.php';
+?>
 
-    //<!-- Page JS Code -->
-    $cb->get_js('js/pages/be_forms_wizard.min.js');
-    $cb->get_js('js/pages/be_forms_plugins.min.js');
-    require 'includes/_global/views/footer_end.php';
-    ?>
-
-    <script>
-        jQuery(function() {
-            Codebase.helpers(['datepicker', 'masked-inputs']);
-        });
-    </script>
+<script>
+    jQuery(function() {
+        Codebase.helpers(['datepicker', 'masked-inputs']);
+    });
+</script>

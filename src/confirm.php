@@ -98,4 +98,6 @@ $cb->get_js('js/plugins/jquery-validation/jquery.validate.min.js');
 
 //Confirm Code Form Validation
 $cb->get_js('js/pages/auth_confirm.min.js');
+
+require 'includes/_global/views/footer_end.php';
 ?>

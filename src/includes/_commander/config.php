@@ -21,15 +21,6 @@ $cb->main_nav                   = array(
         'url'   => 'javascript:void(0)'
     ),
     array(
-        'name'  => '<span class="sidebar-mini-visible">MG</span><span class="sidebar-mini-hidden">Manage</span>',
-        'type'  => 'heading'
-    ),
-    array(
-        'name'  => '<span class="sidebar-mini-hide" data-toggle="modal" data-target="#modal-create-ff">Add New Firefighter</span>',
-        'icon'  => 'fa fa-plus',
-        'url'   => 'javascript:void(0)'
-    ),
-    array(
         'name'  => '<span class="sidebar-mini-visible">ST</span><span class="sidebar-mini-hidden">Settings</span>',
         'type'  => 'heading'
     ),

@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg modal-dialog-slideright" role="document">
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
-            <form action="#" method="post" onsubmit="return false;">
+            <form action="#" method="post">
                 <div class="block-header bg-primary-dark">
                     <h3 class="block-title text-white">My Information</h3>
                     <div class="block-options">
