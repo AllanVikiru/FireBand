@@ -1,9 +1,9 @@
-<?php ?>
+<!-- Create New User Modal -->
 <div class="modal fade" id="modal-new-user" tabindex="-1" role="dialog" aria-labelledby="modal-slideup" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-slideleft" role="document">
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
-                <form action="../src/app/_superadmin/users/create.php" method="post">
+                <form class="js-validation-new-user" id="create-user-form" action="#" method="post">
                     <div class="block-header bg-primary-dark">
                         <h3 class="block-title text-white">Register User</h3>
                         <div class="block-options">
@@ -15,25 +15,25 @@
                     <div class="block-content">
                         <div class="form-group row mb-15">
                             <div class="col-6">
-                                <label for="user-firstname">First Name</label>
+                                <label for="new-firstname">First Name</label>
                                 <div class="input-group">
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i class="fa fa-user"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" id="user-firstname" name="new-firstname" placeholder="First Name">
+                                    <input type="text" class="form-control" id="new-firstname" name="new-firstname" placeholder="First Name">
                                 </div>
                             </div>
                             <div class="col-6">
-                                <label for="user-lastname">Last Name</label>
+                                <label for="new-lastname">Last Name</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="user-lastname" name="new-lastname" placeholder="Last Name">
+                                    <input type="text" class="form-control" id="new-lastname" name="new-lastname" placeholder="Last Name">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group mb-15">
-                            <label for="user-email">Email</label>
+                            <label for="new-email">Email</label>
                             <div class="input-group">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
@@ -44,14 +44,14 @@
                             </div>
                         </div>
                         <div class="form-group mb-15">
-                            <label for="user-phone">Phone</label>
+                            <label for="new-phone">Phone</label>
                             <div class="input-group">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="fa fa-phone"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" id="new-phone" name="new-phone" placeholder="+254701234567">
+                                <input type="text" class="form-control" data-mask = "+254000000000" id="new-phone" name="new-phone" placeholder="+254701234567">
                             </div>
                         </div>
                         <div class="form-group mb-15">
@@ -60,14 +60,7 @@
                                     <label for=>Role</label>
                                 </div>
                                 <div class="col-10">
-                                    <div class="custom-control custom-radio custom-control-inline mb-5">
-                                        <input class="custom-control-input" type="radio" name="example-inline-radios" id="ff" value="3">
-                                        <label class="custom-control-label" for="ff">Firefighter</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline mb-5">
-                                        <input class="custom-control-input" type="radio" name="example-inline-radios" id="comm" value="2">
-                                        <label class="custom-control-label" for="comm">Commander</label>
-                                    </div>
+                                    <div id="roles"></div>
                                 </div>
                             </div>
                         </div>
@@ -83,3 +76,4 @@
         </div>
     </div>
 </div>
+<!-- END Create New User Modal -->

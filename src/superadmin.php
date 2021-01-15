@@ -67,10 +67,17 @@ require 'includes/_superadmin/modals/my_info.php';
 require 'includes/_global/views/page_end.php';
 require 'includes/_global/views/footer_start.php';?>
 
+<!-- bootbox for confirm pop up -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+<!-- input mask for phone number -->
+<script src="https://jsuites.net/v3/jsuites.js"></script>
+
 <script language="JavaScript" type="text/javascript" src="app/app.js"></script>
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/create.js"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_all.js"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_one.js"></script>
-
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/update.js"></script>
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/delete.js"></script>
 <?php
 //DataTables JS Plugins for Commander Dashboard
 $cb->get_js('js/plugins/datatables/jquery.dataTables.min.js');

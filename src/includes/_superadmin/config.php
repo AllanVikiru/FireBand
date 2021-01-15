@@ -25,9 +25,8 @@ $cb->main_nav                   = array(
         'type'  => 'heading'
     ),
     array(
-        'name'  => '<span class="sidebar-mini-hide" data-toggle="modal" data-target="#modal-new-user">Add New User</span>',
+        'name'  => '<span class="sidebar-mini-hide create-new-user">Add New User</span>',
         'icon'  => 'fa fa-plus',
-        'url'   => 'javascript:void(0)'
     ),
     array(
         'name'  => '<span class="sidebar-mini-visible">ST</span><span class="sidebar-mini-hidden">Settings</span>',

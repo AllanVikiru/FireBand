@@ -7,10 +7,9 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
   
 // include database and object files
-include_once '../config/database.php';
-include_once '../models/user.php';
+include_once '../../config/database.php';
+include_once 'user.php';
 
-  
 // get database connection
 $database = new Database();
 $db = $database->connect();
@@ -19,15 +18,18 @@ $db = $database->connect();
 $user = new User($db);
   
 // get id of user to be edited
-$data = json_decode(file_get_contents("php://input"));
-  
+$data = json_decode(file_get_contents("php://input"), true);
+
 // set ID property of user to be edited
-$user->id = $data->id;
+$user->id = $data['user-id'];
   
-// set user property values
-$user->name = $data->name;
-$user->role = $data->role;
-  
+// set user property values 
+$user->first_name = $data['user-firstname'];
+$user->last_name = $data['user-lastname'];
+$user->email = $data['user-email'];
+$user->phone = $data['user-phone'];
+$user->password = $data['user-pw-confirm'];
+
 // update the user
 if($user->update()){
   

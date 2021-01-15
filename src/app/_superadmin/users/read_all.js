@@ -23,9 +23,8 @@ function showUsers() {
         `
                     <tr>
                         <td class="font-w600">` +
-        val.first_name +
-        `&nbsp;` +
-        val.last_name +
+        val.first_name + ` ` 
+        +val.last_name +
         `</td>
                         <td class="d-none d-sm-table-cell">` +
         val.email +
@@ -52,3 +51,4 @@ function showUsers() {
     $("#users-table").html(users_table);
   });
 }
+

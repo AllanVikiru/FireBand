@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
                 <!-- Start Form -->
-                <form class="js-validation-user" action="#" method="post">
+                <form class="js-validation-user" id="update-user-form" action="#" method="post">
                     <div class="block-header bg-primary-dark">
                         <h3 class="block-title text-white">User Details</h3>
                         <div class="block-options">
@@ -14,6 +14,7 @@
                             </button>
                         </div>
                     </div>
+                    <input type="hidden" id="user-id" name="user-id"/>
                     <div class="block-content">
                         <div class="form-group row mb-15">
                             <div class="col-6">
@@ -24,13 +25,13 @@
                                             <i class="fa fa-user"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" id="user-first-name" name="user-firstname">
+                                    <input type="text" class="form-control" id="user-firstname" name="user-firstname">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label for="user-lastname">Last Name</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="user-last-name" name="user-lastname">
+                                    <input type="text" class="form-control" id="user-lastname" name="user-lastname">
                                 </div>
                             </div>
                         </div>
@@ -53,7 +54,7 @@
                                         <i class="fa fa-phone"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" id="user-phone" name="user-phone">
+                                <input type="text" data-mask = "+254000000000" class="form-control" id="user-phone" name="user-phone">
                             </div>
                         </div>
                         <div class="form-group mb-15">
@@ -64,7 +65,7 @@
                                         <i class="fa fa-asterisk"></i>
                                     </span>
                                 </div>
-                                <input type="password" class="form-control" id="user-password" name="user-password" placeholder="New Password..">
+                                <input type="password" class="form-control" id="user-pw" name="user-pw" placeholder="New Password..">
                             </div>
                         </div>
                         <div class="form-group mb-15">
@@ -75,7 +76,7 @@
                                         <i class="fa fa-asterisk"></i>
                                     </span>
                                 </div>
-                                <input type="password" class="form-control" id="user-password-confirm" name="user-password-confirm" placeholder="Confirm New Password..">
+                                <input type="password" class="form-control" id="user-pw-confirm" name="user-pw-confirm" placeholder="Confirm New Password..">
                             </div>
                         </div>
                     </div>
