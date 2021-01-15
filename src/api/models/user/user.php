@@ -3,34 +3,30 @@ class User
 {
     // database connection and table name
     private $conn;
-    private $table_name = "test";
+    private $table_name = "users";
 
     // object properties
     public $id;
-    public $name;
-    public $role;
+    public $first_name;
+    public $last_name;
     public $email;
     public $phone;
-    public $password;
-    public $created;
+    public $role;
 
     // constructor with $db as database connection
     public function __construct($db)
     {
         $this->conn = $db;
     }
-    // read products
+    // read all users - superadmin
     function readAll()
     {
         // select all query 
-        $query = 'SELECT t.id, t.name, r.role FROM ' . $this->table_name . ' t INNER JOIN roles r ON t.role=r.role_id';
-
-        // prepare query statement
+        $query = 'SELECT u.id, p.first_name, p.last_name, u.email, r.role 
+        FROM ((' . $this->table_name . ' u INNER JOIN profiles p ON u.id=p.user_id)
+        INNER JOIN roles r ON u.roles_mask=r.role_id)';
         $stmt = $this->conn->prepare($query);
-
-        // execute query
         $stmt->execute();
-
         return $stmt;
     }
     function create()
@@ -53,15 +49,17 @@ class User
     public function readOne()
     {
         try {
-            $query = $this->conn->prepare('SELECT t.id, t.name, r.role FROM ' . $this->table_name . ' t INNER JOIN roles r ON t.role=r.role_id WHERE id = ?');
+            $query = $this->conn->prepare('SELECT u.id, p.first_name, p.last_name, u.email, p.phone 
+            FROM ' . $this->table_name . ' u INNER JOIN profiles p ON u.id=p.user_id');
             $query->bindParam(1, $this->id);
             $query->execute();
             $row = $query->fetch(PDO::FETCH_ASSOC);
 
             // set values to object properties
-            $this->name = $row['name'];
-            $this->role = $row['role'];
-            
+            $this->first_name = $row['first_name'];
+            $this->last_name = $row['last_name'];
+            $this->email = $row['email'];
+            $this->phone = $row['phone'];    
         } catch (Exception $e) {
             echo "Connection failed: " . $e->getMessage();
         }

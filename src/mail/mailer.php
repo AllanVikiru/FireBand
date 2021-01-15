@@ -5,8 +5,8 @@ use PHPMailer\PHPMailer\Exception;
 
 class Mailer
 {
-    private $mail;
-    private $logo_url = '../assets/media/photos/logo.png';
+    public $mail;
+    //private $logo_url = '../images/logo.png';
 
     public function sendMail($sendAddress, $subject, $body, $altBody)
     {
@@ -26,7 +26,7 @@ class Mailer
         $this->mail->FromName = "Fireband App";
 
         $this->mail->addAddress($sendAddress);
-        $this->mail->addEmbeddedImage($this->logo_url, 'logo'); //Filename is optional
+        //$this->mail->addEmbeddedImage($this->logo_url, 'logo'); //Filename is optional
 
         $this->mail->isHTML(true);
 

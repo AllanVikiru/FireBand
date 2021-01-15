@@ -14,6 +14,6 @@ try {  //echo Session::id();
     $auth->logOutEverywhere();
     header('location:../index.php');
 } catch (Auth\NotLoggedInException $e) { //echo Session::id() //die('Not logged in');  
-    header('location:../index.php');
     Session::regenerate(true);
+    header('location:../index.php');
 }

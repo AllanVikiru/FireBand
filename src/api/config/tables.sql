@@ -52,3 +52,11 @@ VALUES ('1', 'Female'),
     ('2', 'Male'),
     ('3', 'Intersex'),
     ('4', 'Rather not say');
+CREATE TABLE `test`.`profiles` (
+    `profile_id` INT(10) NOT NULL AUTO_INCREMENT,
+    `user_id` INT(10) NOT NULL,
+    `first_name` VARCHAR(255) NOT NULL,
+    `last_name` VARCHAR(255) NOT NULL,
+    `phone` VARCHAR(13) NOT NULL,
+    PRIMARY KEY (`profile_id`)
+) ENGINE = InnoDB;

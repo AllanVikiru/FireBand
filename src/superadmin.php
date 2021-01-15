@@ -55,37 +55,7 @@ Session::id();
             <h3 class="block-title">All Users</h3>
         </div>
         <div class="block-content block-content-full">
-            <!-- DataTables functionality is initialized with .js-dataTable-full class in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
-            <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
-                <thead>
-                    <tr>
-                        <th class="text-center" style="width: 10%;">User ID</th>
-                        <th style="width: 25%;">Name</th>
-                        <th class="d-none d-sm-table-cell" style="width: 20%;">Email</th>
-                        <th class="d-none d-sm-table-cell" style="width: 20%;">Role</th>
-                        <th class="text-center" style="width: 20%;">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td class="font-w600">Justin Hunt</td>
-                        <td class="d-none d-sm-table-cell">customer1@example.com</td>
-                        <td class="d-none d-sm-table-cell">
-                            <span class="badge badge-primary">Firefighter</span>
-                        </td>
-                        <td class="text-center">
-                            <button type="button" class="btn btn-sm btn-secondary " data-toggle="modal" data-target="#modal-user-info" title="Details">
-                                <i class="fa fa-info"></i>&ensp;Details
-                            </button>
-                            &emsp;
-                            <button type="button" class="btn btn-sm btn-secondary " title="Delete">
-                                <i class="fa fa-user-times"></i>&ensp;Delete
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="users-table"></div>
         </div>
     </div>
 </div>
@@ -95,12 +65,18 @@ require 'includes/_superadmin/modals/new_user.php';
 require 'includes/_superadmin/modals/user_info.php';
 require 'includes/_superadmin/modals/my_info.php';
 require 'includes/_global/views/page_end.php';
-require 'includes/_global/views/footer_start.php';
+require 'includes/_global/views/footer_start.php';?>
 
+<script language="JavaScript" type="text/javascript" src="app/app.js"></script>
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_all.js"></script>
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_one.js"></script>
+
+<?php
 //DataTables JS Plugins for Commander Dashboard
 $cb->get_js('js/plugins/datatables/jquery.dataTables.min.js');
 $cb->get_js('js/plugins/datatables/dataTables.bootstrap4.min.js');
 $cb->get_js('js/pages/be_tables_datatables.min.js');
+// todo: form validation $cb->get_js('js/pages/super_validation.min.js');
 
 $cb->get_js('js/plugins/masked-inputs/jquery.maskedinput.min.js');
 

@@ -1,12 +1,9 @@
 <?php
 // TODO: DEFINE ROOT DIRECTORY
-// define("ROOT", __DIR__ ."/");
-// define("HTTP", ($_SERVER["SERVER_NAME"] == "localhost")
-//    ? "http://localhost/your_work_folder/"
-//    : "http://your_site_name.com/"
-// );
-// If you are using query strings to load different pages,
-// you can use the following value: basename($_SERVER['REQUEST_URI'])basename($_SERVER['PHP_SELF']);
+// require_once '../index.php';
 
+// define('ROOT_SRC', realpath(dirname(__FILE__)));
+// define('ROOT_VENDOR', realpath(ROOT_DIR.'\vendor'));
+// echo realpath(dirname(__DIR__));
 header('Location: login.php');
 die();

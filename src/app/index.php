@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+//todo: forbidden redirect
+
 <html lang="en">
 <head>
     <meta charset="utf-8">

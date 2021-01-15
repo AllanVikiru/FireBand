@@ -1,10 +1,11 @@
 <?php ?>
-<!-- Slide Up Modal -->
+<!-- User Information Modal -->
 <div class="modal fade" id="modal-user-info" tabindex="-1" role="dialog" aria-labelledby="modal-slideup" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-slideup" role="document">
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
-                <form action="be_forms_wizard.php" method="post">
+                <!-- Start Form -->
+                <form class="js-validation-user" action="#" method="post">
                     <div class="block-header bg-primary-dark">
                         <h3 class="block-title text-white">User Details</h3>
                         <div class="block-options">
@@ -14,15 +15,23 @@
                         </div>
                     </div>
                     <div class="block-content">
-                        <div class="form-group mb-15">
-                            <label for="user-name">Name</label>
-                            <div class="input-group">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-user"></i>
-                                    </span>
+                        <div class="form-group row mb-15">
+                            <div class="col-6">
+                                <label for="user-firstname">First Name</label>
+                                <div class="input-group">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="user-first-name" name="user-firstname">
                                 </div>
-                                <input type="text" class="form-control" id="user-name" name="user-name" value="John Smith">
+                            </div>
+                            <div class="col-6">
+                                <label for="user-lastname">Last Name</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="user-last-name" name="user-lastname">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group mb-15">
@@ -33,7 +42,7 @@
                                         <i class="fa fa-envelope"></i>
                                     </span>
                                 </div>
-                                <input type="email" class="form-control" id="user-email" name="user-email" value="john.smith@example.com">
+                                <input type="email" class="form-control" id="user-email" name="user-email">
                             </div>
                         </div>
                         <div class="form-group mb-15">
@@ -44,7 +53,7 @@
                                         <i class="fa fa-phone"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" id="user-phone" name="user-phone" placeholder="+254701234567">
+                                <input type="text" class="form-control" id="user-phone" name="user-phone">
                             </div>
                         </div>
                         <div class="form-group mb-15">
@@ -69,7 +78,6 @@
                                 <input type="password" class="form-control" id="user-password-confirm" name="user-password-confirm" placeholder="Confirm New Password..">
                             </div>
                         </div>
-
                     </div>
                     <div class="modal-footer">
                         <div class="form-group row">
@@ -82,13 +90,11 @@
                                 </button>
                             </div>
                         </div>
-
                     </div>
                 </form>
                 <!-- END Form -->
             </div>
-            <!-- END Form -->
         </div>
     </div>
 </div>
-<!-- END Slide Up Modal -->
+<!-- END User Information Modal -->

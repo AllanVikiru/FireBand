@@ -9,7 +9,7 @@ Session::start('Lax');
 $db = new Database();
 $conn = $db->connect();
 $auth = new Auth\Auth($conn);
-
+Session::regenerate(true);
 //pass form values to register students function - remove whitespaces before saving in db
 if (isset($_POST["login"])) {
     $email = trim($_POST["log-email"]);
@@ -29,11 +29,11 @@ if (isset($_POST["login"])) {
                 die();
                 break;
             case '2':
-                header('location:../firefighter.php');
+                header('location:../commander.php');
                 die();
                 break;
             default:
-                header('location:../commander.php');
+                header('location:../firefighter.php');
                 die();
         }
     } catch (Auth\InvalidEmailException $e) {

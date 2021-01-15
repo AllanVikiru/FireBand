@@ -7,8 +7,8 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
   
 // include database and object files
-include_once '../config/database.php';
-include_once '../models/user.php';
+include_once '../../config/database.php';
+include_once 'user.php';
 
   
 // get database connection
@@ -24,12 +24,14 @@ $user->id = isset($_GET['id']) ? $_GET['id'] : die();
 // read the details of user to be edited
 $user->readOne();
   
-if($user->name!=null){
+if($user->id!=null){
     // create array
     $user_array = array(
         "id" =>  $user->id,
-        "name" => $user->name,
-        "role" => $user->role
+        "first_name" => $user->first_name,
+        "last_name" => $user->last_name,
+        "email" => $user->email,
+        "phone" => $user->phone
     );
   
     // set response code - 200 OK
