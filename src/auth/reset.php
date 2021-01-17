@@ -13,7 +13,7 @@ $auth = new Auth\Auth($conn);
 $mailer = new Mailer();
 
 $code = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 12);
-Session::set('code', $code); //Session::id();
+Session::set('code', $code); 
 
 if (isset($_POST["reset"])) {
     $email = trim($_POST["reset-email"]);

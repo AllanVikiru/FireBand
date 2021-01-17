@@ -1,5 +1,6 @@
 <?php
-// header section for commander dashboard
+use Delight\Cookie\Session;
+Session::id();
 ?>
 
 <!-- Header -->
@@ -16,7 +17,7 @@
             <div class="btn-group float-right" role="group">
                 <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user-md d-sm-none"></i>
-                    <span class="d-none d-sm-inline-block">Dr. Stone</span>
+                    <span class="d-none d-sm-inline-block"><?=Session::get('username')?></span>
                     <i class="fa fa-angle-down ml-5"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right min-width-200" aria-labelledby="page-header-user-dropdown">

@@ -1,4 +1,9 @@
 <?php
+
+use Delight\Cookie\Session;
+
+$id = Session::get('id');
+//todo: reset password for users through the form. information through commander and s/a
 ?>
 <!-- Side Overlay-->
 <aside id="side-overlay">
@@ -17,7 +22,7 @@
                 <a class="img-link mr-5" href="javascript:void(0)">
                     <?php $cb->get_avatar('15', '', 32, false); ?>
                 </a>
-                <a class="align-middle link-effect text-primary-dark font-w600">John Smith</a>
+                <a class="align-middle link-effect text-primary-dark font-w600"><?= Session::get('username') ?></a>
             </div>
             <!-- END User Info -->
         </div>
@@ -44,7 +49,11 @@
                     <p class="mb-0"><strong class="font-w700">Women:</strong> 100.5 - (0.1636 x weight in kg) - (1.438 x run time in min) - (0.1928 x heart rate)</p>
                     <p class="mb-0"><strong class="font-w700">Men:</strong> 108.844 - (0.1636 x weight in kg) - (1.438 x run time in min) - (0.1928 x heart rate)</p>
                 </div>
-                <form action="#" method="post" onsubmit="return false;">
+                <form action="#" method="post">
+                    <input type="hidden" id="user-id" name="user-id" value="<?= $id ?>" />
+                    <input type="hidden" id="user-age" name="user-age" />
+                    <input type="hidden" id="user-sex" name="user-sex" />
+                    <input type="hidden" id="user-weight" name="user-weight" />
                     <div class="form-group mb-15">
                         <label for="run-time">Run Time</label>
                         <div class="input-group">
@@ -53,7 +62,7 @@
                                     <i class="fa fa-clock-o"></i>
                                 </span>
                             </div>
-                            <input type="number" class="form-control" id="run-time" name="run-time">
+                            <input type="number" class="form-control" id="user-runtime" name="user-runtime">
                             <div class="input-group-append">
                                 <span class="input-group-text">minutes</span>
                             </div>
@@ -67,7 +76,7 @@
                                     <i class="fa fa-heartbeat"></i>
                                 </span>
                             </div>
-                            <input type="number" class="form-control" id="heartrate" name="heartrate">
+                            <input type="number" class="form-control" id="user-heartrate" name="user-heartrate">
                             <div class="input-group-append">
                                 <span class="input-group-text">bpm</span>
                             </div>
@@ -75,7 +84,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-6">
-                            <button type="submit" class="btn btn-block btn-alt-info">
+                            <button type="submit" class="calculate-v02max btn btn-block btn-alt-info">
                                 <i class="fa fa-calculator mr-5"></i>
                                 Calculate
                             </button>
@@ -95,10 +104,21 @@
                                     <i class="fa fa-sliders"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" id="v02" name="v02" disabled>
+                            <input type="number" class="form-control" id="user-v02" name="user-v02" disabled>
                             <div class="input-group-append">
                                 <span class="input-group-text">ml/kg/min</span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-15">
+                        <label for="status">Status</label>
+                        <div class="input-group">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-info"></i>
+                                </span>
+                            </div>
+                            <input type="number" class="form-control" id="user-status" name="user-status" disabled>
                         </div>
                     </div>
                 </form>
@@ -110,14 +130,15 @@
             <div class="block-header bg-body-light">
                 <h3 class="block-title">
                     <i class="fa fa-fw fa-medkit font-size-default mr-5"></i>
-                    Biodata
+                    Health Profile
                 </h3>
                 <div class="block-options">
                     <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
                 </div>
             </div>
             <div class="block-content">
-                <form action="#" method="post" onsubmit="return false;">
+                <form action="#" id="health-profile-info" method="post">
+                    <input type="hidden" id="user-id" name="user-id" value="<?= $id ?>" />
                     <div class="form-group mb-15">
                         <label for="dob">Date of Birth</label>
                         <div class="input-group">
@@ -133,22 +154,7 @@
                         <div class="form-group row">
                             <label class="col-12">Sex</label>
                             <div class="col-12">
-                                <div class="custom-control custom-radio custom-control-inline mb-5">
-                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="sex-f" value="0">
-                                    <label class="custom-control-label" for="sex-f">Female</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline mb-5">
-                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="sex-m" value="1">
-                                    <label class="custom-control-label" for="sex-m">Male</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline mb-5">
-                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="sex-i" value="2">
-                                    <label class="custom-control-label" for="sex-i">Intersex</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline mb-5">
-                                    <input class="custom-control-input" type="radio" name="example-inline-radios" id="sex-rns" value="3">
-                                    <label class="custom-control-label" for="sex-rns">Rather not say</label>
-                                </div>
+                                <div id="sexes"></div>
                             </div>
                         </div>
                     </div>
@@ -197,14 +203,14 @@
             <div class="block-header bg-body-light">
                 <h3 class="block-title">
                     <i class="fa fa-fw fa-id-card font-size-default mr-5"></i>
-                    Profile
+                    Account
                 </h3>
                 <div class="block-options">
                     <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
                 </div>
             </div>
             <div class="block-content">
-                <form action="#" method="post" onsubmit="return false;">
+                <form action="#" method="post">
                     <div class="form-group mb-15">
                         <label for="user-name">Name</label>
                         <div class="input-group">
@@ -213,7 +219,7 @@
                                     <i class="fa fa-user"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" id="user-name" name="user-name" value="John Smith">
+                            <input type="text" class="form-control" id="user-name" name="user-name">
                         </div>
                     </div>
                     <div class="form-group mb-15">
@@ -224,21 +230,10 @@
                                     <i class="fa fa-envelope"></i>
                                 </span>
                             </div>
-                            <input type="email" class="form-control" id="user-email" name="user-email" value="john.smith@example.com">
+                            <input type="email" class="form-control" id="user-email" name="user-email">
                         </div>
                     </div>
-                    <div class="form-group mb-15">
-                        <label for="user-phone">Phone</label>
-                        <div class="input-group">
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fa fa-phone"></i>
-                                </span>
-                            </div>
-                            <input type="text" class="form-control" id="user-phone" name="user-phone" placeholder="+254701234567">
-                        </div>
-                    </div>
-                    <div class="form-group mb-15">
+                    <!-- <div class="form-group mb-15">
                         <label for="user-password">New Password</label>
                         <div class="input-group">
                             <div class="input-group-append">
@@ -259,7 +254,7 @@
                             </div>
                             <input type="password" class="form-control" id="user-password-confirm" name="user-password-confirm" placeholder="Confirm New Password..">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group row">
                         <div class="col-6">
                             <button type="submit" class="btn btn-block btn-alt-primary">

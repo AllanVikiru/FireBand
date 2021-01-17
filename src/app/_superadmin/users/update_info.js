@@ -1,10 +1,9 @@
-$(document).ready(function () {
-  $(document).on("submit", "#update-user-form", function () {
+$(document).on("submit", "#my-user-form", function () {
     // get form data
     var form_data = JSON.stringify($(this).serializeObject());
     // submit form data to api
     $.ajax({
-      url: "../src/api/models/user/update.php",
+      url: "../src/api/models/user/update_info.php",
       type: "POST",
       contentType: "application/json",
       data: form_data,
@@ -18,7 +17,7 @@ $(document).ready(function () {
             },
           },
           callback: function (result) {
-            $("#modal-user-info").modal("hide");
+            $("#modal-my-info").modal("hide");
             showUsers();
           },
         });
@@ -33,7 +32,7 @@ $(document).ready(function () {
             },
           },
           callback: function (result) {
-            $("#modal-user-info").modal("hide");
+            $("#modal-my-info").modal("hide");
             showUsers();
             console.log(xhr, resp, text);
           },
@@ -42,4 +41,3 @@ $(document).ready(function () {
     });
     return false;
   });
-});

@@ -23,17 +23,17 @@ class Sex
         return $query;
     }
 
-  
+
     public function readOne()
     {
         try {
-            $query = $this->conn->prepare('SELECT * FROM ' . $this->table_name . ' WHERE role_id = ?');
-            $query->bindParam(1, $this->role_id);
+            $query = $this->conn->prepare('SELECT * FROM ' . $this->table_name . ' WHERE sex_id = ?');
+            $query->bindParam(1, $this->sex_id);
             $query->execute();
             $row = $query->fetch(PDO::FETCH_ASSOC);
 
             // set values to object properties
-            $this->role = $row['role'];
+            $this->sex = $row['sex'];
         } catch (Exception $e) {
             echo "Connection failed: " . $e->getMessage();
         }

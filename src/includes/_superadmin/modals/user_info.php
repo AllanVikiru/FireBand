@@ -1,4 +1,5 @@
-<?php ?>
+<?php //todo: reset logged in user password modal  
+?>
 <!-- User Information Modal -->
 <div class="modal fade" id="modal-user-info" tabindex="-1" role="dialog" aria-labelledby="modal-slideup" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-slideup" role="document">
@@ -14,25 +15,17 @@
                             </button>
                         </div>
                     </div>
-                    <input type="hidden" id="user-id" name="user-id"/>
+                    <input type="hidden" id="user-id" name="user-id" />
                     <div class="block-content">
-                        <div class="form-group row mb-15">
-                            <div class="col-6">
-                                <label for="user-firstname">First Name</label>
-                                <div class="input-group">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control" id="user-firstname" name="user-firstname">
+                        <div class="form-group mb-15">
+                            <label for="new-username">Full Name</label>
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-user"></i>
+                                    </span>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <label for="user-lastname">Last Name</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="user-lastname" name="user-lastname">
-                                </div>
+                                <input type="text" class="form-control" id="user-name" name="user-name">
                             </div>
                         </div>
                         <div class="form-group mb-15">
@@ -44,39 +37,6 @@
                                     </span>
                                 </div>
                                 <input type="email" class="form-control" id="user-email" name="user-email">
-                            </div>
-                        </div>
-                        <div class="form-group mb-15">
-                            <label for="user-phone">Phone</label>
-                            <div class="input-group">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-phone"></i>
-                                    </span>
-                                </div>
-                                <input type="text" data-mask = "+254000000000" class="form-control" id="user-phone" name="user-phone">
-                            </div>
-                        </div>
-                        <div class="form-group mb-15">
-                            <label for="user-password">New Password</label>
-                            <div class="input-group">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-asterisk"></i>
-                                    </span>
-                                </div>
-                                <input type="password" class="form-control" id="user-pw" name="user-pw" placeholder="New Password..">
-                            </div>
-                        </div>
-                        <div class="form-group mb-15">
-                            <label for="user-password-confirm">Confirm New Password</label>
-                            <div class="input-group">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-asterisk"></i>
-                                    </span>
-                                </div>
-                                <input type="password" class="form-control" id="user-pw-confirm" name="user-pw-confirm" placeholder="Confirm New Password..">
                             </div>
                         </div>
                     </div>

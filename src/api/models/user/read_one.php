@@ -28,10 +28,8 @@ if($user->id!=null){
     // create array
     $user_array = array(
         "id" =>  $user->id,
-        "first_name" => $user->first_name,
-        "last_name" => $user->last_name,
+        "username" => $user->username,
         "email" => $user->email,
-        "phone" => $user->phone
     );
   
     // set response code - 200 OK

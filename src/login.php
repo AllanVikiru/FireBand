@@ -1,4 +1,9 @@
 <?php
+require_once '../vendor/autoload.php';
+use Delight\Cookie\Session;
+
+Session::start('Lax');
+Session::id();
 require 'includes/_global/config.php';
 require 'includes/_global/views/head_start.php';
 require 'includes/_global/views/head_end.php';

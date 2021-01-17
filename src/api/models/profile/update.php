@@ -8,27 +8,32 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
   
 // include database and object files
 include_once '../../config/database.php';
-include_once 'user.php';
-
+include_once 'profile.php';
+  
 // get database connection
 $database = new Database();
 $db = $database->connect();
   
 // prepare user object
-$user = new User($db);
+$profile = new Profile($db);
   
 // get id of user to be edited
 $data = json_decode(file_get_contents("php://input"), true);
-
-// set ID property of user to be edited
-$user->id = $data['user-id'];
   
-// set user property values 
-$user->username = $data['user-name'];
-$user->email = $data['user-email'];
+// set ID property of user to be edited
+$profile->user_id = $data['user-id'];
+$timestamp = strtotime($data['example-datepicker2'] );
+// Creating new date format from that timestamp
+$new_date = date("Y-m-d", $timestamp);
 
+// set user property values 
+$profile->dob = $new_date;
+$profile->weight = $data['weight'];
+$profile->height = $data['height'];
+$profile->sex_id = $data['example-inline-radios'];
+  
 // update the user
-if($user->update()){
+if($profile->createorUpdate()){
   
     // set response code - 200 ok
     http_response_code(200);

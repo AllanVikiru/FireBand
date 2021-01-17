@@ -39,6 +39,7 @@
                                         <p class="mb-0"><strong class="font-w700">Men:</strong> 108.844 - (0.1636 x weight in kg) - (1.438 x run time in min) - (0.1928 x heart rate)</p>
                                     </div>
                                     <form action="#" method="post">
+                                        <input type="hidden" id="user-id" name="user-id" value="<?= $id ?>" />
                                         <div class="form-group mb-15">
                                             <label for="run-time">Run Time</label>
                                             <div class="input-group">
@@ -89,10 +90,21 @@
                                                         <i class="fa fa-sliders"></i>
                                                     </span>
                                                 </div>
-                                                <input type="text" class="form-control" id="v02" name="v02" disabled>
+                                                <input type="number" class="form-control" id="v02" name="v02" disabled>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">ml/kg/min</span>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-15">
+                                            <label for="status">Status</label>
+                                            <div class="input-group">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">
+                                                        <i class="fa fa-info"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="number" class="form-control" id="status" name="status" disabled>
                                             </div>
                                         </div>
                                     </form>

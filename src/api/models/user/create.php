@@ -26,10 +26,8 @@ if (!array_filter($data)) {
 } 
 else {
     // set user property values
-    $user->first_name = $data['new-firstname'];
-    $user->last_name = $data['new-lastname'];
+    $user->username = $data['new-username'];
     $user->email = $data['new-email'];
-    $user->phone = $data['new-phone'];
     $user->role = $data['example-inline-radios'];
 }
 // create the user, if successful set response code - 201 created

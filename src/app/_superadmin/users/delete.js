@@ -30,7 +30,7 @@ $(document).ready(function () {
                 buttons: {
                   confirm: {
                     label: '<span class="glyphicon glyphicon-ok"></span> Clear',
-                    className: "btn-primary",
+                    className: "btn-outline-success",
                   },
                 },
                 callback: function (result) {
@@ -44,7 +44,7 @@ $(document).ready(function () {
                 buttons: {
                   confirm: {
                     label: '<span class="glyphicon glyphicon-ok"></span> Clear',
-                    className: "btn-primary",
+                    className: "btn-outline-secondary",
                   },
                 },
                 callback: function (result) {

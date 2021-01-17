@@ -6,10 +6,10 @@ function showUsers() {
   // get list of users from the API
   $.getJSON("../src/api/models/user/read_all.php", function (data) {
     var users_table = `
-        <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+        <table class="table table-bordered table-striped table-vcenter js-dataTable-full users-table">
             <thead>
                 <tr>
-                    <th style="width: 25%;">Name</th>
+                    <th style="width: 25%;">Full Name</th>
                     <th class="d-none d-sm-table-cell" style="width: 20%;">Email</th>
                     <th class="d-none d-sm-table-cell" style="width: 20%;">Role</th>
                     <th class="text-center" style="width: 20%;">Actions</th>
@@ -23,8 +23,7 @@ function showUsers() {
         `
                     <tr>
                         <td class="font-w600">` +
-        val.first_name + ` ` 
-        +val.last_name +
+        val.username + 
         `</td>
                         <td class="d-none d-sm-table-cell">` +
         val.email +
@@ -34,7 +33,7 @@ function showUsers() {
         `</td>
                         <td class="text-center">
                         <!-- edit button -->
-                <button class='btn  btn-secondary btn-sm read-user-button' data-id='` +
+                <button class='btn btn-secondary btn-sm read-user-button' data-id='` +
         val.id +
         `'>Edit </button>
  

@@ -17,7 +17,7 @@ $user = new User($db);
 
 // read products will be here
 // query products
-$stmt = $user->readAll();
+$stmt = $user->readallFF();
 $num = $stmt->rowCount();
 
 //if result is found, extract details into an array and encode into JSON output
@@ -29,9 +29,9 @@ if ($num > 0) {
 
         $user_item = array(
             "id" => $id,
-            "username" => $username,
-            "email" => $email,
-            "role" => $role
+            "first_name" => $first_name,
+            "last_name" =>$last_name,
+            "email" => $email  
         );
         array_push($users_arr["records"], $user_item);
     }

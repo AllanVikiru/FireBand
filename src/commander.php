@@ -1,5 +1,10 @@
 <?php
 require_once '../vendor/autoload.php';
+
+use Delight\Cookie\Session;
+
+Session::start('Lax');
+Session::regenerate(true);
 require 'includes/_global/config.php';
 require 'includes/_commander/config.php';
 require 'includes/_global/views/head_start.php';
@@ -11,78 +16,21 @@ $cb->get_css('js/plugins/datatables/dataTables.bootstrap4.css');
 require 'includes/_global/views/head_end.php';
 require 'includes/_global/views/page_start.php';
 
-use Delight\Cookie\Session;
-
-Session::id();
 ?>
 
 <div id="page-loader" class="show"></div>
-<!-- Quick Navigation -->
-<div class="bg-body-dark">
-    <div class="content">
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
-                <a class="block block-link-pop text-right bg-primary" href="javascript:void(0)">
-                    <div class="block-content block-content-full clearfix border-black-op-b border-3x">
-                        <div class="float-left mt-10 d-none d-sm-block">
-                            <i class="fa fa-fire fa-3x text-primary-light"></i>
-                        </div>
-                        <div class="font-size-h3 font-w600 text-white" data-toggle="countTo" data-speed="750" data-to="45">45</div>
-                        <div class="font-size-sm font-w600 text-uppercase text-white-op">Firefighters</div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-2"></div>
-        </div>
-    </div>
-</div>
-<!-- END Quick Navigation -->
 <!-- Page Content -->
 <div class="content">
     <!-- <div id="app"></div> -->
     <div class="block">
-        <div class="block-header block-header-default">
+        <div class="block-header block-header-default bg-primary-lighter">
             <h3 class="block-title">Registered Firefighters</h3>
+            <div class="block-options">
+                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
+            </div>
         </div>
         <div class="block-content block-content-full">
-            <!-- DataTables functionality is initialized with .js-dataTable-full class in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
-            <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
-                <thead>
-                    <tr>
-                        <th class="text-center" style="width: 10%;">Firefighter ID</th>
-                        <th>Name</th>
-                        <th class="d-none d-sm-table-cell" style="width: 20%;">VO<sub>2</sub> max Status</th>
-                        <th class="d-none d-sm-table-cell" style="width: 20%;">Last Fitness Test Date</th>
-                        <th class="text-center" style="width: 20%;">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td class="font-w600">Justin Hunt</td>
-                        <td class="d-none d-sm-table-cell">
-                            <span class="badge badge-primary">Personal</span>
-                        </td>
-                        <td class="d-none d-sm-table-cell">12/10/2020</td>
-                        <td class="text-center">
-                            <a target="_blank" href="https://thingspeak.com">
-                                <button type="button" class="btn btn-sm btn-secondary" title="Monitor">
-                                    <i class="fa fa-eye"></i>
-                                </button>
-                            </a>
-                            <button type="button" class="btn btn-sm btn-secondary " data-toggle="modal" data-target="#modal-ff-info" title="Details">
-                                <i class="fa fa-info"></i>
-                            </button>
-                            <a target=_blank href="../src/report.php">
-                                <button type="button" class="btn btn-sm btn-secondary " title="Print">
-                                    <i class="fa fa-print"></i>
-                                </button>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="ff-table"></div>
         </div>
     </div>
 </div>
@@ -93,7 +41,10 @@ require 'includes/_commander/modals/ff_info.php';
 require 'includes/_commander/modals/my_info.php';
 require 'includes/_global/views/page_end.php';
 require 'includes/_global/views/footer_start.php';
-
+?>
+<script language="JavaScript" type="text/javascript" src="app/app.js"></script>
+<script language="JavaScript" type="text/javascript" src="app/_commander/users/read_all.js"></script>
+<?php
 //DataTables JS Plugins for Commander Dashboard
 $cb->get_js('js/plugins/datatables/jquery.dataTables.min.js');
 $cb->get_js('js/plugins/datatables/dataTables.bootstrap4.min.js');

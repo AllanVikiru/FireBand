@@ -10,6 +10,7 @@ $db = new Database();
 $conn = $db->connect();
 $auth = new Auth\Auth($conn);
 Session::regenerate(true);
+
 //pass form values to register students function - remove whitespaces before saving in db
 if (isset($_POST["login"])) {
     $email = trim($_POST["log-email"]);
@@ -18,23 +19,30 @@ if (isset($_POST["login"])) {
     try {
         $auth->login($email, $password);
         $id = $auth->getUserId();
+        $mail = $auth->getEmail();
+        $username = $auth->getUsername();
 
         $query = $conn->prepare('SELECT roles_mask FROM users WHERE id = ?');
         $query->bindParam(1, $id);
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
+
+        Session::set('id', $id);
+        Session::set('email', $mail);
+        Session::set('username', $username);
+
         switch ($result['roles_mask']) {
             case '1':
                 header('location:../superadmin.php');
-                die();
+                exit();
                 break;
             case '2':
                 header('location:../commander.php');
-                die();
+                exit();
                 break;
             default:
                 header('location:../firefighter.php');
-                die();
+                exit();
         }
     } catch (Auth\InvalidEmailException $e) {
         echo '<script language="javascript">';
