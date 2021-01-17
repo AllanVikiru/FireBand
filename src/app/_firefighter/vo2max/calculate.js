@@ -117,16 +117,16 @@ $(document).ready(function () {
           if (vo2max < 17.5) {
             status = "Very Poor";
           }
-          if (range(vo2max,17.5,20.1)) {
+          if (range(vo2max, 17.5, 20.1)) {
             status = "Poor";
           }
-          if (range(vo2max,20.2,24.4)) {
+          if (range(vo2max, 20.2, 24.4)) {
             status = "Fair";
           }
-          if (range(vo2max,24.5,30.2)) {
+          if (range(vo2max, 24.5, 30.2)) {
             status = "Good";
           }
-          if (range(vo2max,30.3,31.4)) {
+          if (range(vo2max, 30.3, 31.4)) {
             status = "Excellent";
           }
           if (vo2max > 31.4) {
@@ -356,16 +356,16 @@ $(document).ready(function () {
           if (vo2max < 17.5) {
             status = "Very Poor";
           }
-          if (range(vo2max,17.5,20.1)) {
+          if (range(vo2max, 17.5, 20.1)) {
             status = "Poor";
           }
-          if (range(vo2max,20.2,24.4)) {
+          if (range(vo2max, 20.2, 24.4)) {
             status = "Fair";
           }
-          if (range(vo2max,24.5,30.2)) {
+          if (range(vo2max, 24.5, 30.2)) {
             status = "Good";
           }
-          if (range(vo2max,30.3,31.4)) {
+          if (range(vo2max, 30.3, 31.4)) {
             status = "Excellent";
           }
           if (vo2max > 31.4) {
@@ -376,46 +376,5 @@ $(document).ready(function () {
         $("#user-status").val(status);
         break;
     }
-  });
-
-  //'create product form' handle will be here - will run if create product form was submitted
-  $(document).on("submit", "#vo2max-calc-form", function () {
-    // form data will be here get form data
-    var form_data = JSON.stringify($(this).serializeObject());
-    // submit form data to api
-    $.ajax({
-      url: "../src/api/models/vo2max/update.php",
-      type: "POST",
-      contentType: "application/json",
-      data: form_data,
-      success: function (result) {
-        bootbox.confirm({
-          message: "<h4>Value updated successfully</h4>",
-          buttons: {
-            confirm: {
-              label: '<span class="glyphicon glyphicon-ok"></span> Clear',
-              className: "btn-outline-success",
-            },
-          },
-          callback: function (result) {},
-        });
-      },
-      error: function (xhr, resp, text) {
-        bootbox.confirm({
-          message: "<h4>An error occurred. Try again later.</h4>",
-          buttons: {
-            confirm: {
-              label: '<span class="glyphicon glyphicon-ok"></span> Clear',
-              className: "btn-outline-secondary",
-            },
-          },
-          callback: function (result) {
-            console.log(xhr, resp, text);
-            location.reload();
-          },
-        });
-      },
-    });
-    return false;
   });
 });

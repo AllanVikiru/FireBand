@@ -27,8 +27,7 @@ $cb->main_nav                   = array(
         'icon'  => 'fa fa-book',
         'sub'   => array(
             array(
-                'name'  => '<span class="sidebar-mini-hide">V02 MAX Info</span>',
-                'url'   => 'onemile.php'
+                'name'  => '<a class="sidebar-mini-hide" target=_blank href="https://www.verywellfit.com/what-is-vo2-max-3120097">V02 MAX Info</a>'
             )
         )
     ) 
