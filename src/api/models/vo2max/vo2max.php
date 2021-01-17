@@ -1,14 +1,17 @@
 <?php
-class Role
+class VO2Max
 {
     // database connection and table name
     private $conn;
     private $table_name = "vo2max";
 
     // object properties
-    public $role_id;
-    public $role;
-
+    public $id;
+    public $user_id;
+    public $value;
+    public $status;
+    public $test_date;
+   
     // constructor with $db as database connection
     public function __construct($db)
     {
@@ -16,7 +19,7 @@ class Role
     }
 
     // read all roles
-    function readAll()
+    public function readAll()
     {  
         $query = $this->conn->prepare('SELECT * FROM ' . $this->table_name . '');
         $query->execute();
@@ -24,69 +27,29 @@ class Role
     }
 
     //insert new role
-    function create()
+    public function createorUpdate()
     {
         // query to 
-        $query = 'INSERT INTO ' . $this->table_name . ' (role) VALUES (?)';
+        $query = 'INSERT INTO ' . $this->table_name . ' (user_id,value,status,test_date) VALUES (?,?,?,?) 
+        ON DUPLICATE KEY UPDATE value=?, status=?, test_date=?';
 
         // prepare query
         $stmt = $this->conn->prepare($query);
+
+        $this->user_id = htmlspecialchars(strip_tags($this->user_id));
+        $this->value = htmlspecialchars(strip_tags($this->value));
+        $this->status = htmlspecialchars(strip_tags($this->status));
+        $this->test_date = htmlspecialchars(strip_tags($this->test_date));
+
         // bind values
-        $stmt->bindParam(1, $this->role);
-
-        // execute query
-        if ($stmt->execute()) {
-            return true;
-        }
-        return false;
-    }
-    public function readOne()
-    {
-        try {
-            $query = $this->conn->prepare('SELECT * FROM ' . $this->table_name . ' WHERE role_id = ?');
-            $query->bindParam(1, $this->role_id);
-            $query->execute();
-            $row = $query->fetch(PDO::FETCH_ASSOC);
-
-            // set values to object properties
-            $this->role = $row['role'];
-        } catch (Exception $e) {
-            echo "Connection failed: " . $e->getMessage();
-        }
-        return $query;
-    }
-    
-    public function update()
-    {
-        $query = 'UPDATE ' . $this->table_name . ' SET role = ? WHERE role_id = ?';
-        // prepare query statement
-        $stmt = $this->conn->prepare($query);
-
-        // sanitize
-        $this->role = htmlspecialchars(strip_tags($this->role));
-        $this->role_id = htmlspecialchars(strip_tags($this->role_id));
-
-        // bind new values
-        $stmt->bindParam(1, $this->role);
-        $stmt->bindParam(2, $this->role_id);
-
-        // execute the query
-        if ($stmt->execute()) {
-            return true;
-        }
-        return false;
-    }
-    public function delete()
-    {
-        $query = "DELETE FROM " . $this->table_name . " WHERE role_id = ?";
-        $stmt = $this->conn->prepare($query);
-
-        // sanitize
-        $this->role_id = htmlspecialchars(strip_tags($this->role_id));
-
-        // bind id of record to delete
-        $stmt->bindParam(1, $this->role_id);
-
+        $stmt->bindParam(1, $this->user_id);
+        $stmt->bindParam(2, $this->value);
+        $stmt->bindParam(3, $this->status);
+        $stmt->bindParam(4, $this->test_date);
+        $stmt->bindParam(5, $this->value);
+        $stmt->bindParam(6, $this->status);
+        $stmt->bindParam(7, $this->test_date);
+        
         // execute query
         if ($stmt->execute()) {
             return true;

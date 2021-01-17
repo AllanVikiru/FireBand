@@ -49,7 +49,7 @@ $id = Session::get('id');
                     <p class="mb-0"><strong class="font-w700">Women:</strong> 100.5 - (0.1636 x weight in kg) - (1.438 x run time in min) - (0.1928 x heart rate)</p>
                     <p class="mb-0"><strong class="font-w700">Men:</strong> 108.844 - (0.1636 x weight in kg) - (1.438 x run time in min) - (0.1928 x heart rate)</p>
                 </div>
-                <form action="#" method="post">
+                <form action="#" id="vo2max-calc-form" method="post">
                     <input type="hidden" id="user-id" name="user-id" value="<?= $id ?>" />
                     <input type="hidden" id="user-age" name="user-age" />
                     <input type="hidden" id="user-sex" name="user-sex" />
@@ -84,7 +84,7 @@ $id = Session::get('id');
                     </div>
                     <div class="form-group row">
                         <div class="col-6">
-                            <button type="submit" class="calculate-v02max btn btn-block btn-alt-info">
+                            <button type="submit" class="calculate-vo2max btn btn-block btn-alt-info">
                                 <i class="fa fa-calculator mr-5"></i>
                                 Calculate
                             </button>
@@ -97,14 +97,14 @@ $id = Session::get('id');
                         </div>
                     </div>
                     <div class="form-group mb-15">
-                        <label for="heartrate">V0<sub>2</sub></label>
+                        <label for="vo2">VO<sub>2</sub></label>
                         <div class="input-group">
                             <div class="input-group-append">
                                 <span class="input-group-text">
                                     <i class="fa fa-sliders"></i>
                                 </span>
                             </div>
-                            <input type="number" class="form-control" id="user-v02" name="user-v02" disabled>
+                            <input type="text" class="form-control" id="user-vo2" name="user-vo2">
                             <div class="input-group-append">
                                 <span class="input-group-text">ml/kg/min</span>
                             </div>
@@ -118,7 +118,7 @@ $id = Session::get('id');
                                     <i class="fa fa-info"></i>
                                 </span>
                             </div>
-                            <input type="number" class="form-control" id="user-status" name="user-status" disabled>
+                            <input type="text" class="form-control" id="user-status" name="user-status">
                         </div>
                     </div>
                 </form>

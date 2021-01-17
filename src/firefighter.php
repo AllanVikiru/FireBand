@@ -146,8 +146,8 @@ require 'includes/_global/views/footer_start.php';
 <script language="JavaScript" type="text/javascript" src="app/_firefighter/user/read_one.js"></script>
 <script language="JavaScript" type="text/javascript" src="app/_firefighter/profile/read_one.js"></script>
 <script language="JavaScript" type="text/javascript" src="app/_firefighter/profile/update.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_firefighter/v02max/read_one.js"></script>
-
+<script language="JavaScript" type="text/javascript" src="app/_firefighter/vo2max/read_one.js"></script>
+<script language="JavaScript" type="text/javascript" src="app/_firefighter/vo2max/calculate.js"></script>
 <?php
 //Page JS Plugins
 // $cb->get_js('js/plugins/chartjs/Chart.bundle.min.js');
