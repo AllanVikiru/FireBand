@@ -41,13 +41,14 @@ require 'includes/_global/views/page_end.php';
 require 'includes/_global/views/footer_start.php';?>
 
 
-<script language="JavaScript" type="text/javascript" src="app/app.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/create.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_all.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_one.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/update.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/update_info.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/delete.js"></script>
+<script language="JavaScript" type="text/javascript" src="app/app.js?v=<?= filemtime('app/app.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/create.js?v=<?= filemtime('app/_superadmin/users/create.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_all.js?v=<?= filemtime('app/_superadmin/users/read_all.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_one.js?v=<?= filemtime('app/_superadmin/users/read_one.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/update.js?v=<?= filemtime('app/_superadmin/users/update.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/update_info.js?v=<?= filemtime('app/_superadmin/users/update_info.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/delete.js?v=<?= filemtime('app/_superadmin/users/delete.js') ?>"></script>
+
 <?php
 //DataTables JS Plugins for Commander Dashboard
 $cb->get_js('js/plugins/datatables/jquery.dataTables.min.js');
@@ -55,15 +56,6 @@ $cb->get_js('js/plugins/datatables/dataTables.bootstrap4.min.js');
 $cb->get_js('js/pages/be_tables_datatables.min.js');
 // todo: form validation $cb->get_js('js/pages/super_validation.min.js');
 
-$cb->get_js('js/plugins/masked-inputs/jquery.maskedinput.min.js');
-
-$cb->get_js('js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js');
 
 require 'includes/_global/views/footer_end.php';
 ?>
-
-<script>
-    jQuery(function() {
-        Codebase.helpers(['datepicker', 'masked-inputs']);
-    });
-</script>

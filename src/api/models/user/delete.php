@@ -38,8 +38,6 @@ if($user->delete()){
 else{
     // set response code - 503 service unavailable
     http_response_code(503);
-  
-    // tell the user
     echo json_encode(array("message" => "Unable to delete user."));
 }
 ?>

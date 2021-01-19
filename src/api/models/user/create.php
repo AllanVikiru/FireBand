@@ -32,7 +32,7 @@ else {
 }
 // create the user, if successful set response code - 201 created
 if ($user->create()) {
-    http_response_code(200);
+    http_response_code(201);
     echo json_encode(array("message" => "User was created."));
 }
 
@@ -42,5 +42,3 @@ else {
     echo json_encode(array("message" => "Unable to create user. Service temporarily down"));
 }
 
-
-// if empty, set response code - 400 bad request

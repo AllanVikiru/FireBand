@@ -7,8 +7,8 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
   
 // include database and object files
-include_once '../config/database.php';
-include_once '../models/vo2max.php';
+include_once '../../config/database.php';
+include_once 'vo2max.php';
   
 // get database connection
 $database = new Database();
@@ -44,4 +44,3 @@ else{
     // tell the user user does not exist
     echo json_encode(array("message" => "User does not exist."));
 }
-?>

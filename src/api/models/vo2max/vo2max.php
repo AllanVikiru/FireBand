@@ -21,7 +21,7 @@ class VO2Max
     // read all roles
     public function readAll()
     {  
-        $query = $this->conn->prepare('SELECT * FROM ' . $this->table_name . '');
+        $query = $this->conn->prepare('SELECT * FROM  users u  LEFT JOIN ' . $this->table_name . ' v on u.id = v.user_id WHERE u.roles_mask = 3');
         $query->execute();
         return $query;
     }

@@ -6,14 +6,7 @@ Session::regenerate(true);
 require 'includes/_global/config.php';
 require 'includes/_firefighter/config.php';
 
-// Codebase - Page specific configuration
-$cb->l_header_fixed     = true;
-$cb->l_header_style     = 'glass-inverse';
-$cb->l_sidebar_inverse  = true;
-$cb->l_sidebar_mini     = true;
-
 require 'includes/_global/views/head_start.php';
-
 // Bootstrap Datepicker CSS
 $cb->get_css('js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css');
 
@@ -31,7 +24,7 @@ $spdlink = 'https://thingspeak.com/channels/1259465/charts/7?api_key=' . $api_ke
         <div class="content content-top text-center overflow-hidden">
             <div class="pt-50 pb-20">
                 <h1 class="font-w700 text-white mb-10 invisible" data-toggle="appear" data-class="animated fadeInUp"><?=Session::get('username')?></h1>
-                <h2 class="h4 font-w400 text-white-op invisible" data-toggle="appear" data-class="animated fadeInUp"> User ID: <?=Session::get('id')?></h2>
+                <h2 class="h4 font-w400 text-white-op invisible" data-toggle="appear" data-class="animated fadeInUp"> Email Address: <?=Session::get('email')?></h2>
             </div>
         </div>
     </div>
@@ -142,13 +135,13 @@ $spdlink = 'https://thingspeak.com/channels/1259465/charts/7?api_key=' . $api_ke
 require 'includes/_global/views/page_end.php';
 require 'includes/_global/views/footer_start.php';
 ?>
-<script language="JavaScript" type="text/javascript" src="app/app.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_firefighter/user/read_one.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_firefighter/profile/read_one.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_firefighter/profile/update.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_firefighter/vo2max/read_one.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_firefighter/vo2max/calculate.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_firefighter/vo2max/update.js"></script>
+<script language="JavaScript" type="text/javascript" src="app/app.js?v=<?= filemtime('app/app.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_firefighter/user/read_one.js?v=<?= filemtime('app/_firefighter/user/read_one.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_firefighter/profile/read_one.js?v=<?= filemtime('app/_firefighter/profile/read_one.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_firefighter/profile/update.js?v=<?= filemtime('app/_firefighter/profile/update.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_firefighter/vo2max/read_one.js?v=<?= filemtime('app/_firefighter/vo2max/read_one.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_firefighter/vo2max/calculate.js?v=<?= filemtime('app/_firefighter/vo2max/calculate.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_firefighter/vo2max/update.js?v=<?= filemtime('app/_firefighter/vo2max/update.js') ?>"></script>
 
 <?php
 //Page JS Plugins

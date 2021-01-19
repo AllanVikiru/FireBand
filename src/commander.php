@@ -7,17 +7,17 @@ Session::start('Lax');
 Session::regenerate(true);
 require 'includes/_global/config.php';
 require 'includes/_commander/config.php';
+
+
+
 require 'includes/_global/views/head_start.php';
 
-//require 'app/index.php';
 //    DataTables Plugin CSS 
 $cb->get_css('js/plugins/datatables/dataTables.bootstrap4.css');
 
 require 'includes/_global/views/head_end.php';
 require 'includes/_global/views/page_start.php';
-
 ?>
-
 <div id="page-loader" class="show"></div>
 <!-- Page Content -->
 <div class="content">
@@ -42,21 +42,25 @@ require 'includes/_commander/modals/my_info.php';
 require 'includes/_global/views/page_end.php';
 require 'includes/_global/views/footer_start.php';
 ?>
-<script language="JavaScript" type="text/javascript" src="app/app.js"></script>
-<script language="JavaScript" type="text/javascript" src="app/_commander/users/read_all.js"></script>
+<script language="JavaScript" type="text/javascript" src="app/app.js?v=<?= filemtime('app/app.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_commander/users/read_all.js?v=<?= filemtime('app/_commander/users/read_all.js') ?>)"></script>
+<script language="JavaScript" type="text/javascript" src="app/_commander/users/read_one.js?v=<?= filemtime('app/_commander/users/read_one.js') ?>)"></script>
+<script language="JavaScript" type="text/javascript" src="app/_commander/profile/read_one.js?v=<?= filemtime('app/_commander/profile/read_one.js') ?>)"></script>
+<script language="JavaScript" type="text/javascript" src="app/_commander/thingspeak/read_one.js?v=<?= filemtime('app/_commander/thingspeak/read_one.js') ?>)"></script>
+<script language="JavaScript" type="text/javascript" src="app/_commander/vo2max/calculate.js?v=<?= filemtime('app/_commander/vo2max/calculate.js') ?>)"></script>
+
 <?php
 //DataTables JS Plugins for Commander Dashboard
 $cb->get_js('js/plugins/datatables/jquery.dataTables.min.js');
 $cb->get_js('js/plugins/datatables/dataTables.bootstrap4.min.js');
 $cb->get_js('js/pages/be_tables_datatables.min.js');
 
+$cb->get_js('js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js');
 $cb->get_js('js/plugins/masked-inputs/jquery.maskedinput.min.js');
-
 $cb->get_js('js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js');
 
 //<!-- Page JS Code -->
-$cb->get_js('js/pages/be_forms_wizard.min.js');
-$cb->get_js('js/pages/be_forms_plugins.min.js');
+$cb->get_js('js/pages/wizard_forms.min.js');
 
 ?>
 <script>

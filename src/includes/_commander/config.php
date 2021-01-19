@@ -10,8 +10,10 @@ $cb->inc_sidebar                = 'includes/_commander/views/inc_sidebar.php';
 $cb->inc_header                 = 'includes/_commander/views/inc_header.php';
 $cb->inc_footer                 = 'includes/_commander/views/inc_footer.php';
 
-// HEADER SETTINGS
-$cb->l_header_fixed             = true;
+// HEADER AND SIDEBAR SETTINGS
+$cb->l_header_fixed     = true;
+$cb->l_header_style     = 'inverse';
+$cb->l_sidebar_inverse  = true;
 
 // MAIN MENU
 $cb->main_nav                   = array(

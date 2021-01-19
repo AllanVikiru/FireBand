@@ -16,7 +16,7 @@ $(document).ready(function () {
     var id = $(this).attr("data-id");
     $.getJSON("../src/api/models/user/read_one.php?id=" + id, function (data) {
       // inject html to 'page-content' of our app
-      $("#user-id").val(data.id);
+      $("#my-id").val(data.id);
       $("#my-name").val(data.username);
       $("#my-email").val(data.email);
       $("#modal-my-info").modal("show");

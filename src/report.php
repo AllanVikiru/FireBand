@@ -1,27 +1,24 @@
 <?php
 require_once '../vendor/autoload.php';
-require 'includes/_global/config.php';
 
-// Codebase - Page specific configuration
-$cb->l_header_fixed     = true;
-$cb->l_header_style     = 'glass-inverse';
-$cb->l_sidebar_inverse  = true;
-$cb->l_sidebar_mini     = true;
-
-require 'includes/_global/views/head_start.php';
-require 'includes/_global/views/head_end.php';
-require 'includes/_global/views/page_start.php';
 
 use Delight\Cookie\Session;
 
 Session::start('Lax');
+Session::regenerate(true);
+
+require 'includes/_global/config.php';
+require 'includes/_report/config.php';
+
+require 'includes/_global/views/head_start.php';
+require 'includes/_global/views/head_end.php';
+require 'includes/_global/views/page_start.php';
 
 $api_key = '2K2D99IJKQQ9D8CX';
 $link = 'https://thingspeak.com/channels/1259465/charts/1?api_key=' . $api_key . '&bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&timescale=30&title=Is+the+Device+Worn%3F+%28every+30+seconds%29&type=step';
 $spdlink = 'https://thingspeak.com/channels/1259465/charts/7?api_key=' . $api_key . '&bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Ground+Speed+%28m%2Fs%29&type=spline';
 ?>
 
-<?php require 'includes/_commander/views/inc_report_header.php'; ?>
 <!-- Hero -->
 <div class="bg-image bg-image-bottom" style="background-image: url('<?= $cb->assets_folder; ?>/media/photos/fire-truck.jpg');">
     <div class="bg-primary-dark-op">
@@ -64,7 +61,7 @@ $spdlink = 'https://thingspeak.com/channels/1259465/charts/7?api_key=' . $api_ke
 
             <div class="col-md-6">
                 <div class="block">
-                    <div class="block-header bg-pulse-lighter">
+                    <div class="block-header bg-primary-lighter">
                         <h3 class="block-title">
                             Current Air Temperature <small>All time</small>
                         </h3>
@@ -81,7 +78,7 @@ $spdlink = 'https://thingspeak.com/channels/1259465/charts/7?api_key=' . $api_ke
             </div>
             <div class="col-md-6">
                 <div class="block">
-                    <div class="block-header bg-pulse-lighter">
+                    <div class="block-header bg-primary-lighter">
                         <h3 class="block-title">
                             Current Air Temperature <small>This week</small>
                         </h3>
@@ -100,7 +97,7 @@ $spdlink = 'https://thingspeak.com/channels/1259465/charts/7?api_key=' . $api_ke
         <div class="row invisible" data-toggle="appear">
             <div class="col-md-6">
                 <div class="block">
-                    <div class="block-header bg-pulse-lighter">
+                    <div class="block-header bg-primary-lighter">
                         <h3 class="block-title">
                             Current Air Temperature <small>This week</small>
                         </h3>
@@ -117,7 +114,7 @@ $spdlink = 'https://thingspeak.com/channels/1259465/charts/7?api_key=' . $api_ke
             </div>
             <div class="col-md-6">
                 <div class="block">
-                    <div class="block-header bg-pulse-lighter">
+                    <div class="block-header bg-primary-lighter">
                         <h3 class="block-title">
                             Current Air Temperature <small>This week</small>
                         </h3>
@@ -137,13 +134,10 @@ $spdlink = 'https://thingspeak.com/channels/1259465/charts/7?api_key=' . $api_ke
 </div>
 <!-- END Page Content -->
 
-<?php require 'includes/_global/views/page_end.php'; ?>
-<?php require 'includes/_global/views/footer_start.php'; ?>
+<?php require 'includes/_global/views/page_end.php'; 
+require 'includes/_global/views/footer_start.php'; 
+//Page JS Plugins $cb->get_js('js/plugins/chartjs/Chart.bundle.min.js'); -->
 
-<!-- Page JS Plugins -->
-<?php $cb->get_js('js/plugins/chartjs/Chart.bundle.min.js'); ?>
+// Page JS Code $cb->get_js('js/pages/be_pages_dashboard.min.js'); -->
 
-<!-- Page JS Code -->
-<?php $cb->get_js('js/pages/be_pages_dashboard.min.js'); ?>
-
-<?php require 'includes/_global/views/footer_end.php'; ?>
+require 'includes/_global/views/footer_end.php'; ?>

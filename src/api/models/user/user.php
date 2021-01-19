@@ -32,15 +32,7 @@ class User
         $stmt->execute();
         return $stmt;
     }
-    public function readallFF()
-    {
-        // select all query 
-        $query = 'SELECT u.id, u.username, u.email 
-        FROM ' . $this->table_name . ' u  WHERE u.roles_mask = 3';
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt;
-    }
+    
     public function create()
     {
 

@@ -1,4 +1,5 @@
 <?php
+
 use Delight\Cookie\Session;
 ?>
 <!-- User Information Modal -->
@@ -9,16 +10,16 @@ use Delight\Cookie\Session;
                 <!-- Start Form -->
                 <form class="js-validation-user" id="my-user-form" action="#" method="post">
                     <div class="block-header bg-primary-dark">
-                        <h3 class="block-title text-white">User Details</h3>
+                        <h3 class="block-title text-white">My Details</h3>
                         <div class="block-options">
                             <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                                 <i class="si si-close"></i>
                             </button>
                         </div>
                     </div>
-                    <input type="hidden" id="user-id" name="user-id" value="<?=Session::get('id')?>"/>
+                    <input type="hidden" id="my-id" name="my-id" value="<?= Session::get('id') ?>" />
                     <div class="block-content">
-                    <div class="form-group mb-15">
+                        <div class="form-group mb-15">
                             <label for="new-username">Full Name</label>
                             <div class="input-group">
                                 <div class="input-group-append">
@@ -40,19 +41,19 @@ use Delight\Cookie\Session;
                                 <input type="email" class="form-control" id="my-email" name="my-email">
                             </div>
                         </div>
-                        
-                    <div class="modal-footer">
-                        <div class="form-group row">
-                            <div class="col-3 text-left">
-                                <button type="button" class="btn btn-alt-secondary " data-dismiss="modal">Cancel</button>
-                            </div>
-                            <div class="col-9 text-right">
-                                <button type="submit" class="btn btn-alt-primary">
-                                    <i class="fa fa-save"></i>&ensp;Update
-                                </button>
+
+                        <div class="modal-footer">
+                            <div class="form-group row">
+                                <div class="col-3 text-left">
+                                    <button type="button" class="btn btn-alt-secondary " data-dismiss="modal">Cancel</button>
+                                </div>
+                                <div class="col-9 text-right">
+                                    <button type="submit" class="btn btn-alt-primary">
+                                        <i class="fa fa-save"></i>&ensp;Update
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </form>
                 <!-- END Form -->
             </div>

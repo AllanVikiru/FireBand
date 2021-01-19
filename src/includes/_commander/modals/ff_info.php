@@ -4,7 +4,8 @@
     <div class="modal-dialog modal-lg modal-dialog-slideup" role="document">
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
-                <form action="#" method="post">
+                <form id="ff-info-form" action="#" method="post">
+                <input type="hidden" id="ff-id" name="ff-id"/>
                     <div class="block-header bg-primary-dark">
                         <h3 class="block-title text-white">Firefighter Details</h3>
                         <div class="block-options">
@@ -18,13 +19,13 @@
                             <!-- Step Tabs -->
                             <ul class="nav nav-tabs nav-tabs-block nav-fill" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#wizard-simple-step1" data-toggle="tab">1. V0<sub>2</sub> max </a>
+                                    <a class="nav-link active" href="#wizard-simple-step1" data-toggle="tab">1. VO<sub>2</sub> max </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#wizard-simple-step2" data-toggle="tab">2. Account</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#wizard-simple-step3" data-toggle="tab">3. Biodata</a>
+                                    <a class="nav-link" href="#wizard-simple-step3" data-toggle="tab">3. Health Profile</a>
                                 </li>
                             </ul>
                             <!-- END Step Tabs -->
@@ -39,7 +40,6 @@
                                         <p class="mb-0"><strong class="font-w700">Men:</strong> 108.844 - (0.1636 x weight in kg) - (1.438 x run time in min) - (0.1928 x heart rate)</p>
                                     </div>
                                     <form action="#" method="post">
-                                        <input type="hidden" id="user-id" name="user-id" value="<?= $id ?>" />
                                         <div class="form-group mb-15">
                                             <label for="run-time">Run Time</label>
                                             <div class="input-group">
@@ -48,7 +48,7 @@
                                                         <i class="fa fa-clock-o"></i>
                                                     </span>
                                                 </div>
-                                                <input type="number" class="form-control" id="run-time" name="run-time">
+                                                <input type="number" class="form-control" id="ff-runtime" name="ff-runtime">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">minutes</span>
                                                 </div>
@@ -62,7 +62,7 @@
                                                         <i class="fa fa-heartbeat"></i>
                                                     </span>
                                                 </div>
-                                                <input type="number" class="form-control" id="heartrate" name="heartrate">
+                                                <input type="number" class="form-control" id="ff-heartrate" name="ff-heartrate">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">bpm</span>
                                                 </div>
@@ -90,7 +90,7 @@
                                                         <i class="fa fa-sliders"></i>
                                                     </span>
                                                 </div>
-                                                <input type="number" class="form-control" id="v02" name="v02" disabled>
+                                                <input type="number" class="form-control" id="ff-v02" name="ff-v02">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">ml/kg/min</span>
                                                 </div>
@@ -104,7 +104,7 @@
                                                         <i class="fa fa-info"></i>
                                                     </span>
                                                 </div>
-                                                <input type="number" class="form-control" id="status" name="status" disabled>
+                                                <input type="text" class="form-control" id="ff-status" name="ff-status">
                                             </div>
                                         </div>
                                     </form>
@@ -114,13 +114,9 @@
                                 <!-- Step 2 -->
                                 <div class="tab-pane" id="wizard-simple-step2" role="tabpanel">
                                     <div class="form-group row">
-                                        <div class="col-6">
-                                            <label for="ff-firstname">First Name</label>
-                                            <input class="form-control" type="text" id="ff-firstname" name="ff-firstname">
-                                        </div>
-                                        <div class="col-6">
-                                            <label for="ff-lastname">Last Name</label>
-                                            <input class="form-control" type="text" id="ff-lastname" name="ff-lastname">
+                                        <div class="col-12">
+                                            <label for="ff-firstname">Full Name</label>
+                                            <input class="form-control" type="text" id="ff-name" name="ff-name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -130,19 +126,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-12">
-                                            <label for="ff-phone">Phone</label>
-                                            <input class="form-control" type="text" id="ff-phone" name="ff-phone">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <div class="col-6">
                                             <label for="ff-channel">FireBand Live Channel ID</label>
                                             <input class="form-control" type="text" id="ff-channel" name="ff-channel">
                                         </div>
                                         <div class="col-6">
                                             <label for="wizard-simple-lastname">FireBand Read Data API Key</label>
-                                            <input class="form-control" type="text" id="ff-api" name="ff-api">
+                                            <input class="form-control" type="text" id="ff-key" name="ff-key">
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +151,8 @@
                                                         <i class="fa fa-calendar"></i>
                                                     </span>
                                                 </div>
-                                                <input type="text" class="js-masked-date-dash form-control" id="ff-dob" name="ff-dob" placeholder="dd-mm-yyyy">
+                                                <input type="text" class="js-datepicker form-control" id="example-datepicker2" name="example-datepicker2" data-week-start="1" data-autoclose="true" data-today-highlight="true" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
+                                                <input type="hidden" id="ff-age" name="ff-age" />
                                             </div>
                                         </div>
                                     </div>
@@ -170,22 +161,7 @@
                                             <label for="ff-sex">Sex</label>
                                         </div>
                                         <div class="col-9">
-                                            <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="sex-f" id="sex-f" value="0">
-                                                <label class="custom-control-label" for="sex-f">Female</label>
-                                            </div>
-                                            <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="sex-m" id="sex-m" value="1">
-                                                <label class="custom-control-label" for="sex-m">Male</label>
-                                            </div>
-                                            <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="sex-i" id="sex-i" value="2">
-                                                <label class="custom-control-label" for="sex-i">Intersex</label>
-                                            </div>
-                                            <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="sex-rns" id="sex-rns" value="3">
-                                                <label class="custom-control-label" for="sex-rns">Rather not say</label>
-                                            </div>
+                                            <div id="sexes"></div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -250,7 +226,7 @@
                     <div class="modal-footer">
                         <div class="form-group row">
                             <div class="col-3 text-left">
-                                <button type="button" class="btn btn-alt-secondary " data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-alt-secondary " data-dismiss="modal"> Cancel</button>
                             </div>
                             <div class="col-9 text-right">
                                 <button type="submit" class="btn btn-alt-primary">
@@ -258,12 +234,10 @@
                                 </button>
                             </div>
                         </div>
-
                     </div>
                 </form>
                 <!-- END Form -->
             </div>
-            <!-- END Form -->
         </div>
     </div>
 </div>

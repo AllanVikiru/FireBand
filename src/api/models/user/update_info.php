@@ -7,7 +7,6 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
   
 // include database and object files
-require_once '../../../../vendor/autoload.php';
 include_once '../../config/database.php';
 include_once 'user.php';
 
