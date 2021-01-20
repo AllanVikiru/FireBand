@@ -1,6 +1,7 @@
 $(document).ready(function () {
   // show html form when 'create product' button was clicked
-  $(document).on("click", ".fetch-user-info", function () {
+  $(document).on("click", ".fetch-user-info", function (e) {
+    e.preventDefault();
     // load list of categories
     $.getJSON("../src/api/models/sex/read_all.php", function (data) {
       // build categories option html

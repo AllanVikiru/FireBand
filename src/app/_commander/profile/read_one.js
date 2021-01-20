@@ -1,6 +1,7 @@
 $(document).ready(function () {
   // handle 'read one' button click
-  $(document).on("click", ".user-details-button", function () {
+  $(document).on("click", ".user-details-button", function (e) {
+    e.preventDefault();
     // get user id
     var id = $(this).attr("data-id");
     $.getJSON(
@@ -12,10 +13,15 @@ $(document).ready(function () {
           "checked",
           true
         );
-        $("#ff-weight").val(data.weight);
-        $("#ff-height").val(data.height);
-        $("#ff-age").val(data.age);
+        $("#user-selected-sex").val(data.sex_id);
+        $("#weight").val(data.weight);
+        $("#height").val(data.height);
+        $("#user-age").val(data.age);
       }
     );
   });
+  $('#modal-ff-info').on('hidden.bs.modal', function (e) {
+
+    $('#ff-info-form').find("input[type=hidden]").val("");
+})
 });

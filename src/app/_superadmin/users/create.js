@@ -1,6 +1,7 @@
 $(document).ready(function () {
   // show html form when 'create product' button was clicked
-  $(document).on("click", ".create-new-user", function () {
+  $(document).on("click", ".create-new-user", function (e) {
+    e.preventDefault();
     // load list of categories
     $.getJSON("../src/api/models/role/read_all.php", function (data) {
       // build categories option html

@@ -46,9 +46,11 @@ require 'includes/_global/views/footer_start.php';
 <script language="JavaScript" type="text/javascript" src="app/_commander/users/read_all.js?v=<?= filemtime('app/_commander/users/read_all.js') ?>)"></script>
 <script language="JavaScript" type="text/javascript" src="app/_commander/users/read_one.js?v=<?= filemtime('app/_commander/users/read_one.js') ?>)"></script>
 <script language="JavaScript" type="text/javascript" src="app/_commander/profile/read_one.js?v=<?= filemtime('app/_commander/profile/read_one.js') ?>)"></script>
+<script language="JavaScript" type="text/javascript" src="app/_commander/profile/update.js?v=<?= filemtime('app/_commander/profile/update.js') ?>)"></script>
 <script language="JavaScript" type="text/javascript" src="app/_commander/thingspeak/read_one.js?v=<?= filemtime('app/_commander/thingspeak/read_one.js') ?>)"></script>
+<script language="JavaScript" type="text/javascript" src="app/_commander/vo2max/read_one.js?v=<?= filemtime('app/_commander/vo2max/read_one.js') ?>)"></script>
 <script language="JavaScript" type="text/javascript" src="app/_commander/vo2max/calculate.js?v=<?= filemtime('app/_commander/vo2max/calculate.js') ?>)"></script>
-
+<script language="JavaScript" type="text/javascript" src="app/_commander/vo2max/update.js?v=<?= filemtime('app/_commander/vo2max/update.js') ?>)"></script>
 <?php
 //DataTables JS Plugins for Commander Dashboard
 $cb->get_js('js/plugins/datatables/jquery.dataTables.min.js');

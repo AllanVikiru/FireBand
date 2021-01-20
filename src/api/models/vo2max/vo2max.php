@@ -56,5 +56,25 @@ class VO2Max
         }
         return false;
     }
+    public function readOne()
+    {
+        try {
+            $query = $this->conn->prepare('SELECT * FROM ' . $this->table_name . ' WHERE user_id = ?');
+            $query->bindParam(1, $this->user_id);
+            $query->execute();
+            $row = $query->fetch(PDO::FETCH_ASSOC);
+
+            // set values to object properties
+            $this->user_id = $row['user_id'];
+            $this->value = $row['value'];
+            $this->status = $row['status'];
+            $this->test_date = $row['test_date'];
+
+        } catch (Exception $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+        return $query;
+    }
+    
 
 }

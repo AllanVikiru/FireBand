@@ -1,6 +1,7 @@
 $(document).ready(function () {
   // handle 'read one' button click
-  $(document).on("click", ".read-user-button", function () {
+  $(document).on("click", ".read-user-button", function (e) {
+    e.preventDefault();
     // get user id
     var id = $(this).attr("data-id");
     $.getJSON("../src/api/models/user/read_one.php?id=" + id, function (data) {

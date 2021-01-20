@@ -1,14 +1,15 @@
 $(document).ready(function () {
   // handle 'read one' button click
-  $(document).on("click", ".user-details-button", function () {
+  $(document).on("click", ".user-details-button", function (e) {
     // get user id
+    e.preventDefault();
     var id = $(this).attr("data-id");
     $.getJSON("../src/api/models/user/read_one.php?id=" + id, function (data) {
       // inject html to 'page-content' of our app
       $("#ff-info-form")[0].reset();
-      $("#ff-id").val(data.id);
-      $("#ff-name").val(data.username);
-      $("#ff-email").val(data.email);
+      $("#user-id").val(data.id);
+      $("#user-name").val(data.username);
+      $("#user-email").val(data.email);
       $("#modal-ff-info").modal("show");
     });
     $.getJSON("../src/api/models/sex/read_all.php", function (data) {

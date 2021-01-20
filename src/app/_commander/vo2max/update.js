@@ -19,7 +19,10 @@ $(document).ready(function () {
               className: "btn-outline-success",
             },
           },
-          callback: function (result) {},
+          callback: function (result) {
+            $("#modal-ff-info").modal("hide");
+            showUsers();
+          },
         });
       },
       error: function (xhr, resp, text) {
@@ -33,7 +36,6 @@ $(document).ready(function () {
           },
           callback: function (result) {
             console.log(xhr, resp, text);
-            location.reload();
           },
         });
       },

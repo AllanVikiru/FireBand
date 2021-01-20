@@ -28,7 +28,7 @@ if ($num > 0) {
         extract($row);
 
         $user_item = array(
-            "id" => $user_id,
+            "id" => $id,
             "username" => $username,
             "status" => $status,
             "test_date" => $test_date  

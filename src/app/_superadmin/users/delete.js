@@ -1,6 +1,7 @@
 $(document).ready(function () {
   // will run if the delete button was clicked
-  $(document).on("click", ".delete-user-button", function () {
+  $(document).on("click", ".delete-user-button", function (e) {
+    e.preventDefault();
     // get the product id
     var id = $(this).attr("data-id");
     // bootbox for good looking 'confirm pop up'

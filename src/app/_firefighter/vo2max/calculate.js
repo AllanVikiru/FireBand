@@ -1,6 +1,7 @@
 $(document).ready(function () {
   // show html form when 'create product' button was clicked
-  $(document).on("click", ".calculate-vo2max", function () {
+  $(document).on("click", ".calculate-vo2max", function (e) {
+    e.preventDefault();
     var age = $("#user-age").val();
     var sex = $("#user-sex").val();
     var weight = $("#user-weight").val();
