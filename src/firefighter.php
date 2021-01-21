@@ -136,27 +136,23 @@ require 'includes/_global/views/page_end.php';
 require 'includes/_global/views/footer_start.php';
 ?>
 <script language="JavaScript" type="text/javascript" src="app/app.js?v=<?= filemtime('app/app.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/vo2_calculator.js?v=<?= filemtime('app/vo2_calculator.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_firefighter/user/read_one.js?v=<?= filemtime('app/_firefighter/user/read_one.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/_firefighter/user/update.js?v=<?= filemtime('app/_firefighter/user/update.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_firefighter/profile/read_one.js?v=<?= filemtime('app/_firefighter/profile/read_one.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_firefighter/profile/update.js?v=<?= filemtime('app/_firefighter/profile/update.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_firefighter/vo2max/read_one.js?v=<?= filemtime('app/_firefighter/vo2max/read_one.js') ?>"></script>
-<script language="JavaScript" type="text/javascript" src="app/_firefighter/vo2max/calculate.js?v=<?= filemtime('app/_firefighter/vo2max/calculate.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_firefighter/vo2max/update.js?v=<?= filemtime('app/_firefighter/vo2max/update.js') ?>"></script>
 
 <?php
 //Page JS Plugins
 // $cb->get_js('js/plugins/chartjs/Chart.bundle.min.js');
 $cb->get_js('js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js');
-//Page JS Code 
-//$cb->get_js('js/pages/be_pages_dashboard.min.js'); 
-
-$cb->get_js('js/plugins/masked-inputs/jquery.maskedinput.min.js');
-//$cb->get_js('js/pages/be_forms_plugins.min.js');
 ?>
 
 <script>
     jQuery(function() {
-        Codebase.helpers(['datepicker', 'masked-inputs']);
+        Codebase.helpers(['datepicker']);
     });
 </script>
 

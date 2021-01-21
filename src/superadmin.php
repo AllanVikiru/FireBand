@@ -37,6 +37,7 @@ require 'includes/_global/views/page_start.php';
 require 'includes/_superadmin/modals/new_user.php';
 require 'includes/_superadmin/modals/user_info.php';
 require 'includes/_superadmin/modals/my_info.php';
+require 'includes/_superadmin/modals/ts_info.php';
 require 'includes/_global/views/page_end.php';
 require 'includes/_global/views/footer_start.php';?>
 
@@ -46,9 +47,8 @@ require 'includes/_global/views/footer_start.php';?>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_all.js?v=<?= filemtime('app/_superadmin/users/read_all.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_one.js?v=<?= filemtime('app/_superadmin/users/read_one.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/update.js?v=<?= filemtime('app/_superadmin/users/update.js') ?>"></script>
-<script language="JavaScript" type="text/javascript" src="app/_superadmin/users/update_info.js?v=<?= filemtime('app/_superadmin/users/update_info.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/delete.js?v=<?= filemtime('app/_superadmin/users/delete.js') ?>"></script>
-
+<script language="JavaScript" type="text/javascript" src="app/_superadmin/thingspeak/create.js?v=<?= filemtime('app/_superadmin/thingspeak/create.js') ?>"></script>
 <?php
 //DataTables JS Plugins for Commander Dashboard
 $cb->get_js('js/plugins/datatables/jquery.dataTables.min.js');

@@ -21,7 +21,7 @@ $profile = new Profile($db);
 $data = json_decode(file_get_contents("php://input"), true);
 
 // set ID property of user to be edited
-$profile->user_id = $data['user-id'];
+$profile->user_id = $data['user-profile-id'];
 $timestamp = strtotime($data['example-datepicker2']);
 // Creating new date format from that timestamp
 $new_date = date("Y-m-d", $timestamp);

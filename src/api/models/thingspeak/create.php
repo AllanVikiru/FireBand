@@ -8,12 +8,12 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 // instantiate user and database objects
 include_once '../../config/database.php';
-include_once 'user.php';
+include_once 'thingspeak.php';
 
 //connect to db and prepare user object
 $database = new Database();
 $db = $database->connect();
-$user = new User($db);
+$ts = new Thingspeak($db);
 
 // get posted data
 $data = json_decode(file_get_contents("php://input"), true);
@@ -26,18 +26,21 @@ if (!array_filter($data)) {
 } 
 else {
     // set user property values
-    $user->username = $data['new-username'];
-    $user->email = $data['new-email'];
-    $user->role = $data['example-inline-radios'];
+    $ts->user_id = $data['example-select'];
+    $ts->channel = $data['user-channel'];
+    $ts->key = $data['user-key'];
 }
 // create the user, if successful set response code - 201 created
-if ($user->create()) {
+if ($ts->createorUpdate()) {
     http_response_code(201);
-    echo json_encode(array("message" => "User was created."));
+    echo json_encode(array("message" => "Info was set."));
 }
 
 // else unsuccessful, set response code 503 - service unavailable
 else {
     http_response_code(503);
-    echo json_encode(array("message" => "Unable to create user. Service temporarily down"));
+    echo json_encode(array("message" => "Unable to set info. Service temporarily down"));
 }
+
+
+

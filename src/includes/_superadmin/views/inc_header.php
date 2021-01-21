@@ -85,7 +85,7 @@ Session::id();
                     <i class="fa fa-angle-down ml-5"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right min-width-200" aria-labelledby="page-header-user-dropdown">
-                    <a class="dropdown-item my-profile"  data-id="<?=Session::get('id')?>">
+                    <a class="dropdown-item my-profile" href="javascript:void(0)" data-id="<?=Session::get('id')?>">
                         <i class="fa fa-pencil mr-5"></i> My Profile
                     </a>
                     <div class="dropdown-divider"></div>

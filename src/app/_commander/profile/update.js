@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // show html form when 'create product' button was clicked
   //'create product form' handle will be here - will run if create product form was submitted
-  $(document).on("submit", "#ff-info-form", function () {
+  $(document).on("submit", "#ff-profile-form", function () {
     // form data will be here get form data
     var form_data = JSON.stringify($(this).serializeObject());
     // submit form data to api
@@ -16,18 +16,18 @@ $(document).ready(function () {
           buttons: {
             confirm: {
               label: '<span class="glyphicon glyphicon-ok"></span> Clear',
-              className: "btn-outline-secondary",
+              className: "btn-outline-success",
             },
           },
           callback: function (result) {
             $("#modal-ff-info").modal("hide");
-            showUsers();
+            location.reload();
           },
         });
       },
       error: function (xhr, resp, text) {
         bootbox.confirm({
-          message: "<h4>An error occurred. Try again later.</h4>",
+          message: "<h4>An error occurred. Reload the page or try again later.</h4>",
           buttons: {
             confirm: {
               label: '<span class="glyphicon glyphicon-ok"></span> Clear',

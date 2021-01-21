@@ -1,6 +1,9 @@
 $(document).ready(function () {
   // show list of users on first load
   showUsers();
+   // $("#modal-ff-info").on("hidden.bs.modal", function (e) {
+  //   $("#ff-vo2-form").find("input[type=hidden]").val("");
+  // });
 });
 function showUsers() {
   $.getJSON("../src/api/models/vo2max/read_all.php", function (data) {

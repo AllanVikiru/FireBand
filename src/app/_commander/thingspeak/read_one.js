@@ -8,8 +8,8 @@ $(document).ready(function () {
       "../src/api/models/thingspeak/read_one.php?id=" + id,
       function (data) {
         // inject html to 'page-content' of our app 
-        $("#user-channel").val(data.channel);
-        $("#user-key").val(data.key);
+        $("#user-channel").html(data.channel);
+        $("#user-key").html(data.key);
       }
     );
   });

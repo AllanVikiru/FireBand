@@ -43,13 +43,12 @@ $(document).ready(function () {
     });
     return false;
   });
-  $(document).on("submit", "#my-user-form", function (e) {
-    e.preventDefault();
+  $(document).on("submit", "#my-user-form", function () {
     // get form data
     var form_data = JSON.stringify($(this).serializeObject());
     // submit form data to api
     $.ajax({
-      url: "../src/api/models/user/update_info.php",
+      url: "../src/api/models/user/update.php",
       type: "POST",
       contentType: "application/json",
       data: form_data,

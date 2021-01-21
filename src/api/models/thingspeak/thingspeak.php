@@ -9,6 +9,7 @@ class Thingspeak
     public $user_id;
     public $channel;
     public $key;
+    public $id;
 
     // constructor with $db as database connection
     public function __construct($db)
@@ -17,9 +18,9 @@ class Thingspeak
     }
 
     // read all roles
-    public function readAll()
+    public function readAllUsers()
     {  
-        $query = $this->conn->prepare('SELECT * FROM ' . $this->table_name . '');
+        $query = $this->conn->prepare('SELECT * FROM users WHERE roles_mask = 3');
         $query->execute();
         return $query;
     }
@@ -33,8 +34,8 @@ class Thingspeak
             $row = $query->fetch(PDO::FETCH_ASSOC);
 
             // set values to object properties
-            $this->channel = $row['ts_channel'];
-            $this->key = $row['ts_key'];
+            $this->channel = $row['channel'];
+            $this->key = $row['read_key'];
         } catch (Exception $e) {
             echo "Connection failed: " . $e->getMessage();
         }
@@ -45,8 +46,8 @@ class Thingspeak
      public function createorUpdate()
      {
          // query to 
-         $query = 'INSERT INTO ' . $this->table_name . ' (user_id,ts_channel,ts_key) VALUES (?,?,?) 
-         ON DUPLICATE KEY UPDATE ts_channel=?, ts_key=?';
+         $query = 'INSERT INTO ' . $this->table_name . ' (user_id,channel,read_key) VALUES (?,?,?) 
+         ON DUPLICATE KEY UPDATE channel=?, read_key=?';
  
          // prepare query
          $stmt = $this->conn->prepare($query);

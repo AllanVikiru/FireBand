@@ -31,6 +31,10 @@ $cb->main_nav                   = array(
         'icon'  => 'fa fa-plus',
     ),
     array(
+        'name'  => '<span class="sidebar-mini-hide set-ff-ts">Set Firefighter ThingSpeak Credentials</span>',
+        'icon'  => 'fa fa-bar-chart-o',
+    ),
+    array(
         'name'  => '<span class="sidebar-mini-visible">RS</span><span class="sidebar-mini-hidden">Resources</span>',
         'type'  => 'heading'
     ),

@@ -6,15 +6,14 @@ $(document).ready(function () {
     var id = $(this).attr("data-id");
     $.getJSON("../src/api/models/user/read_one.php?id=" + id, function (data) {
       // inject html to 'page-content' of our app
-      $("#ff-info-form")[0].reset();
+      $("#ff-user-form")[0].reset();
       $("#user-id").val(data.id);
       $("#user-name").val(data.username);
       $("#user-email").val(data.email);
       $("#modal-ff-info").modal("show");
     });
     $.getJSON("../src/api/models/sex/read_all.php", function (data) {
-      // build categories option html
-      // loop through returned list of data
+      // build sexes options
       var sexes_options_html = `<span>`;
       $.each(data.records, function (key, val) {
         sexes_options_html +=
@@ -43,10 +42,13 @@ $(document).ready(function () {
     var id = $(this).attr("data-id");
     $.getJSON("../src/api/models/user/read_one.php?id=" + id, function (data) {
       // inject html to 'page-content' of our app
-      $("#user-id").val(data.id);
+      $("#my-id").val(data.id);
       $("#my-name").val(data.username);
       $("#my-email").val(data.email);
       $("#modal-my-info").modal("show");
     });
+  });
+  $("#modal-ff-info").on("hidden.bs.modal", function (e) {
+    $("#ff-user-form").find("input[type=hidden]").val("");
   });
 });

@@ -1,5 +1,6 @@
 <?php
 // TODO: DEFINE ROOT DIRECTORY
+//TODO: inner form validations? set is-invalid class
 // require_once '../index.php';
 
 // define('ROOT_SRC', realpath(dirname(__FILE__)));

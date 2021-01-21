@@ -21,7 +21,7 @@ $vo2max = new VO2Max($db);
 $data = json_decode(file_get_contents("php://input"), true);
   
 // set ID property of vo2max to be edited
-$vo2max->user_id = $data['user-id'];
+$vo2max->user_id = $data['user-vo2-id'];
 
 //get current date and time
 date_default_timezone_set('Africa/Nairobi');
