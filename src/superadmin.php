@@ -1,9 +1,15 @@
 <?php
 require_once '../vendor/autoload.php';
+
 use Delight\Cookie\Session;
 
 Session::start('Lax');
 Session::regenerate(true);
+
+if (Session::get('role') != 1) {
+    header("Location: ../src/auth/logout.php");
+    exit;
+}
 
 require 'includes/_global/config.php';
 require 'includes/_superadmin/config.php';
@@ -28,7 +34,18 @@ require 'includes/_global/views/page_start.php';
             </div>
         </div>
         <div class="block-content block-content-full">
-            <div id="users-table"></div>
+            <!-- <div id="users-table"></div> -->
+            <table class="table table-bordered table-striped table-vcenter js-dataTable-full" id="users-dt">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Full Name</th>
+                        <th class="d-none d-sm-table-cell" style="width: 20%;">Email</th>
+                        <th class="d-none d-sm-table-cell" style="width: 20%;">Role</th>
+                        <th class="text-center" style="width: 20%;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="users-table"></tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -40,9 +57,9 @@ require 'includes/_superadmin/modals/my_info.php';
 require 'includes/_superadmin/modals/ts_info.php';
 require 'includes/_global/modals/pw_reset.php';
 require 'includes/_global/views/page_end.php';
-require 'includes/_global/views/footer_start.php';?>
+require 'includes/_global/views/footer_start.php'; ?>
 
-
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 <script language="JavaScript" type="text/javascript" src="app/app.js?v=<?= filemtime('app/app.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/pw_reset.js?v=<?= filemtime('app/pw_reset.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/create.js?v=<?= filemtime('app/_superadmin/users/create.js') ?>"></script>
@@ -51,11 +68,7 @@ require 'includes/_global/views/footer_start.php';?>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/update.js?v=<?= filemtime('app/_superadmin/users/update.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/delete.js?v=<?= filemtime('app/_superadmin/users/delete.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/thingspeak/create.js?v=<?= filemtime('app/_superadmin/thingspeak/create.js') ?>"></script>
-<?php
-//DataTables JS Plugins for Commander Dashboard //TODO: form validation $cb->get_js('js/pages/super_validation.min.js');
-$cb->get_js('js/plugins/datatables/jquery.dataTables.min.js');
-$cb->get_js('js/plugins/datatables/dataTables.bootstrap4.min.js');
-$cb->get_js('js/pages/be_tables_datatables.min.js');
 
+<?php
 require 'includes/_global/views/footer_end.php';
 ?>

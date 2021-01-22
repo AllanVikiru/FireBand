@@ -60,7 +60,7 @@ Session::id();
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="link-effect text-dual-primary-dark" href="index.php">
+                        <a class="link-effect text-dual-primary-dark" href="../src/auth/logout.php">
                             <i class="si si-logout"></i>
                         </a>
                     </li>

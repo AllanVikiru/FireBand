@@ -10,10 +10,14 @@ $db = new Database();
 $conn = $db->connect();
 $auth = new Auth\Auth($conn);
 
-try {  //echo Session::id();
+try {  
+    $auth->destroySession();
     $auth->logOutEverywhere();
     header('location:../index.php');
-} catch (Auth\NotLoggedInException $e) { //echo Session::id() //die('Not logged in');  
+    exit;
+} catch (Auth\NotLoggedInException $e) { 
+    $auth->destroySession();
     Session::regenerate(true);
     header('location:../index.php');
+    exit;
 }

@@ -5,6 +5,11 @@ use Delight\Cookie\Session;
 Session::start('Lax');
 Session::regenerate(true);
 
+if (Session::get('role') != 3){
+    header("Location: ../src/auth/logout.php");
+    exit;
+}
+
 require 'includes/_global/config.php';
 require 'includes/_firefighter/config.php';
 require 'includes/_global/views/head_start.php';

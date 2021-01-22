@@ -17,7 +17,7 @@ require 'includes/_global/views/page_start.php';
         <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
             <div class="p-30 invisible" data-toggle="appear">
                 <p class="font-size-h2 font-w600 text-white mb-5">
-                    Firefighter Safety starts with You.
+                    Firefighter Safety starts with You. 
                 </p>
                 <p class="font-size-h6 text-white-op">
                     <?= $cb->name ?> v <?= $cb->version ?> &copy; <span class="js-year-copy"></span>

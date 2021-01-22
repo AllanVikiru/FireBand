@@ -35,6 +35,10 @@ $cb->main_nav                   = array(
         'icon'  => 'fa fa-bar-chart-o',
     ),
     array(
+        'name'  => '<span class="sidebar-mini-hide delete-throttling">Refresh User Tokens</span>',
+        'icon'  => 'fa fa-user-times',
+    ),
+    array(
         'name'  => '<span class="sidebar-mini-visible">RS</span><span class="sidebar-mini-hidden">Resources</span>',
         'type'  => 'heading'
     ),

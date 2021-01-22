@@ -13,4 +13,4 @@ die();
 // PASSWORD_DEFAULT); 
 //  // Print the generated hash 
 //  echo "Generated hash: ".$hash; 
-?> 
+?>

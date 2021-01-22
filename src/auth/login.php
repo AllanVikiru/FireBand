@@ -30,6 +30,7 @@ if (isset($_POST["login"])) {
         Session::set('id', $id);
         Session::set('email', $mail);
         Session::set('username', $username);
+        Session::set('role', $result['roles_mask']);
 
         switch ($result['roles_mask']) {
             case '1':

@@ -16,22 +16,18 @@ $database = new Database();
 $db = $database->connect();
   
 // prepare user object
-$user = new User($db);
-
-// get user id and set user id to be deleted
-$data = json_decode(file_get_contents("php://input"));
-$user->id = $data->id;
+$tokens = new User($db);
   
 // try delete the user
-if($user->delete()){
+if($tokens->clearTokens()){
     // if able, set response code - 200 ok
     http_response_code(200);
-    echo json_encode(array("message" => "User was deleted."));
+    echo json_encode(array("message" => "Tokens cleared."));
 }
   
 // if unable, set response code - 503 service unavailable
 else{
     http_response_code(503);
-    echo json_encode(array("message" => "Unable to delete user."));
+    echo json_encode(array("message" => "Unable to clear tokens."));
 }
 ?>

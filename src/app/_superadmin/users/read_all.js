@@ -5,17 +5,7 @@ $(document).ready(function () {
 function showUsers() {
   // get list of users from the API
   $.getJSON("../src/api/models/user/read_all.php", function (data) {
-    var users_table = `
-        <table class="table table-bordered table-striped table-vcenter js-dataTable-full users-table">
-            <thead>
-                <tr>
-                    <th style="width: 25%;">Full Name</th>
-                    <th class="d-none d-sm-table-cell" style="width: 20%;">Email</th>
-                    <th class="d-none d-sm-table-cell" style="width: 20%;">Role</th>
-                    <th class="text-center" style="width: 20%;">Actions</th>
-                </tr>
-            </thead>
-            <tbody>`;
+    var users_table = ``;
 
     $.each(data.records, function (key, val) {
       // creating new table row per record
@@ -45,7 +35,6 @@ function showUsers() {
             </tr>`;
     });
     // end table
-    users_table += `</table>`;
     // inject to users table
     $("#users-table").html(users_table);
   });

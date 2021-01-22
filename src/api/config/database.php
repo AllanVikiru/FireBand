@@ -8,7 +8,7 @@ class Database{
     private $port = "3306"; //e.g 3306 for MySQL
     private $username = "root";
     private $password = "";
-    private $db = "test";
+    private $db = "tester";
     public $conn;
 
     //test connection

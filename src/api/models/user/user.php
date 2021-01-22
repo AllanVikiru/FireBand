@@ -145,15 +145,23 @@ class User
 
     public function delete()
     {
-        $query = 'DELETE u FROM ' . $this->table_name . ' u  WHERE id = ?';
-        $stmt = $this->conn->prepare($query); // execute the query $query = 'DELETE u, p FROM ' . $this->table_name . ' u JOIN profiles p ON p.user_id = u.id WHERE id = ?';
-
+        $query = 'DELETE u FROM ' . $this->table_name . ' u WHERE u.id = ?';
+        $stmt = $this->conn->prepare($query); 
         // sanitize
         $this->id = htmlspecialchars(strip_tags($this->id));
-
-        // bind id of record to delete
         $stmt->bindParam(1, $this->id);
 
+        // execute query
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+
+    public function clearTokens()
+    {
+        $query = 'DELETE FROM  users_throttling';
+        $stmt = $this->conn->prepare($query); 
         // execute query
         if ($stmt->execute()) {
             return true;
