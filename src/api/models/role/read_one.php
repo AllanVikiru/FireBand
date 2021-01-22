@@ -7,8 +7,8 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
   
 // include database and object files
-include_once '../config/database.php';
-include_once '../models/role.php';
+include_once '../../config/database.php';
+include_once 'role.php';
 
 // get database connection 
 $database = new Database();
@@ -16,7 +16,7 @@ $db = $database->connect();
 
 //prepare role object, set ID property of record to read and read role details
 $role = new Role($db);
-$role->role_id = isset($_GET['role_id']) ? $_GET['role_id'] : die();
+$role->role_id = isset($_GET['id']) ? $_GET['id'] : die();
 $role->readOne();
 
 //if record is found, create result array, set success response code - 200 OK and encode JSON array

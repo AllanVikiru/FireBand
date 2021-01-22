@@ -61,11 +61,10 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-3">
+        <div class="col-6">
             <button type="button" class="btn btn-block btn-alt-secondary " data-dismiss="modal">Cancel</button>
         </div>
-        <div class="col-5"></div>
-        <div class="col-4">
+        <div class="col-6">
             <button type="submit" class="btn btn-block btn-alt-primary">
                 <i class="fa fa-save"></i>&ensp;Update
             </button>

@@ -9,6 +9,7 @@ class Thingspeak
     public $user_id;
     public $channel;
     public $key;
+    public $location;
     public $id;
 
     // constructor with $db as database connection
@@ -36,6 +37,7 @@ class Thingspeak
             // set values to object properties
             $this->channel = $row['channel'];
             $this->key = $row['read_key'];
+            $this->location = $row['location'];
         } catch (Exception $e) {
             echo "Connection failed: " . $e->getMessage();
         }
@@ -46,8 +48,8 @@ class Thingspeak
      public function createorUpdate()
      {
          // query to 
-         $query = 'INSERT INTO ' . $this->table_name . ' (user_id,channel,read_key) VALUES (?,?,?) 
-         ON DUPLICATE KEY UPDATE channel=?, read_key=?';
+         $query = 'INSERT INTO ' . $this->table_name . ' (user_id,channel,read_key,location) VALUES (?,?,?,?) 
+         ON DUPLICATE KEY UPDATE channel=?, read_key=?, location=?';
  
          // prepare query
          $stmt = $this->conn->prepare($query);
@@ -55,14 +57,17 @@ class Thingspeak
          $this->user_id = htmlspecialchars(strip_tags($this->user_id));
          $this->channel = htmlspecialchars(strip_tags($this->channel));
          $this->key = htmlspecialchars(strip_tags($this->key));
- 
+         $this->location = htmlspecialchars(strip_tags($this->location));
+
          // bind values
          $stmt->bindParam(1, $this->user_id);
          $stmt->bindParam(2, $this->channel);
          $stmt->bindParam(3, $this->key);
-         $stmt->bindParam(4, $this->channel);
-         $stmt->bindParam(5, $this->key);
- 
+         $stmt->bindParam(4, $this->location);
+         $stmt->bindParam(5, $this->channel);
+         $stmt->bindParam(6, $this->key);
+         $stmt->bindParam(7, $this->location);
+
          // execute query
          if ($stmt->execute()) {
              return true;

@@ -33,7 +33,7 @@ require 'includes/_global/views/page_start.php';
 </div>
 <!-- END Page Content -->
 <?php
-
+require 'includes/_global/modals/pw_reset.php';
 require 'includes/_commander/modals/ff_info.php';
 require 'includes/_commander/modals/my_info.php';
 require 'includes/_global/views/page_end.php';
@@ -41,6 +41,7 @@ require 'includes/_global/views/footer_start.php';
 ?>
 <script language="JavaScript" type="text/javascript" src="app/app.js?v=<?= filemtime('app/app.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/vo2_calculator.js?v=<?= filemtime('app/vo2_calculator.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/pw_reset.js?v=<?= filemtime('app/pw_reset.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_commander/profile/read_one.js?v=<?= filemtime('app/_commander/profile/read_one.js') ?>)"></script>
 <script language="JavaScript" type="text/javascript" src="app/_commander/profile/update.js?v=<?= filemtime('app/_commander/profile/update.js') ?>)"></script>
 <script language="JavaScript" type="text/javascript" src="app/_commander/thingspeak/read_one.js?v=<?= filemtime('app/_commander/thingspeak/read_one.js') ?>)"></script>
@@ -50,8 +51,7 @@ require 'includes/_global/views/footer_start.php';
 <script language="JavaScript" type="text/javascript" src="app/_commander/vo2max/read_one.js?v=<?= filemtime('app/_commander/vo2max/read_one.js') ?>)"></script>
 <script language="JavaScript" type="text/javascript" src="app/_commander/vo2max/update.js?v=<?= filemtime('app/_commander/vo2max/update.js') ?>)"></script>
 <?php
-//DataTables JS Plugins for Commander Dashboard
-$cb->get_js('js/pages/be_tables_datatables.min.js');
+//DataTables JS Plugins for Commander Dashboard$cb->get_js('js/pages/be_tables_datatables.min.js');
 
 $cb->get_js('js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js');
 $cb->get_js('js/plugins/masked-inputs/jquery.maskedinput.min.js');

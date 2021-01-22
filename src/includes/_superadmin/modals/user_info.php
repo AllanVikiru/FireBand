@@ -1,4 +1,4 @@
-<?php //todo: reset logged in user password modal  
+<?php //TODO: reset logged in user password modal  
 ?>
 <!-- User Information Modal -->
 <div class="modal fade" id="modal-user-info" tabindex="-1" role="dialog" aria-labelledby="modal-slideup" aria-hidden="true">

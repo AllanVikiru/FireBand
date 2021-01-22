@@ -15,17 +15,19 @@
                     <div class="block-content">
                         <div class="form-group mb-15">
                             <label for="new-username">Select Name</label>
-                                <div id="users"></div>
+                            <div id="users"></div>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-6">
-                                <label for="user-channel">FireBand Live Channel ID</label>
-                                <input class="form-control" type="text" id="user-channel" name="user-channel">
-                            </div>
-                            <div class="col-6">
-                                <label for="wizard-simple-lastname">FireBand Read Data API Key</label>
-                                <input class="form-control" type="text" id="user-key" name="user-key">
-                            </div>
+                        <div class="form-group mb-15">
+                            <label for="user-channel">FireBand Live Channel ID</label>
+                            <input class="form-control" type="text" id="user-channel" name="user-channel">
+                        </div>
+                        <div class="form-group mb-15">
+                            <label for="user-key">FireBand Read Data API Key</label>
+                            <input class="form-control" type="text" id="user-key" name="user-key">
+                        </div>
+                        <div class="form-group mb-15">
+                            <label for="user-key">FireBand Geographical Map Key</label>
+                            <input class="form-control" type="text" id="user-location" name="user-location">
                         </div>
                         <div class="modal-footer">
                             <button type="reset" class="btn btn-alt-secondary">Clear</button>

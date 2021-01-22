@@ -28,7 +28,8 @@ if ($ts->key!= null) {
     $ts_array = array(
         "user_id" =>  $ts->user_id,
         "channel" => $ts->channel,
-        "key" => $ts->key
+        "key" => $ts->key,
+        "location" => $ts->location
     );
     // set response code - 200 OK and encode to JSON
     http_response_code(200);

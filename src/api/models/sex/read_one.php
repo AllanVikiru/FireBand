@@ -7,41 +7,33 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
   
 // include database and object files
-include_once '../config/database.php';
-include_once '../models/gender.php';
+include_once '../../config/database.php';
+include_once 'sex.php';
 
 // get database connection
 $database = new Database();
 $db = $database->connect();
   
-// prepare user object
-$user = new User($db);
-  
-// set ID property of record to read
-$user->id = isset($_GET['id']) ? $_GET['id'] : die();
-  
-// read the details of user to be edited
-$user->readOne();
-  
-if($user->name!=null){
-    // create array
-    $user_array = array(
-        "id" =>  $user->id,
-        "name" => $user->name,
-        "role" => $user->role
+//prepare role object, set ID property of record to read and read role details
+$sex = new Sex($db);
+$sex->sex_id = isset($_GET['id']) ? $_GET['id'] : die();
+$sex->readOne();
+
+//if record is found, create result array, set success response code - 200 OK and encode JSON array
+if($sex->sex_id!=null){
+    $sex_array = array(
+        "sex_id" =>  $sex->sex_id,
+        "sex" => $sex->sex
     );
-  
-    // set response code - 200 OK
     http_response_code(200);
-  
-    // make it json format
-    echo json_encode($user_array);
+    echo json_encode($sex_array);
 } 
-else{
-    // set response code - 404 Not found
-    http_response_code(404);
-  
-    // tell the user user does not exist
-    echo json_encode(array("message" => "User does not exist."));
+
+//if not found, set error response code - 404 NOT FOUND and set error message
+else {
+    $error_msg = array(
+        "message" => "No records found"
+    );
+    http_response_code(404); 
+    echo json_encode($error_msg);
 }
-?>

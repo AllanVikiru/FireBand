@@ -43,7 +43,7 @@ $id = Session::get('id');
                 </div>
             </div>
             <div class="block-content">
-                <?php include '../src/includes/_global/forms/v02_calculator.php' ?>
+                <?php require_once '../src/includes/_global/forms/v02_calculator.php' ?>
             </div>
         </div>
         <!-- END Calculate VO2 max -->
@@ -59,7 +59,7 @@ $id = Session::get('id');
                 </div>
             </div>
             <div class="block-content">
-                <?php include '../src/includes/_global/forms/health_profile.php' ?>
+                <?php require_once '../src/includes/_global/forms/health_profile.php' ?>
             </div>
         </div>
         <!-- END Health Profile -->
@@ -75,7 +75,7 @@ $id = Session::get('id');
                 </div>
             </div>
             <div class="block-content">
-                <?php include '../src/includes/_global/forms/my_info.php' ?>
+                <?php require_once '../src/includes/_global/forms/my_info.php' ?>
             </div>
         </div>
         <!-- END Auth Profile -->

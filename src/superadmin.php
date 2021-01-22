@@ -38,11 +38,13 @@ require 'includes/_superadmin/modals/new_user.php';
 require 'includes/_superadmin/modals/user_info.php';
 require 'includes/_superadmin/modals/my_info.php';
 require 'includes/_superadmin/modals/ts_info.php';
+require 'includes/_global/modals/pw_reset.php';
 require 'includes/_global/views/page_end.php';
 require 'includes/_global/views/footer_start.php';?>
 
 
 <script language="JavaScript" type="text/javascript" src="app/app.js?v=<?= filemtime('app/app.js') ?>"></script>
+<script language="JavaScript" type="text/javascript" src="app/pw_reset.js?v=<?= filemtime('app/pw_reset.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/create.js?v=<?= filemtime('app/_superadmin/users/create.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_all.js?v=<?= filemtime('app/_superadmin/users/read_all.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/read_one.js?v=<?= filemtime('app/_superadmin/users/read_one.js') ?>"></script>
@@ -50,12 +52,10 @@ require 'includes/_global/views/footer_start.php';?>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/users/delete.js?v=<?= filemtime('app/_superadmin/users/delete.js') ?>"></script>
 <script language="JavaScript" type="text/javascript" src="app/_superadmin/thingspeak/create.js?v=<?= filemtime('app/_superadmin/thingspeak/create.js') ?>"></script>
 <?php
-//DataTables JS Plugins for Commander Dashboard
+//DataTables JS Plugins for Commander Dashboard //TODO: form validation $cb->get_js('js/pages/super_validation.min.js');
 $cb->get_js('js/plugins/datatables/jquery.dataTables.min.js');
 $cb->get_js('js/plugins/datatables/dataTables.bootstrap4.min.js');
 $cb->get_js('js/pages/be_tables_datatables.min.js');
-// todo: form validation $cb->get_js('js/pages/super_validation.min.js');
-
 
 require 'includes/_global/views/footer_end.php';
 ?>

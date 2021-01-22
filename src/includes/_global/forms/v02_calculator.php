@@ -63,13 +63,12 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-4">
+        <div class="col-6">
             <button type="reset" class="btn btn-block btn-alt-secondary">
                 <i class="si si-reload mr-5"></i>
                 Reset
             </button>
         </div>
-        <div class="col-2"></div>
         <div class="col-6">
             <button type="submit" class="calculate-vo2max btn btn-block btn-alt-info">
                 <i class="fa fa-calculator mr-5"></i>

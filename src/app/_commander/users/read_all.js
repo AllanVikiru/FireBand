@@ -45,9 +45,9 @@ function showUsers() {
         `</td>
                             <td class="text-center">
                             <!-- monitor button -->
-                    <button class='btn  btn-secondary btn-sm monitor-user-button' data-id='` +
+                    <button class='btn btn-secondary btn-sm monitor-user-button' data-id='` +
         val.id +
-        `'>Monitor </button>
+        `'>Monitor</button>
      
                     <!-- details button -->
                     <button class='btn btn-secondary btn-sm user-details-button' data-id='` +

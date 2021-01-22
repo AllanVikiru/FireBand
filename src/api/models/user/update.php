@@ -17,6 +17,7 @@ $db = $database->connect();
 // prepare user object
 $user = new User($db);
 $personal = new User($db);
+$reset = new User($db);
 
 // get id of user to be edited
 $data = json_decode(file_get_contents("php://input"), true);
@@ -55,5 +56,23 @@ if (array_key_exists('user-id', $data)) {
         // if unable to update the user, set response code - 503 service unavailable
         http_response_code(503);
         echo json_encode(array("message" => "Unable to update user."));
+    }
+}
+if (array_key_exists('reset-id', $data)) {
+    if ($data['reset-id'] != null) {
+        $reset->id = $data['reset-id']; // set ID property of user to be edited
+        // set user property values 
+        $reset->old_password = $data['old-password'];
+        $reset->new_password = $data['new-password-confirm'];
+        // update the user
+        $reset->updatePassword();
+
+        // set response code - 200 ok
+        http_response_code(200);
+        echo json_encode(array("message" => "Password was updated."));
+    } else {
+        // if unable to update the user, set response code - 503 service unavailable
+        http_response_code(503);
+        echo json_encode(array("message" => "Unable to update password."));
     }
 }

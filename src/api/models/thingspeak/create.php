@@ -29,17 +29,18 @@ else {
     $ts->user_id = $data['example-select'];
     $ts->channel = $data['user-channel'];
     $ts->key = $data['user-key'];
+    $ts->location = $data['user-location'];
 }
 // create the user, if successful set response code - 201 created
 if ($ts->createorUpdate()) {
     http_response_code(201);
-    echo json_encode(array("message" => "Info was set."));
+    echo json_encode(array("message" => "Channel information was set."));
 }
 
 // else unsuccessful, set response code 503 - service unavailable
 else {
     http_response_code(503);
-    echo json_encode(array("message" => "Unable to set info. Service temporarily down"));
+    echo json_encode(array("message" => "Unable to set information. Service temporarily down"));
 }
 
 

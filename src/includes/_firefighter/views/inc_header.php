@@ -85,13 +85,9 @@ Session::id();
                     <i class="fa fa-angle-down ml-5"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right min-width-200" aria-labelledby="page-header-user-dropdown">
-                    <!-- Toggle Side Overlay -->
-                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                    <a class="dropdown-item" href="javascript:void(0)" data-toggle="layout" data-action="side_overlay_toggle">
-                        <i class="si si-wrench mr-5"></i> User Settings
+                    <a class="dropdown-item reset-pw" href="javascript:void(0)" data-id="<?=Session::get('id')?>">
+                        <i class="fa fa-asterisk mr-5"></i> Reset Password
                     </a>
-                    <!-- END Side Overlay -->
-
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="../src/auth/logout.php">
                         <i class="si si-logout mr-5"></i> Sign Out

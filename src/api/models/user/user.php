@@ -4,6 +4,7 @@ include_once '../../../mail/mailer.php';
 
 use Delight\Auth;
 use Delight\Auth\Administration;
+
 class User
 {
     // database connection and table name
@@ -17,6 +18,8 @@ class User
     public $role;
     public $password;
     public $username;
+    public $old_password;
+    public $new_password;
 
     // constructor with $db as database connection
     public function __construct($db)
@@ -32,14 +35,13 @@ class User
         $stmt->execute();
         return $stmt;
     }
-    
+
     public function create()
     {
-
         $auth = new Auth\Auth($this->conn);
         $role_val = new Administration($this->conn);
         $mail = new Mailer();
-        
+
         $this->username = htmlspecialchars(strip_tags($this->username));
         $this->email = htmlspecialchars(strip_tags($this->email));
         $this->role = htmlspecialchars(strip_tags($this->role));
@@ -93,7 +95,6 @@ class User
             // set values to object properties
             $this->username = $row['username'];
             $this->email = $row['email'];
-           
         } catch (Exception $e) {
             echo "Connection failed: " . $e->getMessage();
         }
@@ -108,7 +109,7 @@ class User
         // sanitize
         $this->username = htmlspecialchars(strip_tags($this->username));
         $this->email = htmlspecialchars(strip_tags($this->email));
-        
+
         $this->id = htmlspecialchars(strip_tags($this->id));
 
         // bind new values
@@ -116,19 +117,36 @@ class User
         $stmt->bindParam(2, $this->email);
         $stmt->bindParam(3, $this->id);
 
-        //$this->password = htmlspecialchars(strip_tags($this->password));
-        //$this->password = password_hash(($this->password), PASSWORD_DEFAULT);
-        
-        // execute the query $query = 'DELETE u, p FROM ' . $this->table_name . ' u JOIN profiles p ON p.user_id = u.id WHERE id = ?';
+
         if ($stmt->execute()) {
             return true;
         }
         return false;
     }
+
+    public function updatePassword()
+    {
+        $auth = new Auth\Auth($this->conn);
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->old_password = htmlspecialchars(strip_tags($this->old_password));
+        $this->new_password = htmlspecialchars(strip_tags($this->new_password));
+
+        try {
+            $auth->admin()->changePasswordForUserById($this->id, $this->new_password);
+            return true;
+        } catch (Auth\UnknownIdException $e) {
+            echo json_encode(array("error" => "Unknown ID"));
+            return false;
+        } catch (Auth\InvalidPasswordException $e) {
+            echo json_encode(array("error" => "Invalid password"));
+            return false;
+        }
+    }
+
     public function delete()
     {
         $query = 'DELETE u FROM ' . $this->table_name . ' u  WHERE id = ?';
-        $stmt = $this->conn->prepare($query);
+        $stmt = $this->conn->prepare($query); // execute the query $query = 'DELETE u, p FROM ' . $this->table_name . ' u JOIN profiles p ON p.user_id = u.id WHERE id = ?';
 
         // sanitize
         $this->id = htmlspecialchars(strip_tags($this->id));

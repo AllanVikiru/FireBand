@@ -30,7 +30,7 @@
                         <div class="block-content block-content-full tab-content" style="min-height: 265px;">
                             <!-- Step 1 -->
                             <div class="tab-pane active" id="wizard-simple-step1" role="tabpanel">
-                                <?php include '../src/includes/_global/forms/v02_calculator.php' ?>
+                                <?php require_once '../src/includes/_global/forms/v02_calculator.php' ?>
                             </div>
                             <!-- END Step 1 -->
 
@@ -67,10 +67,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-4">
+                                        <div class="col-6">
                                             <button type="button" class="btn btn-block btn-alt-secondary" data-dismiss="modal"> Cancel</button>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-6">
                                             <button type="submit" class="btn btn-block btn-alt-primary">
                                                 <i class="fa fa-save"></i>&ensp;Update
                                             </button>
@@ -82,7 +82,7 @@
 
                             <!-- Step 3 -->
                             <div class="tab-pane" id="wizard-simple-step3" role="tabpanel">
-                            <?php include '../src/includes/_global/forms/health_profile.php' ?>
+                            <?php require_once '../src/includes/_global/forms/health_profile.php' ?>
                             </div>
                             <!-- END Step 3 -->
                         </div>

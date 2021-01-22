@@ -26,16 +26,15 @@ $vo2->readOne();
 if ($vo2->user_id != null) {
     // create array
     $vo2_array = array(
-            "user_id" => $vo2->user_id,
-            "value" => $vo2->value,
-            "status" => $vo2->status,
-            "test_date" => $vo2->test_date
+        "user_id" => $vo2->user_id,
+        "value" => $vo2->value,
+        "status" => $vo2->status,
+        "test_date" =>  $vo2->test_date
     );
     // set response code - 200 OK and encode to JSON
     http_response_code(200);
     echo json_encode($vo2_array);
-} 
-else {
+} else {
     // set service unavailable to show data not updated
     http_response_code(404);
     // make it json format
