@@ -6,9 +6,9 @@
  */
 
 // INCLUDED VIEWS
-$cb->inc_sidebar                = 'includes/_commander/views/inc_sidebar.php';
-$cb->inc_header                 = 'includes/_commander/views/inc_header.php';
-$cb->inc_footer                 = 'includes/_commander/views/inc_footer.php';
+$cb->inc_sidebar                = 'src/includes/_commander/views/inc_sidebar.php';
+$cb->inc_header                 = 'src/includes/_commander/views/inc_header.php';
+$cb->inc_footer                 = 'src/includes/_commander/views/inc_footer.php';
 
 // HEADER AND SIDEBAR SETTINGS
 $cb->l_header_fixed     = true;

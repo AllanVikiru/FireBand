@@ -3,10 +3,10 @@
 // INCLUDED VIEWS
 // **************************************************************************************************
 
-$cb->inc_side_overlay           = 'includes/_firefighter/views/inc_side_overlay.php';
-$cb->inc_sidebar                = 'includes/_firefighter/views/inc_sidebar.php';
-$cb->inc_header                 = 'includes/_firefighter/views/inc_header.php';
-$cb->inc_footer                 = 'includes/_firefighter/views/inc_footer.php';
+$cb->inc_side_overlay           = 'src/includes/_firefighter/views/inc_side_overlay.php';
+$cb->inc_sidebar                = 'src/includes/_firefighter/views/inc_sidebar.php';
+$cb->inc_header                 = 'src/includes/_firefighter/views/inc_header.php';
+$cb->inc_footer                 = 'src/includes/_firefighter/views/inc_footer.php';
 
 // HEADER AND SIDEBAR SETTINGS
 $cb->l_header_fixed     = true;

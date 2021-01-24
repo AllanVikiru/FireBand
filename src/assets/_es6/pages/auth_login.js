@@ -1,7 +1,6 @@
 /*
- *  Document   : op_auth_signup.js
- *  Author     : pixelcave
- *  Description: Custom JS code used in Sign Up Page
+ *  Document   : auth_login.js
+ *  Description: JS validation for Login Page
  */
 
 // Form Validation, for more examples you can check out https://github.com/jzaefferer/jquery-validation

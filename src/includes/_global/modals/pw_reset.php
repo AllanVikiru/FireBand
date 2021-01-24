@@ -16,7 +16,7 @@ use Delight\Cookie\Session;
                     </div>
                 </div>
                 <div class="block-content">
-                    <form id="pw-reset-form" action="#" method="post">
+                    <form class= "js-validate-reset-user-pw" id="pw-reset-form" action="#" method="post">
                         <input type="hidden" id="reset-id" name="reset-id" value="<?= Session::get('id') ?>" />
                         <div class="form-group mb-15">
                             <label for="old-password">Old Password</label>

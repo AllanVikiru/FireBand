@@ -1,5 +1,4 @@
-<form id="ff-profile-form" action="#" method="post">
-    <input type="hidden" id="user-profile-id" name="user-profile-id" />
+<!-- Start Health Profile Form -->
     <div class="form-group row">
         <div class="col-3">
             <label for="user-dob">Date of Birth</label>
@@ -71,3 +70,4 @@
         </div>
     </div>
 </form>
+<!-- END Health Profile Form -->

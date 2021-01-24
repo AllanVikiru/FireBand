@@ -2,27 +2,18 @@
 /**
  * _global/config.php
  *
- * Author: pixelcave
- *
  * Global configuration file
- *
  */
 
 // Include required classes
-require 'includes/_classes/Template.php';
+require 'src/includes/_classes/Template.php';
 
-
-// **************************************************************************************************
 // CODEBASE OBJECT
-// **************************************************************************************************
 
 //                              : Name, version and assets folder's name
-$cb                             = new Template('FireBand', '1.0', 'assets');
+$cb                             = new Template('FireBand', '1.0', 'src/assets', 'src/app/v1');
 
-
-// **************************************************************************************************
 // GLOBAL META & OPEN GRAPH DATA
-// **************************************************************************************************
 
 //                              : The data is added in the <head> section of the page
 $cb->author                     = 'Allan Vikiru';
@@ -41,9 +32,8 @@ $cb->og_url_site                = '';
 $cb->og_url_image               = '';
 
 
-// **************************************************************************************************
 // GLOBAL GENERIC
-// **************************************************************************************************
+
 
 // ''                           : default color theme
 // 'elegance'                   : elegance color theme
@@ -63,20 +53,14 @@ $cb->cookies                    = false;
 $cb->google_maps_api_key        = '';
 
 
-// **************************************************************************************************
 // GLOBAL INCLUDED VIEWS
-// **************************************************************************************************
-
 //                              : Useful for adding different sidebars/headers per page or per section
 $cb->inc_side_overlay           = '';
 $cb->inc_sidebar                = '';
 $cb->inc_header                 = '';
 $cb->inc_footer                 = '';
 
-
-// **************************************************************************************************
 // GLOBAL SIDEBAR & SIDE OVERLAY
-// **************************************************************************************************
 
 // true                         : Left Sidebar and right Side Overlay
 // false                        : Right Sidebar and left Side Overlay
@@ -115,9 +99,7 @@ $cb->l_page_overlay             = true;
 $cb->l_side_scroll              = true;
 
 
-// **************************************************************************************************
 // GLOBAL HEADER
-// **************************************************************************************************
 
 // true                         : Fixed Header
 // false                        : Static Header
@@ -134,10 +116,7 @@ $cb->l_header_fixed             = false;
 //                                on scroll if the Header is also set as fixed)
 $cb->l_header_style             = 'modern';
 
-
-// **************************************************************************************************
 // GLOBAL MAIN CONTENT
-// **************************************************************************************************
 
 // ''                           : Full width Main Content
 // 'boxed'                      : Full width Main Content with a specific maximum width (screen width > 1200px)
@@ -145,9 +124,7 @@ $cb->l_header_style             = 'modern';
 $cb->l_m_content                = 'boxed';
 
 
-// **************************************************************************************************
 // GLOBAL MAIN MENU
-// **************************************************************************************************
 
 // It will get compared with the url of each menu link to make the link active and set up main menu accordingly
 // If you are using query strings to load different pages, you can use the following value: basename($_SERVER['REQUEST_URI'])

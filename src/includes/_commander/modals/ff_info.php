@@ -1,3 +1,8 @@
+<?php
+while (!file_exists('config'))
+    chdir('..');
+require_once 'config/routes.php';
+?>
 <!-- Slide Up Modal -->
 <div class="modal fade" id="modal-ff-info" tabindex="-1" role="dialog" aria-labelledby="modal-slideup" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-slideup" role="document">
@@ -30,13 +35,15 @@
                         <div class="block-content block-content-full tab-content" style="min-height: 265px;">
                             <!-- Step 1 -->
                             <div class="tab-pane active" id="wizard-simple-step1" role="tabpanel">
-                                <?php require_once '../src/includes/_global/forms/v02_calculator.php' ?>
+                                <form class="js-validate-vo2-calculator" id="ff-vo2-form" action="#" method="post">
+                                    <input type="hidden" id="user-vo2-id" name="user-vo2-id" />
+                                    <?php require_once VO2_CALC_FORM ?>
                             </div>
                             <!-- END Step 1 -->
 
                             <!-- Step 2 -->
                             <div class="tab-pane" id="wizard-simple-step2" role="tabpanel">
-                                <form id="ff-user-form" action="#" method="post">
+                                <form id="ff-user-form" class="js-validate-user-profile" action="#" method="post">
                                     <input type="hidden" id="user-id" name="user-id" />
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -82,7 +89,9 @@
 
                             <!-- Step 3 -->
                             <div class="tab-pane" id="wizard-simple-step3" role="tabpanel">
-                            <?php require_once '../src/includes/_global/forms/health_profile.php' ?>
+                                <form class="js-validate-health-profile" id="ff-profile-form" action="#" method="post">
+                                    <input type="hidden" id="user-profile-id" name="user-profile-id" />
+                                    <?php require_once HEALTH_PROFILE_FORM ?>
                             </div>
                             <!-- END Step 3 -->
                         </div>

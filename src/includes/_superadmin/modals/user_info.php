@@ -1,12 +1,10 @@
-<?php //TODO: reset logged in user password modal  
-?>
 <!-- User Information Modal -->
 <div class="modal fade" id="modal-user-info" tabindex="-1" role="dialog" aria-labelledby="modal-slideup" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-slideup" role="document">
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
                 <!-- Start Form -->
-                <form class="js-validation-user" id="update-user-form" action="#" method="post">
+                <form class="js-validate-user-profile" id="update-user-form" action="#" method="post">
                     <div class="block-header bg-primary-dark">
                         <h3 class="block-title text-white">User Details</h3>
                         <div class="block-options">

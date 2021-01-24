@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="block-content">
-                    <?php require_once '../src/includes/_global/forms/my_info.php' ?>
+                    <?php require_once MY_INFO_FORM ?>
                 </div>
             </div>
         </div>

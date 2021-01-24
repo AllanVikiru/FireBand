@@ -1,6 +1,6 @@
 <?php
+
 use Delight\Cookie\Session;
-Session::id();
 ?>
 
 <!-- Sidebar -->
@@ -30,7 +30,7 @@ Session::id();
 
                 <!-- Logo -->
                 <div class="content-header-item">
-                    <a class="link-effect font-w700" href="javascript:void(0)"><?=$cb->logo?></a>
+                    <a class="link-effect font-w700" href="javascript:void(0)"><?= $cb->logo ?></a>
                 </div>
                 <!-- END Logo -->
             </div>
@@ -53,7 +53,7 @@ Session::id();
                 </a>
                 <ul class="list-inline mt-10">
                     <li class="list-inline-item">
-                        <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="javascript:void(0)"><?=Session::get('username')?></a>
+                        <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="javascript:void(0)"><?= Session::get('username') ?></a>
                     </li>
                     <li class="list-inline-item">
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
@@ -62,7 +62,7 @@ Session::id();
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="link-effect text-dual-primary-dark" href="../src/auth/logout.php">
+                        <a class="link-effect text-dual-primary-dark" href="javascript:void(0)" id="logout-user">
                             <i class="si si-logout"></i>
                         </a>
                     </li>

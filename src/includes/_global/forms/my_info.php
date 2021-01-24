@@ -2,7 +2,8 @@
 
 use Delight\Cookie\Session;
 ?>
-<form id="my-user-form" action="#" method="post">
+<!-- Start My Profile Form -->
+<form class="js-validate-my-profile" id="my-user-form" action="#" method="post">
     <input type="hidden" id="my-id" name="my-id" value="<?= Session::get('id') ?>" />
     <div class="form-group mb-15">
         <label for="new-username">Full Name</label>
@@ -37,3 +38,4 @@ use Delight\Cookie\Session;
         </div>
     </div>
 </form>
+<!-- END My Profile Form -->

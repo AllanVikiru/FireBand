@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg modal-dialog-slideleft" role="document">
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
-                <form class="js-validation-new-user" id="set-ts-form" action="#" method="post">
+                <form class="js-validation-thingspeak-user" id="set-ts-form" action="#" method="post">
                     <div class="block-header bg-primary-dark">
                         <h3 class="block-title text-white">Register Firefighter ThingSpeak Credentials</h3>
                         <div class="block-options">
@@ -14,7 +14,7 @@
                     </div>
                     <div class="block-content">
                         <div class="form-group mb-15">
-                            <label for="new-username">Select Name</label>
+                            <label for="username">Select Name</label>
                             <div id="users"></div>
                         </div>
                         <div class="form-group mb-15">

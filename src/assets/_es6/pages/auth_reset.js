@@ -1,6 +1,6 @@
 /*
  *  Document   : auth_reset.js
- *  Description: JS code for Password Reset Page
+ *  Description: JS validation for Reset Password Page
  */
 
 // Form Validation, for more examples you can check out https://github.com/jzaefferer/jquery-validation

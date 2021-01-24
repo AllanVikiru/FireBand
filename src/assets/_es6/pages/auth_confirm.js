@@ -1,6 +1,6 @@
 /*
  *  Document   : auth_confirm.js
- *  Description: Custom JS code used in Confirm Validation Code Page
+ *  Description: JS validation for Confirm Activation Code Page
  */
 
 // Form Validation, for more examples you can check out https://github.com/jzaefferer/jquery-validation

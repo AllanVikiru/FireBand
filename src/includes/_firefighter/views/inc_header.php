@@ -1,6 +1,6 @@
 <?php
+
 use Delight\Cookie\Session;
-Session::id();
 ?>
 <!-- Header -->
 <header id="page-header">
@@ -81,15 +81,15 @@ Session::id();
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user d-sm-none"></i>
-                    <span class="d-none d-sm-inline-block"><?=Session::get('username')?></span>
+                    <span class="d-none d-sm-inline-block"><?= Session::get('username') ?></span>
                     <i class="fa fa-angle-down ml-5"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right min-width-200" aria-labelledby="page-header-user-dropdown">
-                    <a class="dropdown-item reset-pw" href="javascript:void(0)" data-id="<?=Session::get('id')?>">
+                    <a class="dropdown-item reset-pw" href="javascript:void(0)" data-id="<?= Session::get('id') ?>">
                         <i class="fa fa-asterisk mr-5"></i> Reset Password
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../src/auth/logout.php">
+                    <a class="dropdown-item" href="javascript:void(0)" id="logout-user">
                         <i class="si si-logout mr-5"></i> Sign Out
                     </a>
                 </div>
@@ -97,7 +97,7 @@ Session::id();
             <!-- END User Dropdown -->
             <!-- Toggle Side Overlay -->
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-            <button type="button" class="btn btn-circle btn-dual-secondary fetch-user-info" id="fetch-user-info" data-id="<?=Session::get('id')?>" data-toggle="layout" data-action="side_overlay_toggle">
+            <button type="button" class="btn btn-circle btn-dual-secondary fetch-user-info" id="fetch-user-info" data-id="<?= Session::get('id') ?>" data-toggle="layout" data-action="side_overlay_toggle">
                 <i class="fa fa-tasks"></i>
             </button>
             <!-- END Toggle Side Overlay -->
@@ -107,4 +107,3 @@ Session::id();
     <!-- END Header Content -->
 </header>
 <!-- END Header -->
- 

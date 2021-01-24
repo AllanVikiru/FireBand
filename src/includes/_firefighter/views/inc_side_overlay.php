@@ -2,8 +2,6 @@
 
 use Delight\Cookie\Session;
 
-$id = Session::get('id');
-//TODO: reset password for users through the form. information through commander and s/a
 ?>
 <!-- Side Overlay-->
 <aside id="side-overlay">
@@ -43,7 +41,9 @@ $id = Session::get('id');
                 </div>
             </div>
             <div class="block-content">
-                <?php require_once '../src/includes/_global/forms/v02_calculator.php' ?>
+                <form class="js-validate-vo2-calculator" id="ff-vo2-form" action="#" method="post">
+                    <input type="hidden" id="user-vo2-id" name="user-vo2-id" value="<?= Session::get('id') ?>" />
+                    <?php require_once VO2_CALC_FORM ?>
             </div>
         </div>
         <!-- END Calculate VO2 max -->
@@ -59,7 +59,9 @@ $id = Session::get('id');
                 </div>
             </div>
             <div class="block-content">
-                <?php require_once '../src/includes/_global/forms/health_profile.php' ?>
+                <form class="js-validate-health-profile" id="ff-profile-form" action="#" method="post">
+                    <input type="hidden" id="user-profile-id" name="user-profile-id"  value="<?= Session::get('id') ?>" />
+                    <?php require_once HEALTH_PROFILE_FORM ?>
             </div>
         </div>
         <!-- END Health Profile -->
@@ -75,7 +77,7 @@ $id = Session::get('id');
                 </div>
             </div>
             <div class="block-content">
-                <?php require_once '../src/includes/_global/forms/my_info.php' ?>
+                <?php require_once MY_INFO_FORM ?>
             </div>
         </div>
         <!-- END Auth Profile -->

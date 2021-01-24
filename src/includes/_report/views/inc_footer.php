@@ -1,5 +1,4 @@
-<?php //footer specific code for commander dashboard footer 
-?>
+<?php //footer specific code for report dashboard footer ?>
 
 <!-- Footer -->
 <footer id="page-footer" class="opacity-0">

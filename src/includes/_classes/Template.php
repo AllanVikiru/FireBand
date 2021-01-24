@@ -21,6 +21,7 @@ class Template {
             $og_url_site        = '',
             $og_url_image       = '',
             $assets_folder      = '',
+            $app_folder      = '',
             $main_nav           = array(),
             $main_nav_active    = '',
             $theme              = '',
@@ -49,11 +50,12 @@ class Template {
     /**
      * Class constructor
      */
-    public function __construct($name = '', $version = '', $assets_folder = '') {
+    public function __construct($name = '', $version = '', $assets_folder = '', $app_folder = '') {
         // Set Template's name, version and assets folder
         $this->name                 = $name;
         $this->version              = $version;
         $this->assets_folder        = $assets_folder;
+        $this->app_folder           = $app_folder;
     }
 
     /**
@@ -259,8 +261,20 @@ class Template {
      * @param string $asset_js The url of the JS file in the assets folder
      *
      */
-    public function get_js($asset_js) {
+    public function get_asset_js($asset_js) {
         echo "<script src=\"$this->assets_folder/$asset_js\"></script>\n";
+    }
+
+    /**
+     * Helper function to include a JS file from the app folder
+     *
+     * @param string $asset_js The url of the JS file in the app folder
+     *
+     */
+
+    public function get_app_js($app_js) {
+        echo "<script language='JavaScript' type='text/javascript' src=\"$this->app_folder/$app_js\"></script>\n";
+       
     }
 
     /**
