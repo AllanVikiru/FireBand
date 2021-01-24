@@ -2,6 +2,9 @@
 //autoload
 define('AUTOLOAD_URL', 'vendor/autoload.php'); 
 
+//credentials
+define('CRED_URL', 'config/credentials.php');
+
 //authentication
 define('AUTH_LOGIN', 'src/auth/v1/login.php');
 define('AUTH_LOGOUT', 'src/auth/v1/logout.php');
@@ -10,10 +13,10 @@ define('AUTH_RESET', 'src/auth/v1/reset.php');
 
 //mailer 
 define('MAILER_URL', 'src/mail/mailer.php');
+define('MAILER_LOGO', 'src/assets/media/photos/logo.png');
 
 //database connection 
 define('DB_CONNECT_URL', 'src/api/v1/db/connect.php');
-define('DB_CRED_URL', 'config/database.php');
 
 //models
 define('USER_MODEL_URL', 'src/api/v1/models/user/user.php');

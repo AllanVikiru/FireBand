@@ -68,10 +68,10 @@ class User
             //email new user generated password
             $subject = "New Account Registered";
             $body = '
-            <h1 align=center> Welcome to FireBand!</h1><br>
+            <img style="display: block;margin-left: auto;margin-right: auto;width: 50%; max-width: 300px;" src="cid:logo"></img><br/><h1 align=center> Welcome to FireBand!</h1><br>
             <h3>Use these credentials to login:<h3><br>
-            <h2 align=center>Email:<span style="color:#e74c3c;">' . $this->email . '</span></h2><br>
-            <h2 align=center>Password:<span style="color:#e74c3c;">' . $this->password . '</span></h2><br/>
+            <h2 align=center>Email: <span style="color:#e74c3c;">' . $this->email . '</span></h2><br>
+            <h2 align=center>Password: <span style="color:#e74c3c;">' . $this->password . '</span></h2><br/>
             <h3><i>Do not share this information with anyone</i><h3>';
             $altBody = 'Use these credentials to login: Email:' . $this->email . ', Password:' . $this->password . '. Do not share this information with anyone';
             $mail->sendMail($this->email, $subject, $body, $altBody);

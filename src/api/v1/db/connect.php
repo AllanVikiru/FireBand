@@ -3,7 +3,7 @@
 while (!file_exists('config'))
     chdir('..');
 require_once 'config/routes.php';
-include_once DB_CRED_URL;
+include_once CRED_URL;
 
 //database connection class
 class Database

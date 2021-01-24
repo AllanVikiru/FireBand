@@ -113,9 +113,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `username`, `status`, `verified`, `resettable`, `roles_mask`, `registered`, `last_login`, `force_logout`) VALUES
-(1, 'super@mail.com', '$2y$10$pRn6R2mB.uPO8tw3gWu.E.k8XFN1yKdIUgY4Lk8twGkJyRHJYkuKy', 'Texas Sun', 0, 1, 1, 1, 1610208409, 1611460326, 34),
-(2, 'commander@mail.com', '$2y$10$pRn6R2mB.uPO8tw3gWu.E.k8XFN1yKdIUgY4Lk8twGkJyRHJYkuKy', 'Kay', 0, 1, 1, 2, 1610208600, 1611460178, 23),
-(3, 'firefighter@mail.com', '$2y$10$mgv1aeRDhqUhPOH43XP6xuJoklOBwvHfsS1cNSMu9nmVQ/XabA2Di', 'Frond', 0, 1, 1, 3, 1610212410, 1611453135, 18);
+(1, 'super@mail.com', '$2y$10$pRn6R2mB.uPO8tw3gWu.E.k8XFN1yKdIUgY4Lk8twGkJyRHJYkuKy', 'Superadmin', 0, 1, 1, 1, 1610208409, 1611460326, 34),
+(2, 'commander@mail.com', '$2y$10$pRn6R2mB.uPO8tw3gWu.E.k8XFN1yKdIUgY4Lk8twGkJyRHJYkuKy', 'Commander A.N Other', 0, 1, 1, 2, 1610208600, 1611460178, 23),
+(3, 'firefighter@mail.com', '$2y$10$mgv1aeRDhqUhPOH43XP6xuJoklOBwvHfsS1cNSMu9nmVQ/XabA2Di', 'Firefighter K.Q User', 0, 1, 1, 3, 1610212410, 1611453135, 18);
 
 -- --------------------------------------------------------
 

@@ -473,3 +473,4 @@ composer.lock
 *.sass.map
 *.scss.map
 test.sql
+config/credentials_dev.php

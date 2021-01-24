@@ -1,4 +1,8 @@
 <?php
+while (!file_exists('config'))
+chdir('..');
+require_once 'config/routes.php';
+include_once CRED_URL;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -6,7 +10,7 @@ use PHPMailer\PHPMailer\Exception;
 class Mailer
 {
     public $mail;
-    //private $logo_url = '../images/logo.png';
+    private $logo_url = MAILER_LOGO;
 
     public function sendMail($sendAddress, $subject, $body, $altBody)
     {
@@ -17,8 +21,8 @@ class Mailer
             $this->mail->Host = "smtp.gmail.com";  //Set SMTP host name  
             $this->mail->SMTPAuth = true;         //Set this to true if SMTP host requires authentication to send email   
             //Provide username and password     
-            $this->mail->Username = "avdev2021@gmail.com";
-            $this->mail->Password = "mlrrufkcdwawfgpx";
+            $this->mail->Username = MAILER_UNAME;
+            $this->mail->Password = MAILER_PASSWORD;
             $this->mail->SMTPSecure = "tls";   //If SMTP requires TLS encryption then set it
             //Set TCP port to connect to
             $this->mail->Port = 587;
@@ -27,7 +31,7 @@ class Mailer
             $this->mail->FromName = "Fireband App";
 
             $this->mail->addAddress($sendAddress);
-            //$this->mail->addEmbeddedImage($this->logo_url, 'logo'); //Filename is optional
+            $this->mail->addEmbeddedImage($this->logo_url, 'logo'); //Filename is optional
 
             $this->mail->isHTML(true);
 
