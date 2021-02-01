@@ -4,9 +4,9 @@
   Uploaded onto the Arduino MKR GSM 1400 board
   Publishes a message payload of sensor values every 5 seconds to the ThingSpeak channel
   Sensor Values: temperature, humidity (DHT11); latitude, longitude, speed (Neo-6m GPS); heartrate (MAX 30102), time passed in seconds
-  TODO: replace TimeElapsed with BatteryLevel
+
 */
-//#include <SPI.h>
+
 //include MKRGSM, MQTT messaging libraries and credentials file
 #include <MKRGSM.h>
 #include <PubSubClient.h>
@@ -25,6 +25,7 @@ const char GPRS_APN[]      = SECRET_GPRS_APN;
 const char GPRS_LOGIN[]    = SECRET_GPRS_LOGIN;
 const char GPRS_PASSWORD[] = SECRET_GPRS_PASS;
 
+const char* server = SECRET_BROKER; // MQTT broker
 char mqttUserName[] = SECRET_MQTT_USERNAME;  // MQTT userame.
 char mqttPass[] = SECRET_MQTT_APIKEY;      // ThingSpeak MQTT API Key
 char writeAPIKey[] = SECRET_WRITE_APIKEY;    // Thingspeak Channel Write API key.
@@ -38,9 +39,7 @@ static const char alphanum[] = "0123456789"
 GSMClient client;
 GPRS gprs;
 GSM gsmAccess;
-
 PubSubClient mqttClient(client); // initialize PubSubClient library and server URI.
-const char* server = "mqtt.thingspeak.com";
 
 unsigned long lastConnectionTime = 0;
 const unsigned long postingInterval = 10L * 1000L; // post data every 10 seconds.

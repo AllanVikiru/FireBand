@@ -5,5 +5,5 @@
 #define SECRET_GPRS_LOGIN "login"
 #define SECRET_GPRS_PASS "password"
 
-#define SECRET_CH_ID "thingspeak-channel-ID"			
+#define SECRET_CH_ID channelID			
 #define SECRET_WRITE_APIKEY "write-api-key"   
