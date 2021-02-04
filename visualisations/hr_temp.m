@@ -1,8 +1,8 @@
 %% define channel ID, API key and data fields
 readChannelID = 0000000;
-readAPIKey = 'RSE5CUZBM5OPTYBS';
-hrField = 2;
-tempField = 3;
+readAPIKey = '';
+hrField = ;
+tempField = ;
 
 %% fetch 250 temperature and relative humidity data points
 data = thingSpeakRead(readChannelID,'Fields',[hrField,tempField], 'NumPoints', 250, 'ReadKey',readAPIKey); 
