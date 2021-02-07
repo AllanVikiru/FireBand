@@ -1,11 +1,11 @@
 %% define channel ID, API key and data fields
 readChannelID = 0000000;
 readAPIKey = '';
-latField = 5;
-lngField = 6;
+latField = ;
+lngField = ;
 
-%% fetch 50 latitude and longitude data points
-locData = thingSpeakRead(readChannelID, 'Fields', [latField,lngField], 'NumPoints', 50, 'ReadKey', readAPIKey);
+%% fetch 1000 latitude and longitude data points
+locData = thingSpeakRead(readChannelID, 'Fields', [latField,lngField], 'NumPoints', 1000, 'ReadKey', readAPIKey);
 
 %% standardise and fill missing data using nearest valid data point ie. last entered location
 stlatData = standardizeMissing(locData(:, 1), 0);
@@ -17,4 +17,4 @@ fllngData = fillmissing(stlngData,'nearest');
 geoplot(fllatData, fllngData, 'r', 'LineWidth',3, 'Color',[0.6 0 0]);
 geobasemap streets;
 ax = gca;
-ax.ZoomLevel = 16;
+ax.ZoomLevel = 17;
