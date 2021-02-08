@@ -1,6 +1,8 @@
+START TRANSACTION;
+
 --
 -- Database: `fireband`
--- Copy, paste this SQL code - it would fail on add foreign key if imported
+--
 CREATE DATABASE IF NOT EXISTS `fireband`;
 -- --------------------------------------------------------
 
@@ -8,7 +10,7 @@ CREATE DATABASE IF NOT EXISTS `fireband`;
 -- Table structure for table `profiles`
 --
 
-CREATE TABLE IF NOT EXISTS `profiles` (
+CREATE TABLE `profiles` (
   `profile_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `dob` date DEFAULT NULL,
@@ -17,21 +19,21 @@ CREATE TABLE IF NOT EXISTS `profiles` (
   `height` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
 --
 -- Dumping data for table `profiles`
 --
 
 INSERT INTO `profiles` (`profile_id`, `user_id`, `dob`, `sex_id`, `weight`, `height`) VALUES
-(1, 3, '1989-07-02', 1, 79, 123);
-(2, 10, '1989-10-19', 2, 86, 189);
+(1, 4, '1989-07-02', 1, 79, 123),
+(2, 5, '1989-10-19', 2, 86, 189);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `roles`
 --
 
-CREATE TABLE IF NOT EXISTS `roles` (
+CREATE TABLE `roles` (
   `role_id` int(10) NOT NULL,
   `role` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -51,7 +53,7 @@ INSERT INTO `roles` (`role_id`, `role`) VALUES
 -- Table structure for table `sex`
 --
 
-CREATE TABLE IF NOT EXISTS `sex` (
+CREATE TABLE `sex` (
   `sex_id` int(10) NOT NULL,
   `sex` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -72,7 +74,7 @@ INSERT INTO `sex` (`sex_id`, `sex`) VALUES
 -- Table structure for table `thingspeak`
 --
 
-CREATE TABLE IF NOT EXISTS `thingspeak` (
+CREATE TABLE `thingspeak` (
   `ts_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `channel` varchar(255) DEFAULT NULL,
@@ -85,15 +87,16 @@ CREATE TABLE IF NOT EXISTS `thingspeak` (
 --
 
 INSERT INTO `thingspeak` (`ts_id`, `user_id`, `channel`, `read_key`, `location`) VALUES
-(1, 3, '1259465', 'RSE5CUZBM5OPTYBS', '382204');
-(2, 10, '1259465', 'RSE5CUZBM5OPTYBS', '382204');
+(1, 4, '1259465', 'RSE5CUZBM5OPTYBS', '382204'),
+(2, 5, '1259465', 'RSE5CUZBM5OPTYBS', '382204');
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `email` varchar(249) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -119,6 +122,7 @@ INSERT INTO `users` (`id`, `email`, `password`, `username`, `status`, `verified`
 (5, 'firefighter2@mail.com', '$2y$10$Z5uYQ74qvvyVfhcaS4WC8.7uZSadgTZIlOB00dpm1OyM4ABHbmfKW', 'Firefighter Two', 0, 1, 1, 3, 1612766386, 1612778015, 2),
 (6, 'firefighter3@mail.com', '$2y$10$hCoPmRk2OCp/160YiYLsxOCaE2UZLjklm78XHv1NWlJLxqOwPdkoO', 'Firefighter Three', 0, 1, 1, 3, 1612778422, 1612778536, 1);
 
+
 -- --------------------------------------------------------
 
 --
@@ -139,17 +143,13 @@ CREATE TABLE `users_remembered` (
 -- Table structure for table `users_resets`
 --
 
-CREATE TABLE IF NOT EXISTS `users_resets` (
+CREATE TABLE `users_resets` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user` int(10) UNSIGNED NOT NULL,
   `selector` varchar(20) NOT NULL,
   `token` varchar(255) NOT NULL,
-  `expires` int(10) UNSIGNED NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `selector` (`selector`),
-  KEY `user` (`user`)
+  `expires` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 -- --------------------------------------------------------
 
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `users_resets` (
 -- Table structure for table `users_throttling`
 --
 
-CREATE TABLE IF NOT EXISTS `users_throttling` (
+CREATE TABLE `users_throttling` (
   `bucket` varchar(44) NOT NULL,
   `tokens` float UNSIGNED NOT NULL,
   `replenished_at` int(10) UNSIGNED NOT NULL,
@@ -166,25 +166,11 @@ CREATE TABLE IF NOT EXISTS `users_throttling` (
 
 -- --------------------------------------------------------
 
--- --------------------------------------------------------
-
---
--- Table structure for table `users_remembered`
---
-
-CREATE TABLE IF NOT EXISTS `users_remembered` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user` int(10) unsigned NOT NULL,
-  `selector` varchar(24) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `expires` int(10) unsigned NOT NULL
-) ENGINE=INNODB DEFAULT CHARSET=latin1;
-
 --
 -- Table structure for table `vo2max`
 --
 
-CREATE TABLE IF NOT EXISTS `vo2max` (
+CREATE TABLE `vo2max` (
   `vo2_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `value` float DEFAULT NULL,
@@ -195,16 +181,22 @@ CREATE TABLE IF NOT EXISTS `vo2max` (
 --
 -- Dumping data for table `vo2max`
 --
+
 INSERT INTO `vo2max` (`vo2_id`, `user_id`, `value`, `status`, `test_date`) VALUES
-(1, 4, 50.12, 'Superior', '2021-01-21 15:25:28');
+(1, 4, 50.12, 'Superior', '2021-01-21 15:25:28'),
 (2, 5, 37.07, 'Excellent', '2021-02-08 12:32:59');
+
+--
+-- Indexes for dumped tables
+--
+
 --
 -- Indexes for table `profiles`
 --
 ALTER TABLE `profiles`
   ADD PRIMARY KEY (`profile_id`),
   ADD UNIQUE KEY `user_id` (`user_id`);
-  ADD FOREIGN KEY (`sex_id`) REFERENCES `sex` (`sex_id`);
+
 --
 -- Indexes for table `roles`
 --
@@ -233,14 +225,6 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `users_resets`
---
-ALTER TABLE `users_resets`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `selector` (`selector`),
-  ADD KEY `user_expires` (`user`,`expires`);
-
---
 -- Indexes for table `users_remembered`
 --
 ALTER TABLE `users_remembered`
@@ -248,6 +232,13 @@ ALTER TABLE `users_remembered`
   ADD UNIQUE KEY `selector` (`selector`),
   ADD KEY `user` (`user`);
 
+--
+-- Indexes for table `users_resets`
+--
+ALTER TABLE `users_resets`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `selector` (`selector`),
+  ADD KEY `user_expires` (`user`,`expires`);
 
 --
 -- Indexes for table `users_throttling`
@@ -296,18 +287,18 @@ ALTER TABLE `thingspeak`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `users_resets`
---
-ALTER TABLE `users_resets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users_remembered`
 --
 ALTER TABLE `users_remembered`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users_resets`
+--
+ALTER TABLE `users_resets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -325,6 +316,7 @@ ALTER TABLE `vo2max`
 --
 ALTER TABLE `profiles`
   ADD CONSTRAINT `profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
 --
 -- Constraints for table `thingspeak`
 --
@@ -336,8 +328,4 @@ ALTER TABLE `thingspeak`
 --
 ALTER TABLE `vo2max`
   ADD CONSTRAINT `vo2max_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
 COMMIT;
-
-
-
