@@ -13,7 +13,7 @@ Client application for FireBand system users. Full description will be published
 
 > App Setup
 
-1. First, clone this branch locally and set the credentials as specified below
+1. First, clone this branch locally.
 
 2. Import ``` config/fireband.sql``` to your MySQL server either directly or by copying the code. 
 
