@@ -263,7 +263,7 @@ function calculate() {
       $("#user-status").val(status);
       break;
     default:
-      // intersex /rather not say : female vo2max values //TODO: determine vo2max intersex ratings
+      // rather not say : female vo2max values //TODO: determine vo2max r.n.s ratings
       //calculate vo2max using this formula round to 2 d.p. and set value to field
       vo2max = 100.5 - 0.1636 * weight - 1.438 * time - 0.1928 * hr;
       vo2max = Math.round(vo2max * 100 + Number.EPSILON) / 100;

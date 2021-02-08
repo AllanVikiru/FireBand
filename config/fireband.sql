@@ -65,8 +65,7 @@ CREATE TABLE `sex` (
 INSERT INTO `sex` (`sex_id`, `sex`) VALUES
 (1, 'Female'),
 (2, 'Male'),
-(3, 'Intersex'),
-(4, 'Rather not say');
+(3, 'Rather not say');
 
 -- --------------------------------------------------------
 
