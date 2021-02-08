@@ -20,6 +20,8 @@ Client application for FireBand system users. Full description will be published
 3. In ``` config/credentials.php```, set the database and PHPMailer credentials as specified. 
     
     NOTE: For PHPMailer, Gmail SMTP was used, use this [tutorial](https://netcorecloud.com/tutorials/send-an-email-via-gmail-smtp-server-using-php/) to assist in setup, or visit this [website](https://www.sitepoint.com/sending-emails-php-phpmailer/) for a step-by-step tutorial of the alternative i.e. local mail server.
+    
+    However, if for quick testing purposes, feel free to reach out through the email on my profile for temporary SMTP credentials.
 
 4. Run ```composer install``` at the terminal in which the project folder is situated.
 
