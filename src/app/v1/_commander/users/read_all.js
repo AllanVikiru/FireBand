@@ -13,8 +13,8 @@ function showUsers() {
                 <thead>
                     <tr>
                     <th class="d-none d-sm-table-cell" style="width: 20%;">Name</th>
-                    <th class="d-none d-sm-table-cell" style="width: 20%;">Last Test Date</th>
-                    <th class="d-none d-sm-table-cell" style="width: 20%;">Status</th>
+                    <th class="d-none d-sm-table-cell" style="width: 20%;">VO<sub>2</sub>max Last Test Date</th>
+                    <th class="d-none d-sm-table-cell" style="width: 20%;">VO<sub>2</sub>max Status</th>
                     <th class="text-center" style="width: 20%;">Actions</th>
                     </tr>
                 </thead>

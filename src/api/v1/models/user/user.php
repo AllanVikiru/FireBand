@@ -160,6 +160,18 @@ class User
     //delete user
     public function delete()
     {
+		$mail = new Mailer();
+		//select info of user to be deleted for email notification.
+		$del_user_query = $this->conn->prepare('SELECT u.id, u.username, u.email
+           FROM ' . $this->table_name . ' u WHERE id = ?');
+        $del_user_query->bindParam(1, $this->id);
+        $del_user_query->execute();
+        $row = $del_user_query->fetch(PDO::FETCH_ASSOC);
+
+        // set values to object properties
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+		
         $query = 'DELETE u FROM ' . $this->table_name . ' u WHERE u.id = ?';
         $stmt = $this->conn->prepare($query);
         // sanitize and bind value
@@ -168,6 +180,14 @@ class User
 
         // execute query
         if ($stmt->execute()) {
+			//notification email to user of deleted account
+            $subject = "User Account Deleted";
+            $body = '
+            <img style="display: block;margin-left: auto;margin-right: auto;width: 50%; max-width: 300px;" src="cid:logo"></img><br/><h2 align=center> Hello, '.$this->username.' </h1><br>
+            <h3 align=center> This email is to inform you of your recently deleted FireBand App account.<h3><br>
+            <h3 align=center><span style="color:#e74c3c;"><i>If you believe this is an error, contact the system administrator.</i></span><h3>';
+            $altBody = 'This email is to inform you of your recently deleted FireBand App account. If you believe this is an error, contact the system administrator.';
+            $mail->sendMail($this->email, $subject, $body, $altBody);
             return true;
         }
         return false;

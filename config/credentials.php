@@ -4,7 +4,7 @@ $db_servername = "";
 $db_port = ""; //e.g 3306 for MySQL
 $db_username = "";
 $db_password = "";
-$db_name = "";
+$db_name = "fireband";
 
 define('SERVER_NAME', $db_servername);
 define('SERVER_PORT', $db_port);

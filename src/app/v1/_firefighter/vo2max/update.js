@@ -2,7 +2,7 @@ $(document).ready(function () {
   // update single user details on submit 'ff-vo2-form'
   $(document).on("submit", "#ff-vo2-form", function (e) {
     e.preventDefault();
-    calculate(); //calculate vo2max 
+    calculate(); //calculate vo2max
     // form data is serialised and submitted to api
     var form_data = JSON.stringify($(this).serializeObject());
     $.ajax({
@@ -20,7 +20,9 @@ $(document).ready(function () {
               className: "btn-outline-success",
             },
           },
-          callback: function (result) {},
+          callback: function (result) {
+            location.reload();
+          },
         });
       },
       error: function (xhr, resp, text) {

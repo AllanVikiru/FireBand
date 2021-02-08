@@ -1,8 +1,7 @@
 --
 -- Database: `fireband`
--- CREATE DATABASE `fireband`;
 -- Copy, paste this SQL code - it would fail on add foreign key if imported
-
+CREATE DATABASE IF NOT EXISTS `fireband`;
 -- --------------------------------------------------------
 
 --
@@ -25,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `profiles` (
 
 INSERT INTO `profiles` (`profile_id`, `user_id`, `dob`, `sex_id`, `weight`, `height`) VALUES
 (1, 3, '1989-07-02', 1, 79, 123);
-
+(2, 10, '1989-10-19', 2, 86, 189);
 -- --------------------------------------------------------
 
 --
@@ -87,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `thingspeak` (
 
 INSERT INTO `thingspeak` (`ts_id`, `user_id`, `channel`, `read_key`, `location`) VALUES
 (1, 3, '1259465', 'RSE5CUZBM5OPTYBS', '382204');
-
+(2, 10, '1259465', 'RSE5CUZBM5OPTYBS', '382204');
 -- --------------------------------------------------------
 
 --
@@ -113,9 +112,26 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `username`, `status`, `verified`, `resettable`, `roles_mask`, `registered`, `last_login`, `force_logout`) VALUES
-(1, 'super@mail.com', '$2y$10$pRn6R2mB.uPO8tw3gWu.E.k8XFN1yKdIUgY4Lk8twGkJyRHJYkuKy', 'Superadmin', 0, 1, 1, 1, 1610208409, 1611460326, 34),
-(2, 'commander@mail.com', '$2y$10$pRn6R2mB.uPO8tw3gWu.E.k8XFN1yKdIUgY4Lk8twGkJyRHJYkuKy', 'Commander A.N Other', 0, 1, 1, 2, 1610208600, 1611460178, 23),
-(3, 'firefighter@mail.com', '$2y$10$mgv1aeRDhqUhPOH43XP6xuJoklOBwvHfsS1cNSMu9nmVQ/XabA2Di', 'Firefighter K.Q User', 0, 1, 1, 3, 1610212410, 1611453135, 18);
+(1, 'superadmin@mail.com', '$2y$10$7LlUv.5o8MijE.gzKz2jQuOkd3TNPBRuYzy6jsmLLIG3UnB9tZvOW', 'Superadmin', 0, 1, 1, 1, 1610208409, 1612778382, 36),
+(2, 'commander1@mail.com', '$2y$10$27WhcV.wPQfm2NdLcVd3OO73VU8/XShaOxFDjr4RpEEV/Gftbh8hq', 'Commander One', 0, 1, 1, 2, 1610208600, 1612778552, 25),
+(3, 'commander2@mail.com', '$2y$10$jhnARWq0TWALNNwCR4E9fOZr9Ip2AYrkMRdTvVb1fZqpAg5501LxG', 'Commander Two', 0, 1, 1, 2, 1612776250, 1612778367, 2),
+(4, 'firefighter1@mail.com', '$2y$10$Qw68czFQHplk2yqb966.LeKRB3a7.vYWMfqQrRX0eY7tRUKGnnOz6', 'Firefighter One', 0, 1, 1, 3, 1610212410, 1612777899, 20),
+(5, 'firefighter2@mail.com', '$2y$10$Z5uYQ74qvvyVfhcaS4WC8.7uZSadgTZIlOB00dpm1OyM4ABHbmfKW', 'Firefighter Two', 0, 1, 1, 3, 1612766386, 1612778015, 2),
+(6, 'firefighter3@mail.com', '$2y$10$hCoPmRk2OCp/160YiYLsxOCaE2UZLjklm78XHv1NWlJLxqOwPdkoO', 'Firefighter Three', 0, 1, 1, 3, 1612778422, 1612778536, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_remembered`
+--
+
+CREATE TABLE `users_remembered` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user` int(10) UNSIGNED NOT NULL,
+  `selector` varchar(24) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `expires` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -128,7 +144,10 @@ CREATE TABLE IF NOT EXISTS `users_resets` (
   `user` int(10) UNSIGNED NOT NULL,
   `selector` varchar(20) NOT NULL,
   `token` varchar(255) NOT NULL,
-  `expires` int(10) UNSIGNED NOT NULL
+  `expires` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `selector` (`selector`),
+  KEY `user` (`user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -147,6 +166,20 @@ CREATE TABLE IF NOT EXISTS `users_throttling` (
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_remembered`
+--
+
+CREATE TABLE IF NOT EXISTS `users_remembered` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user` int(10) unsigned NOT NULL,
+  `selector` varchar(24) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `expires` int(10) unsigned NOT NULL
+) ENGINE=INNODB DEFAULT CHARSET=latin1;
+
 --
 -- Table structure for table `vo2max`
 --
@@ -163,14 +196,15 @@ CREATE TABLE IF NOT EXISTS `vo2max` (
 -- Dumping data for table `vo2max`
 --
 INSERT INTO `vo2max` (`vo2_id`, `user_id`, `value`, `status`, `test_date`) VALUES
-(1, 3, 50.12, 'Superior', '2021-01-21 15:25:28');
+(1, 4, 50.12, 'Superior', '2021-01-21 15:25:28');
+(2, 5, 37.07, 'Excellent', '2021-02-08 12:32:59');
 --
 -- Indexes for table `profiles`
 --
 ALTER TABLE `profiles`
   ADD PRIMARY KEY (`profile_id`),
   ADD UNIQUE KEY `user_id` (`user_id`);
-
+  ADD FOREIGN KEY (`sex_id`) REFERENCES `sex` (`sex_id`);
 --
 -- Indexes for table `roles`
 --
@@ -205,6 +239,15 @@ ALTER TABLE `users_resets`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `selector` (`selector`),
   ADD KEY `user_expires` (`user`,`expires`);
+
+--
+-- Indexes for table `users_remembered`
+--
+ALTER TABLE `users_remembered`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `selector` (`selector`),
+  ADD KEY `user` (`user`);
+
 
 --
 -- Indexes for table `users_throttling`
@@ -262,6 +305,12 @@ ALTER TABLE `users_resets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `users_remembered`
+--
+ALTER TABLE `users_remembered`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `vo2max`
 --
 ALTER TABLE `vo2max`
@@ -276,7 +325,6 @@ ALTER TABLE `vo2max`
 --
 ALTER TABLE `profiles`
   ADD CONSTRAINT `profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
 --
 -- Constraints for table `thingspeak`
 --
@@ -289,6 +337,7 @@ ALTER TABLE `thingspeak`
 ALTER TABLE `vo2max`
   ADD CONSTRAINT `vo2max_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
+COMMIT;
 
 
 

@@ -3,7 +3,7 @@
 define('AUTOLOAD_URL', 'vendor/autoload.php'); 
 
 //credentials
-define('CRED_URL', 'config/credentials.php');
+define('CRED_URL', 'config/credentials_dev.php');
 
 //authentication
 define('AUTH_LOGIN', 'src/auth/v1/login.php');

@@ -1,6 +1,6 @@
 <?php
 while (!file_exists('config'))
-chdir('..');
+    chdir('..');
 require_once 'config/routes.php';
 require_once AUTOLOAD_URL;
 include_once DB_CONNECT_URL;
@@ -19,7 +19,7 @@ $mailer = new Mailer();
 
 //generate activation code and set to session
 $code = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 12);
-Session::set('code', $code); 
+Session::set('code', $code);
 
 //get reset form data
 if (isset($_POST["reset"])) {
@@ -32,7 +32,7 @@ if (isset($_POST["reset"])) {
             Session::set('token', $token);
 
             $subject = 'Account Password Reset';
-            $body = '<img style="display: block;margin-left: auto;margin-right: auto;width: 50%; max-width: 300px;" src="cid:logo"></img><br/><h1 align=center> Your Verification Code is:</h1><br><h2 style="color:#e74c3c;" align=center>' . $code . '</h2>';
+            $body = '<img style="display: block;margin-left: auto;margin-right: auto;width: 50%; max-width: 300px;" src="cid:logo"></img><br/><h1 align=center> Your Activation Code is:</h1><br><h2 style="color:#e74c3c;" align=center>' . $code . '</h2>';
             $altBody = 'Your Activation Code is :' . $code . '';
             $mailer->sendMail($email, $subject, $body, $altBody);
 

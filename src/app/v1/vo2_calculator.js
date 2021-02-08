@@ -5,12 +5,7 @@ function calculate() {
   var weight = $("#user-kg").val();
   var time = $("#user-runtime").val();
   var hr = $("#user-heartrate").val();
-  //calculate vo2max using this formula round to 2 d.p. and set value to field
-  var vo2max = 100.5 - 0.1636 * weight - 1.438 * time - 0.1928 * hr;
-  vo2max = Math.round(vo2max * 100 + Number.EPSILON) / 100;
-  $("#user-vo2").val(vo2max);
-  console.log(vo2max);
-  var status;
+  var vo2max, status;
 
   //function for setting range
   function range(x, min, max) {
@@ -19,7 +14,12 @@ function calculate() {
 
   // switch based on sex
   switch (sex) {
-    case "1": //female
+    case "1": // female
+      //calculate vo2max using this formula round to 2 d.p. and set value to field
+      vo2max = 100.5 - 0.1636 * weight - 1.438 * time - 0.1928 * hr;
+      vo2max = Math.round(vo2max * 100 + Number.EPSILON) / 100;
+      $("#user-vo2").val(vo2max);
+      console.log(vo2max);
       if (range(age, 13, 19)) {
         if (vo2max < 25.0) {
           status = "Very Poor";
@@ -138,7 +138,12 @@ function calculate() {
       console.log(status);
       $("#user-status").val(status);
       break;
-    case "2": //male
+    case "2": // male
+      //calculate vo2max using this formula round to 2 d.p. and set value to field
+      vo2max = 108.844 - 0.1636 * weight - 1.438 * time - 0.1928 * hr;
+      vo2max = Math.round(vo2max * 100 + Number.EPSILON) / 100;
+      $("#user-vo2").val(vo2max);
+      console.log(vo2max);
       if (range(age, 13, 19)) {
         if (vo2max < 35.0) {
           status = "Very Poor";
@@ -257,7 +262,13 @@ function calculate() {
       console.log(status);
       $("#user-status").val(status);
       break;
-    default: //intersex /rather not say : female vo2max values //TODO: determine vo2max intersex ratings
+    default:
+      // intersex /rather not say : female vo2max values //TODO: determine vo2max intersex ratings
+      //calculate vo2max using this formula round to 2 d.p. and set value to field
+      vo2max = 100.5 - 0.1636 * weight - 1.438 * time - 0.1928 * hr;
+      vo2max = Math.round(vo2max * 100 + Number.EPSILON) / 100;
+      $("#user-vo2").val(vo2max);
+      console.log(vo2max);
       if (range(age, 13, 19)) {
         if (vo2max < 25.0) {
           status = "Very Poor";
