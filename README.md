@@ -15,9 +15,7 @@ Client application for FireBand system users. Full description will be published
 
 1. First, clone this tree locally and set the credentials as specified below
 
-2. Copy the SQL code in ``` config/fireband.sql``` to your MySQL server. 
-    
-    NOTE: ensure to <ins>copy</ins> the content, not to import directly. It will cause some constraints to fail. 
+2. Import ``` config/fireband.sql``` to your MySQL server either directly or by copying the code. 
 
 3. In ``` config/credentials.php```, set the database and PHPMailer credentials as specified. 
     
