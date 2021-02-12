@@ -1,17 +1,17 @@
 %% define channel ID, API key and data fields
-readChannelID = 0000000;
+readChannelID = 000000;
 readAPIKey = '';
-hrField = ;
-tempField = ;
+hrField = ; %% set field to 2
+tempField = ; %% set field to 3
 
 %% fetch 250 temperature and relative humidity data points
 data = thingSpeakRead(readChannelID,'Fields',[hrField,tempField], 'NumPoints', 250, 'ReadKey',readAPIKey); 
 
-%% standardise and fill missing data using linear interpolation: fill using previous and next linearly fitting data
+%% standardise and fill missing data using previous non-zero value
 sthrData = standardizeMissing(data(:, 1), 0);
 sttempData = standardizeMissing(data(:, 2), 0);
-flhrData = fillmissing(sthrData,'linear');
-fltempData = fillmissing(sttempData,'linear');
+flhrData = fillmissing(sthrData,'previous');
+fltempData = fillmissing(sttempData,'previous');
 
 %% define scatter plot with preprocessed data
 scatter(flhrData,fltempData);
