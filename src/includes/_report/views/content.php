@@ -14,8 +14,8 @@
             <div class="col-xl-6">
                 <p><strong class="font-w700">Age: </strong> <mark id="ff-age"></mark> </p>
                 <p><strong class="font-w700">Sex: </strong> <mark id="ff-sex"></mark> </p>
-                <p><strong class="font-w700">Weight (kg): </strong> <mark id="ff-height"></mark> </p>
-                <p><strong class="font-w700">Height (cm): </strong> <mark id="ff-weight"></mark> </p>
+                <p><strong class="font-w700">Weight (kg): </strong> <mark id="ff-weight"></mark> </p>
+                <p><strong class="font-w700">Height (cm): </strong> <mark id="ff-height"></mark> </p>
             </div>
             <div class="col-xl-6">
                 <p><strong class="font-w700">VO<sub>2</sub> max estimate [One Mile Jog Test]</strong></p>
